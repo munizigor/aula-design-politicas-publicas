@@ -9,6 +9,11 @@ A disciplina reformula o antigo "Desenho de Políticas Públicas Baseado em Evid
 - [`plano-de-ensino.md`](plano-de-ensino.md) — Plano de Ensino completo, no padrão CEPED (10 seções), versão editável.
 - `plano-de-ensino.docx` — versão Word para tramitação institucional (SEI/boletim).
 - [`aula-01/roteiro-docente.md`](aula-01/roteiro-docente.md) — roteiro do docente da Aula 1 (cronograma minuto a minuto, oficina de IA, dinâmica de escolha do problema).
+- [`aula-01/anexos/`](aula-01/anexos/) — materiais de apoio da Aula 1, cada um em `.md` (editável) e `.docx` (imprimível):
+  - **Canvas do Problema** (A3 paisagem, 1 por grupo);
+  - **Critérios de elegibilidade do problema** (com quadro de triagem);
+  - **Roteiro do participante da oficina de IA** (prompts e verificação de fontes);
+  - **Briefing do campo de empatia** da Aula 2.
 
 ## Estrutura do curso
 
