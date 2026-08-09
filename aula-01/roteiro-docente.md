@@ -144,7 +144,13 @@ Projete afirmações e peça que as ilhas classifiquem (forte / fraca / não é 
 
 ### Demonstração ao vivo (15 min)
 
-Projete a ferramenta de IA e execute, narrando o raciocínio:
+Abra com a provocação (projete o slide e deixe a pergunta no ar alguns segundos antes de falar):
+
+> *"Você está usando a IA para resolver problemas reais — ou para problematizar soluções virtuais? Estamos automatizando a burocracia, ou olhando para o problema que está na vida real?"*
+
+Conecte: a IA amplifica o que já fazemos. Quem parte de gabinete produz burocracia mais rápido; quem parte do cidadão investiga mais fundo. A oficina existe para praticar o segundo caminho.
+
+Em seguida, projete a ferramenta de IA e execute, narrando o raciocínio:
 
 1. **Prompt de exploração do problema:**
    > *"Atue como analista de políticas públicas. Quero entender o problema de [quedas de idosos em domicílio no DF]. Liste: (a) o que se sabe sobre magnitude e causas, indicando os tipos de fonte onde eu verificaria cada afirmação; (b) políticas já testadas no Brasil e no mundo; (c) as 5 perguntas mais importantes que eu deveria responder com dados locais antes de propor qualquer solução."*
@@ -163,7 +169,7 @@ Cada ilha escolhe um problema-treino (ainda não é o do projeto) e percorre o r
 
 ### Debriefing (10 min)
 
-Colha das ilhas: o que a IA acelerou? Onde errou ou inventou? Formalize as **três salvaguardas da disciplina** (deixe escrito no quadro e retome em toda aula):
+Colha das ilhas: o que a IA acelerou? Onde errou ou inventou? Retome a provocação da abertura: *"hoje, vocês usaram a IA para resolver um problema real — ou para problematizar uma solução virtual?"*. Em seguida, formalize as **três salvaguardas da disciplina** (deixe escrito no quadro e retome em toda aula):
 
 1. **Dados pessoais, sensíveis ou institucionais restritos não entram em ferramenta pública de IA;**
 2. **Toda evidência sugerida por IA é verificada na fonte original antes de ser usada;**
