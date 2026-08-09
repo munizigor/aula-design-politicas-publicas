@@ -2,6 +2,9 @@
 
 **Disciplina:** Design de Políticas Públicas Baseadas em Evidências (CAEO/CEPED) · **Aula 1 — Bloco 4** · Duração: 35 min de prática em ilhas
 
+> *"Você está usando a IA para resolver problemas reais — ou para problematizar soluções virtuais? Estamos automatizando a burocracia, ou olhando para o problema que está na vida real?"*
+> Mantenham a pergunta à vista durante toda a prática.
+
 **Objetivo:** usar IA generativa para revisão rápida de evidências **e** flagrar ao menos uma limitação dela (fonte inexistente, imprecisão, generalização indevida).
 
 Escolham um **problema-treino** (ainda não é o do projeto do grupo) e sigam os 4 passos. Adaptem os textos entre colchetes.
