@@ -8,6 +8,7 @@ A disciplina reformula o antigo "Desenho de Políticas Públicas Baseado em Evid
 
 - [`plano-de-ensino.md`](plano-de-ensino.md) — Plano de Ensino completo, no padrão CEPED (10 seções), versão editável.
 - `plano-de-ensino.docx` — versão Word para tramitação institucional (SEI/boletim).
+- [`aula-01/roteiro-docente.md`](aula-01/roteiro-docente.md) — roteiro do docente da Aula 1 (cronograma minuto a minuto, oficina de IA, dinâmica de escolha do problema).
 
 ## Estrutura do curso
 
