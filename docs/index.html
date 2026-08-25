@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design de Políticas Públicas Baseadas em Evidências · CAEO · CEPED/CBMDF</title>
+<meta name="description" content="Disciplina Design de Políticas Públicas Baseadas em Evidências — CAEO, Centro de Estratégia, Política e Doutrina (CEPED/CBMDF). Plano de ensino, conteúdo programático e material de apoio.">
+<style>
+  /* =========================================================
+     Design de Políticas Públicas Baseadas em Evidências
+     Página da disciplina. Autocontida: sem build, sem rede.
+     Linguagem visual herdada do deck da disciplina.
+     ========================================================= */
+
+  :root {
+    --accent: #b22222;        /* vermelho bombeiro — usado com parcimônia */
+    --gold:   #c99700;
+    --bg:     #ffffff;
+    --ink:    #1d1d1f;
+    --mute:   #6e6e73;
+    --hair:   #d2d2d7;
+    --chip:   #f5f5f7;
+    --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+            "Segoe UI Variable Display", "Segoe UI", Inter, Roboto,
+            "Helvetica Neue", Arial, sans-serif;
+  }
+
+  /* Em fundo escuro o #b22222 fica ilegível.
+     A mesma família de cor, clareada até passar no contraste. */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --accent: #e2564d;
+      --bg:     #000000;
+      --ink:    #f5f5f7;
+      --mute:   #98989d;
+      --hair:   #333336;
+      --chip:   #1c1c1e;
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font);
+    font-size: 17px;
+    line-height: 1.6;
+    letter-spacing: -.011em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection { background: var(--accent); color: #fff; }
+
+  a { color: inherit; }
+
+  /* ---------- estrutura ---------- */
+
+  .wrap {
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  section {
+    padding: clamp(44px, 7vw, 82px) 0;
+    border-top: 1px solid var(--hair);
+  }
+
+  /* ---------- tipografia ---------- */
+
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 650;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin: 0 0 20px;
+  }
+
+  .rule {
+    width: 76px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 2px;
+    border: 0;
+    margin: 0 0 32px;
+  }
+
+  h1 {
+    font-size: clamp(34px, 7vw, 62px);
+    line-height: 1.05;
+    font-weight: 700;
+    letter-spacing: -.035em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  h2 {
+    font-size: clamp(25px, 3.6vw, 36px);
+    line-height: 1.12;
+    font-weight: 700;
+    letter-spacing: -.028em;
+    margin: 0 0 28px;
+    text-wrap: balance;
+  }
+
+  h3 {
+    font-size: clamp(19px, 2.2vw, 23px);
+    line-height: 1.2;
+    font-weight: 620;
+    letter-spacing: -.018em;
+    margin: 0 0 8px;
+  }
+
+  p { margin: 0 0 18px; }
+  p:last-child { margin-bottom: 0; }
+
+  .lead {
+    font-size: clamp(19px, 2.6vw, 25px);
+    line-height: 1.45;
+    color: var(--mute);
+    letter-spacing: -.018em;
+    max-width: 46ch;
+    margin: 26px 0 0;
+    text-wrap: pretty;
+  }
+
+  .prose { max-width: 68ch; }
+  .prose p { font-size: clamp(17px, 1.9vw, 19px); line-height: 1.62; }
+
+  strong { font-weight: 650; }
+
+  /* ---------- capa ---------- */
+
+  header.cover {
+    padding: clamp(56px, 11vw, 116px) 0 clamp(40px, 6vw, 66px);
+  }
+
+  .cover .rule { margin-bottom: 34px; }
+
+  /* ---------- pares chave/valor ---------- */
+
+  .rows { margin-top: clamp(36px, 5vw, 54px); }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 24px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--hair);
+  }
+  .row:first-child { border-top: 1px solid var(--hair); }
+
+  .row__key {
+    flex: 0 0 220px;
+    font-size: 14px;
+    font-weight: 650;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--mute);
+  }
+
+  .row__val {
+    flex: 1 1 260px;
+    font-size: clamp(16px, 1.9vw, 18px);
+    line-height: 1.45;
+  }
+
+  /* ---------- cartões ---------- */
+
+  /* minmax largo o bastante para render 2 colunas na medida máxima:
+     quatro competências em 2×2, sem cartão órfão na última linha. */
+  .cards {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+  }
+
+  .card {
+    border: 1px solid var(--hair);
+    border-radius: 18px;
+    padding: 26px 28px;
+    background: var(--bg);
+  }
+
+  .card p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--mute);
+  }
+
+  /* ---------- unidades ---------- */
+
+  .units {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .unit {
+    border: 1px solid var(--hair);
+    border-radius: 18px;
+    padding: 28px 30px;
+    display: grid;
+    grid-template-columns: 76px 1fr;
+    gap: 4px 26px;
+    align-items: start;
+  }
+
+  .unit__n {
+    grid-row: span 2;
+    font-size: 44px;
+    line-height: .9;
+    font-weight: 700;
+    letter-spacing: -.04em;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .unit__meta {
+    font-size: 13px;
+    font-weight: 650;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin: 0 0 10px;
+  }
+
+  .unit__list {
+    margin: 14px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .unit__list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 9px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--mute);
+  }
+  .unit__list li:last-child { margin-bottom: 0; }
+
+  .unit__list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .62em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--hair);
+  }
+
+  .unit__list li.is-deliverable { color: var(--ink); }
+  .unit__list li.is-deliverable::before { background: var(--accent); }
+
+  .tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 650;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-right: 8px;
+  }
+
+  /* ---------- material ---------- */
+
+  .files {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* o <li> é o filho da grade e recebe o stretch; sem isto o <a>
+     não acompanha a altura da linha e os cartões ficam desalinhados. */
+  .files > li { display: flex; }
+
+  .file {
+    flex: 1;
+    min-height: 44px;
+    border: 1px solid var(--hair);
+    border-radius: 16px;
+    padding: 22px 24px;
+    text-decoration: none;
+    background: var(--bg);
+    transition: border-color .2s ease, background .2s ease;
+  }
+
+  .file:hover,
+  .file:focus-visible {
+    border-color: var(--accent);
+    background: var(--chip);
+  }
+
+  .file__kind {
+    display: block;
+    font-size: 12px;
+    font-weight: 650;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  .file__name {
+    display: block;
+    font-size: 19px;
+    font-weight: 620;
+    letter-spacing: -.018em;
+    line-height: 1.25;
+  }
+
+  .file__note {
+    display: block;
+    font-size: 15px;
+    line-height: 1.45;
+    color: var(--mute);
+    margin-top: 7px;
+  }
+
+  /* ---------- referências ---------- */
+
+  .refs-group + .refs-group { margin-top: 40px; }
+
+  .refs-group h3 {
+    font-size: 14px;
+    font-weight: 650;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 18px;
+  }
+
+  .refs {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    max-width: 74ch;
+  }
+
+  .refs li {
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--mute);
+    padding: 13px 0;
+    border-bottom: 1px solid var(--hair);
+  }
+  .refs li:first-child { border-top: 1px solid var(--hair); }
+
+  .refs cite { font-style: italic; }
+  .refs a { color: var(--accent); text-decoration: none; overflow-wrap: anywhere; }
+  .refs a:hover, .refs a:focus-visible { text-decoration: underline; }
+
+  /* ---------- rodapé ---------- */
+
+  footer {
+    border-top: 1px solid var(--hair);
+    padding: 44px 0 60px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--mute);
+  }
+
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover, footer a:focus-visible { text-decoration: underline; }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* ---------- telas estreitas ---------- */
+
+  @media (max-width: 760px) {
+    .row__key { flex-basis: 100%; }
+    .unit {
+      grid-template-columns: 1fr;
+      padding: 24px 22px;
+    }
+    .unit__n { grid-row: auto; font-size: 34px; margin-bottom: 10px; }
+  }
+
+  @media print {
+    body { background: #fff; color: #000; }
+    .file { break-inside: avoid; }
+    .unit { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="wrap">
+    <p class="eyebrow">CEPED · Corpo de Bombeiros Militar do Distrito Federal</p>
+    <hr class="rule">
+    <h1>Design de Políticas Públicas Baseadas em Evidências</h1>
+    <p class="lead">Disciplina do Curso de Altos Estudos para Oficiais, organizada como um sprint de design em seis encontros.</p>
+
+    <div class="rows">
+      <div class="row">
+        <div class="row__key">Estabelecimento</div>
+        <div class="row__val">Centro de Estratégia, Política e Doutrina — CEPED</div>
+      </div>
+      <div class="row">
+        <div class="row__key">Curso</div>
+        <div class="row__val">CAEO — Curso de Altos Estudos para Oficiais</div>
+      </div>
+      <div class="row">
+        <div class="row__key">Núcleo</div>
+        <div class="row__val">Gestão</div>
+      </div>
+      <div class="row">
+        <div class="row__key">Carga horária</div>
+        <div class="row__val">30 h/a — 6 encontros de 5 h/a (4 presenciais e 2 a distância)</div>
+      </div>
+      <div class="row">
+        <div class="row__key">Público-alvo</div>
+        <div class="row__val">Majores e Tenentes-Coronéis BM, de áreas fim e meio</div>
+      </div>
+      <div class="row">
+        <div class="row__key">Ano de elaboração</div>
+        <div class="row__val">2025</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="objetivo">
+  <div class="wrap">
+    <h2>Objetivo</h2>
+    <div class="prose">
+      <p>Capacitar o Oficial Superior para <strong>projetar, prototipar e encaminhar à prática</strong> uma solução de política pública — tecnológica ou não — que responda a um <strong>problema real do cidadão</strong> atendido pelo CBMDF, aplicando a metodologia do Design Thinking sustentada por evidências em todas as etapas, utilizando a inteligência artificial como aliada do início ao fim do processo e desenhando a solução de modo que ela própria <strong>colete dados que retroalimentem</strong> o seu aprimoramento e o de outras políticas públicas.</p>
+      <p>Ao final da disciplina, cada grupo terá produzido não um documento prolixo, mas <strong>uma solução prototipada, testada com o cidadão e formalmente encaminhada</strong> para implementação institucional.</p>
+    </div>
+  </div>
+</section>
+
+<section id="ementa">
+  <div class="wrap">
+    <h2>Ementa</h2>
+    <div class="prose">
+      <p>Do desenho ao design de políticas públicas: por que a mudança de nome importa. Design Thinking aplicado ao setor público. O cidadão como cliente: empatia como fonte de evidência qualitativa. Evidências qualitativas e quantitativas no ciclo de políticas públicas. Definição de problemas públicos e ideação de soluções. Prototipagem e experimentação de soluções, tecnológicas ou não. Inteligência artificial generativa como apoio à pesquisa de evidências, síntese de campo, ideação, prototipagem e comunicação. Monitoramento embutido no design: indicadores, linha de base e retroalimentação por dados. Encaminhamento institucional de soluções.</p>
+    </div>
+  </div>
+</section>
+
+<section id="competencias">
+  <div class="wrap">
+    <h2>Competências essenciais</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>Design de soluções centradas no cidadão</h3>
+        <p>Partir de um problema real do cidadão — e não de uma hipótese de gabinete — e conduzir o processo completo de imersão, definição, ideação, prototipagem e teste até uma solução implementável.</p>
+      </article>
+      <article class="card">
+        <h3>Análise crítica de evidências</h3>
+        <p>Coletar, avaliar e integrar evidências qualitativas (empatia, observação, entrevistas) e quantitativas (dados operacionais, indicadores, literatura), identificando vieses e limitações, para fundamentar cada decisão de design.</p>
+      </article>
+      <article class="card">
+        <h3>Uso estratégico de inteligência artificial</h3>
+        <p>Empregar ferramentas de IA generativa como copiloto em todas as fases do projeto — da revisão de evidências à prototipagem — mantendo o julgamento crítico, a verificação das fontes e a responsabilidade da decisão com o Oficial.</p>
+      </article>
+      <article class="card">
+        <h3>Instrumentação para retroalimentação</h3>
+        <p>Desenhar a política já instrumentada para gerar dados — indicadores, linha de base e mecanismos de coleta embutidos — de modo que sua implementação alimente a avaliação e o aprimoramento contínuo dela própria e de outras políticas.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="conteudo">
+  <div class="wrap">
+    <h2>Conteúdo programático</h2>
+    <div class="prose" style="margin-bottom: 34px;">
+      <p>Cada grupo — formado por Oficiais de áreas fim e meio — escolhe um problema do cidadão que o CBMDF pode ajudar a resolver e o conduz da imersão ao encaminhamento. O requisito para a escolha é único: ser um problema real, que afete o cidadão e esteja ao alcance de atuação do CBMDF.</p>
+    </div>
+
+    <div class="units">
+
+      <article class="unit">
+        <div class="unit__n">I</div>
+        <div>
+          <p class="unit__meta">Aula 1 · Presencial · 5 h/a</p>
+          <h3>Enquadrar: do desenho ao design</h3>
+        </div>
+        <ul class="unit__list">
+          <li>Desenho × design de políticas públicas: da política como documento à política como solução testável.</li>
+          <li>O ciclo de políticas públicas e o papel das evidências em cada fase; hierarquia de evidências.</li>
+          <li>O cidadão como cliente: empatia como evidência qualitativa e sua complementaridade com a evidência quantitativa.</li>
+          <li>Panorama do Design Thinking no setor público: duplo diamante, casos de laboratórios de inovação em governo.</li>
+          <li>IA generativa como copiloto do policymaker: possibilidades, limites e salvaguardas; oficina prática de revisão rápida de evidências com IA.</li>
+          <li>Formação dos grupos mistos (áreas fim e meio) e escolha, por cada grupo, do problema do cidadão a ser trabalhado.</li>
+        </ul>
+      </article>
+
+      <article class="unit">
+        <div class="unit__n">II</div>
+        <div>
+          <p class="unit__meta">Aula 2 · A distância · 5 h/a</p>
+          <h3>Imergir: campo de empatia com o cidadão</h3>
+        </div>
+        <ul class="unit__list">
+          <li>Atividade de campo livre junto ao cidadão afetado: entrevistas em profundidade, observação direta e escuta ativa na comunidade.</li>
+          <li>Levantamento de dados secundários e operacionais que contextualizem o problema (estatísticas de atendimento, dados abertos, literatura).</li>
+          <li>Uso de IA no campo: elaboração de roteiros de entrevista, transcrição, síntese de falas e organização preliminar dos achados.</li>
+          <li class="is-deliverable"><span class="tag">Entregável</span>Mapa de evidências do problema — quem é o cidadão afetado, o que foi ouvido e observado, o que os dados mostram.</li>
+        </ul>
+      </article>
+
+      <article class="unit">
+        <div class="unit__n">III</div>
+        <div>
+          <p class="unit__meta">Aula 3 · Presencial · 5 h/a</p>
+          <h3>Definir e idear: da evidência à solução candidata</h3>
+        </div>
+        <ul class="unit__list">
+          <li>Análise crítica das evidências coletadas: vieses, limitações e lacunas; triangulação entre o qualitativo e o quantitativo.</li>
+          <li>Definição do problema: ponto de vista (POV) e perguntas “Como poderíamos…” (How Might We).</li>
+          <li>Oficina de ideação apoiada por IA: geração ampliada de alternativas, benchmarking assistido de soluções nacionais e internacionais, seleção por critérios de evidência, viabilidade e impacto.</li>
+          <li>Teoria da mudança e modelo lógico da solução escolhida.</li>
+          <li>Design da retroalimentação: definição de indicadores, linha de base e mecanismos de coleta de dados embutidos na própria solução.</li>
+        </ul>
+      </article>
+
+      <article class="unit">
+        <div class="unit__n">IV</div>
+        <div>
+          <p class="unit__meta">Aula 4 · A distância · 5 h/a</p>
+          <h3>Prototipar e testar: campo de experimentação</h3>
+        </div>
+        <ul class="unit__list">
+          <li>Atividade de campo livre: construção do protótipo da solução — mockup, jornada de serviço, fluxo, piloto ou solução digital (ferramentas no-code e desenvolvimento assistido por IA).</li>
+          <li>Teste do protótipo com os cidadãos afetados: sessões de uso, feedback estruturado e registro sistemático dos resultados.</li>
+          <li>Uso de IA na prototipagem: geração de interfaces e materiais, simulação de cenários, análise dos feedbacks coletados.</li>
+          <li class="is-deliverable"><span class="tag">Entregável</span>Protótipo funcional (em qualquer fidelidade) + registro dos testes com o cidadão.</li>
+        </ul>
+      </article>
+
+      <article class="unit">
+        <div class="unit__n">V</div>
+        <div>
+          <p class="unit__meta">Aula 5 · Presencial · 5 h/a</p>
+          <h3>Iterar e encaminhar: da solução testada à política implementável</h3>
+        </div>
+        <ul class="unit__list">
+          <li>Iteração do protótipo com base nos resultados dos testes: o que o cidadão validou, o que precisa mudar.</li>
+          <li>Plano de implementação e encaminhamento institucional: instrumento adequado (processo administrativo, projeto, norma), patrocínio, governança, recursos e riscos.</li>
+          <li>Plano de monitoramento e avaliação: consolidação dos indicadores e do fluxo de dados que retroalimentará a política.</li>
+          <li>Preparação do pitch final com apoio de IA: narrativa baseada em evidências, materiais visuais, ensaio.</li>
+        </ul>
+      </article>
+
+      <article class="unit">
+        <div class="unit__n">VI</div>
+        <div>
+          <p class="unit__meta">Aula 6 · Presencial · 5 h/a</p>
+          <h3>Apresentar: pitch e encaminhamento das soluções</h3>
+        </div>
+        <ul class="unit__list">
+          <li>Apresentação das soluções em formato de pitch para banca avaliadora, preferencialmente com a presença de gestores estratégicos do CBMDF.</li>
+          <li>Feedback estruturado da banca e dos demais grupos.</li>
+          <li>Encaminhamento formal das propostas: registro dos próximos passos institucionais de cada solução.</li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="material">
+  <div class="wrap">
+    <h2>Material</h2>
+    <ul class="files">
+      <li>
+        <a class="file" href="aula-01/">
+          <span class="file__kind">Slides</span>
+          <span class="file__name">Aula 1 — Enquadrar: do desenho ao design</span>
+          <span class="file__note">Apresentação navegável. Use ← e → para avançar e voltar; F para tela cheia.</span>
+        </a>
+      </li>
+      <li>
+        <a class="file" href="anexos/canvas-do-problema.docx">
+          <span class="file__kind">Anexo · DOCX</span>
+          <span class="file__name">Canvas do Problema</span>
+          <span class="file__note">A3 paisagem, um por grupo. Preenchido na Aula 1 e revisado após o campo de empatia.</span>
+        </a>
+      </li>
+      <li>
+        <a class="file" href="anexos/criterios-do-problema.docx">
+          <span class="file__kind">Anexo · DOCX</span>
+          <span class="file__name">Critérios de elegibilidade do problema</span>
+          <span class="file__note">Quadro de triagem para verificar se o problema escolhido atende ao requisito da disciplina.</span>
+        </a>
+      </li>
+      <li>
+        <a class="file" href="anexos/oficina-ia-roteiro.docx">
+          <span class="file__kind">Anexo · DOCX</span>
+          <span class="file__name">Roteiro da oficina de IA</span>
+          <span class="file__note">Prompts da oficina de revisão rápida de evidências e procedimento de verificação das fontes.</span>
+        </a>
+      </li>
+      <li>
+        <a class="file" href="anexos/briefing-campo-aula-2.docx">
+          <span class="file__kind">Anexo · DOCX</span>
+          <span class="file__name">Briefing do campo de empatia</span>
+          <span class="file__note">Orientações para a atividade de campo da Aula 2 e para o entregável do mapa de evidências.</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="referencias">
+  <div class="wrap">
+    <h2>Referências</h2>
+
+    <div class="refs-group">
+      <h3>Referência básica</h3>
+      <ul class="refs">
+        <li>BANKS, Gary. <cite>Evidence-based policy making: What is it? How do we get it?</cite> Canberra: ANZSOG, 2009.</li>
+        <li>BRASIL. Escola Nacional de Administração Pública (ENAP). <cite>Design Thinking aplicado ao Setor Público.</cite> Brasília: ENAP/GNova, 2018. Disponível em: <a href="https://repositorio.enap.gov.br/" rel="noopener">repositorio.enap.gov.br</a>.</li>
+        <li>BROWN, Tim. <cite>Design Thinking: uma metodologia poderosa para decretar o fim das velhas ideias.</cite> Rio de Janeiro: Alta Books, 2017.</li>
+        <li>DAVIES, Huw T. O.; NUTLEY, Sandra M.; SMITH, Peter C. <cite>What works? Evidence-based policy and practice in public services.</cite> Chicago: The University of Chicago Press, 2000. Capítulos 1 e 2.</li>
+        <li>HEAD, Brian. Evidence-based policy: principles and requirements. In: <cite>Strengthening Evidence-Based Policy.</cite> Canberra: Productivity Commission, 2010.</li>
+        <li>IDEO.ORG. <cite>The Field Guide to Human-Centered Design.</cite> San Francisco: IDEO.org, 2015. Disponível em: <a href="https://www.designkit.org/resources/1" rel="noopener">designkit.org/resources/1</a>.</li>
+        <li>SECCHI, Leonardo. <cite>Políticas Públicas: conceitos, esquemas de análise, casos práticos.</cite> 2. ed. São Paulo: Cengage Learning, 2014.</li>
+        <li>SECCHI, Leonardo; ZAPPELLINI, Marcello Beckert. <cite>Análise de políticas públicas: diagnóstico de problemas, recomendação de soluções.</cite> São Paulo: Cengage Learning, 2019.</li>
+      </ul>
+    </div>
+
+    <div class="refs-group">
+      <h3>Referência complementar</h3>
+      <ul class="refs">
+        <li>BRASIL. Escola Nacional de Administração Pública (ENAP). <cite>Inteligência artificial no setor público.</cite> Brasília: ENAP, 2024. Disponível em: <a href="https://repositorio.enap.gov.br/" rel="noopener">repositorio.enap.gov.br</a>.</li>
+        <li>CAIRNEY, Paul; KWIATKOWSKI, Richard. How to communicate effectively with policymakers: combine insights from psychology and policy studies. <cite>Palgrave Communications,</cite> 3:37, 2017.</li>
+        <li>EDWARDS, Meredith; EVANS, Mark. <cite>Getting Evidence into Policy-making.</cite> Canberra: ANZSOG — Institute for Governance, 2012.</li>
+        <li>KINGDON, John. Como chega a hora de uma ideia?; Juntando as coisas. In: SARAIVA, Enrique; FERRAREZI, Elizabete (orgs.). <cite>Políticas públicas: coletânea,</cite> v. 1. Brasília: ENAP, 2006, p. 219-245.</li>
+        <li>NESTA. <cite>Playbook for Innovation Learning.</cite> Londres: Nesta, 2019. Disponível em: <a href="https://www.nesta.org.uk/toolkit/playbook-innovation-learning/" rel="noopener">nesta.org.uk/toolkit/playbook-innovation-learning</a>.</li>
+        <li>ORTEGÓN, Edgard; PACHECO, Juan Francisco; PRIETO, Adriana. <cite>Metodología del marco lógico para la planificación, el seguimiento y la evaluación de proyectos y programas.</cite> Santiago: CEPAL, 2005. Disponível em: <a href="https://repositorio.cepal.org/handle/11362/5607" rel="noopener">repositorio.cepal.org/handle/11362/5607</a>.</li>
+        <li>PERES, Glauco. <cite>Desenho de pesquisa.</cite> Brasília: ENAP, 2018.</li>
+        <li>RAMOS, Marília Patta; SCHABBACH, Letícia Maria. O estado da arte da avaliação de políticas públicas: conceituação e exemplos de avaliação no Brasil. <cite>Revista de Administração Pública,</cite> Rio de Janeiro, v. 46, n. 5, p. 1271-1294, 2012.</li>
+        <li>UNITED KINGDOM. Policy Lab. <cite>Open Policy Making Toolkit.</cite> Londres: Cabinet Office. Disponível em: <a href="https://openpolicy.blog.gov.uk/" rel="noopener">openpolicy.blog.gov.uk</a>.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Centro de Estratégia, Política e Doutrina — CEPED · Corpo de Bombeiros Militar do Distrito Federal · 2025</p>
+    <p>Material da disciplina em <a href="https://github.com/munizigor/aula-design-politicas-publicas" rel="noopener">github.com/munizigor/aula-design-politicas-publicas</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

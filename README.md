@@ -6,16 +6,21 @@ A disciplina reformula o antigo "Desenho de Políticas Públicas Baseado em Evid
 
 ## Arquivos
 
-- [`plano-de-ensino.md`](plano-de-ensino.md) — Plano de Ensino completo, no padrão CEPED (10 seções), versão editável.
-- `plano-de-ensino.docx` — versão Word para tramitação institucional (SEI/boletim).
-- [`aula-01/roteiro-docente.md`](aula-01/roteiro-docente.md) — roteiro do docente da Aula 1 (cronograma minuto a minuto, oficina de IA, dinâmica de escolha do problema).
-- [`docs/aula-01/index.html`](docs/aula-01/index.html) — slides da Aula 1: apresentação HTML navegável (setas ← → avançam/voltam, F = tela cheia), pronta para o GitHub Pages.
-- `aula-01/slides-aula-01.pdf` — os mesmos slides em PDF, backup offline para projetar sem internet.
-- [`aula-01/anexos/`](aula-01/anexos/) — materiais de apoio da Aula 1, cada um em `.md` (editável) e `.docx` (imprimível):
+O que o **aluno** acessa fica em `docs/` — é a pasta que o GitHub Pages publica:
+
+- [`docs/index.html`](docs/index.html) — página da disciplina: identificação, objetivo, ementa, competências, conteúdo programático das 6 unidades, material e referências. É a porta de entrada.
+- [`docs/aula-01/index.html`](docs/aula-01/index.html) — slides da Aula 1: apresentação HTML navegável (setas ← → avançam/voltam, F = tela cheia).
+- [`docs/anexos/`](docs/anexos/) — materiais de apoio, cada um em `.md` (fonte editável) e `.docx` (versão distribuída aos alunos):
   - **Canvas do Problema** (A3 paisagem, 1 por grupo);
   - **Critérios de elegibilidade do problema** (com quadro de triagem);
   - **Roteiro do participante da oficina de IA** (prompts e verificação de fontes);
   - **Briefing do campo de empatia** da Aula 2.
+
+O que é de uso **docente ou institucional** fica na raiz:
+
+- [`plano-de-ensino.md`](plano-de-ensino.md) — Plano de Ensino completo, no padrão CEPED (10 seções), versão editável.
+- `plano-de-ensino.docx` — versão Word para tramitação institucional (SEI/boletim).
+- [`roteiro-docente.md`](roteiro-docente.md) — roteiro do docente da Aula 1 (cronograma minuto a minuto, oficina de IA, dinâmica de escolha do problema). Fora de `docs/` de propósito: não é material do aluno.
 
 ## Estrutura do curso
 
@@ -28,15 +33,23 @@ A disciplina reformula o antigo "Desenho de Políticas Públicas Baseado em Evid
 | 5 | Presencial | Iterar e encaminhar: implementação, monitoramento, pitch |
 | 6 | Presencial | Apresentação das soluções à banca |
 
-## Publicar os slides no GitHub Pages
+## Publicar no GitHub Pages
 
-Os slides ficam na pasta `docs/`, já no formato que o GitHub Pages serve. Para ativar (uma única vez, após o merge na `main`):
+Tudo o que o aluno vê está em `docs/`, já no formato que o GitHub Pages serve. Para ativar (uma única vez, após o merge na `main`):
 
 1. No repositório, acesse **Settings → Pages**;
 2. Em *Build and deployment*, escolha **Deploy from a branch**, branch **`main`**, pasta **`/docs`** e salve;
-3. Em alguns minutos os slides estarão em `https://munizigor.github.io/aula-design-politicas-publicas/aula-01/`.
+3. Em alguns minutos a disciplina estará em `https://munizigor.github.io/aula-design-politicas-publicas/`, e os slides da Aula 1 em `.../aula-01/`.
 
-Cada nova aula publicada em `docs/aula-NN/index.html` ganha automaticamente sua URL.
+Cada nova aula publicada em `docs/aula-NN/index.html` ganha automaticamente sua URL; para aparecer aos alunos, acrescente o cartão correspondente na seção **Material** de `docs/index.html`.
+
+Para conferir localmente antes de publicar, sirva a pasta como o Pages faria:
+
+```
+cd docs && python -m http.server 8000
+```
+
+e abra `http://127.0.0.1:8000/`.
 
 ## Como evoluir este material
 
