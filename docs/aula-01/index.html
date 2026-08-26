@@ -1,526 +1,1187 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 1 — Enquadrar: do desenho ao design · Design de Políticas Públicas Baseadas em Evidências</title>
-<style>
-  :root {
-    --red: #990011;
-    --red-dark: #6E000C;
-    --navy: #2F3C7E;
-    --ink: #1F1F1F;
-    --muted: #5C5C5C;
-    --paper: #FFFFFF;
-    --soft: #F5F1F1;
-    --line: #E3DBDB;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body { height: 100%; background: #111; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color: var(--ink); }
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Aula 1 · Enquadrar: do desenho ao design · Design de Políticas Públicas Baseadas em Evidências · CAEO/CEPED-CBMDF
+    </title>
+    <meta
+      name="description"
+      content="Slides da Aula 1 da disciplina Design de Políticas Públicas Baseadas em Evidências do CAEO/CEPED-CBMDF."
+    />
+    <link rel="stylesheet" href="../assets/deck.css" />
+  </head>
 
-  #viewport { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-  #stage { width: 1280px; height: 720px; position: relative; transform-origin: center center; }
+  <body>
+    <div id="progress"></div>
 
-  .slide {
-    position: absolute; inset: 0; width: 1280px; height: 720px;
-    background: var(--paper); padding: 70px 90px;
-    display: none; flex-direction: column;
-  }
-  .slide.active { display: flex; }
+    <div id="stage">
+      <!-- ============================================================
+             ABERTURA
+             ============================================================ -->
 
-  /* ---------- shared components ---------- */
-  .kicker { font-size: 20px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--red); margin-bottom: 14px; }
-  h1 { font-size: 46px; line-height: 1.15; font-weight: 800; margin-bottom: 30px; }
-  h1 .thin { font-weight: 400; }
-  .lead { font-size: 26px; line-height: 1.45; color: var(--ink); max-width: 1000px; }
-  .muted { color: var(--muted); }
-  .footer {
-    position: absolute; left: 90px; right: 90px; bottom: 34px;
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 15px; color: #9a9a9a;
-  }
-  .grow { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+      <!-- R:3-6 -->
+      <section class="slide" data-hud="Abertura">
+        <div class="rule"></div>
+        <p class="eyebrow">Aula 1</p>
+        <h1>Design de Políticas Públicas Baseadas em Evidências</h1>
+        <p class="cover-meta">
+          <!-- CAEO <br /> -->
+          Ten-Cel. Muniz<br />
+          <!-- LACUNA: nome do docente não consta em roteiro-docente.md nem pesquisa.md -->
+        </p>
+        <aside class="notes">
+          <p><strong>Objetivos de aprendizagem da Aula 1</strong> (R:12-18): ao final, o aluno deve ser capaz de:</p>
+          <p>1. Explicar a diferença entre desenho (etapa formal do ciclo de políticas) e design (abordagem iterativa, empática e experimental), e por que a disciplina mudou de nome;</p>
+          <p>2. Situar o papel das evidências em cada fase do ciclo de políticas públicas e reconhecer a hierarquia de evidências;</p>
+          <p>3. Reconhecer a empatia com o cidadão como fonte legítima de evidência qualitativa, complementar à quantitativa;</p>
+          <p>4. Operar uma ferramenta de IA generativa para revisão rápida de evidências, aplicando as salvaguardas (verificação na fonte, dados sensíveis, decisão do Oficial);</p>
+          <p>5. Escolher em grupo um problema do cidadão que o CBMDF pode ajudar a resolver, atendendo aos critérios da disciplina.</p>
+          <p><strong>Entregável da aula</strong> (R:20): cada grupo sai com o Canvas do Problema preenchido (versão preliminar) e o briefing do campo de empatia da Aula 2.</p>
+          <p><strong>Dica</strong> (R:65): se um gestor estratégico confirmou presença no fim da aula, anuncie desde já: muda o nível de seriedade com que os grupos escolhem o problema.</p>
+        </aside>
+      </section>
 
-  .dark { background: var(--red); color: #fff; }
-  .dark .kicker { color: #F3C9CE; }
-  .dark .footer { color: #E4A9B0; }
+      <!-- Títulos das 6 aulas: docs/index.html (D3) -->
+      <section class="slide slide--soft" data-hud="Abertura">
+        <p class="eyebrow">Onde estamos</p>
+        <div class="arc">
+          <div class="arc__step is-now">
+            <div class="arc__n">Aula 1</div>
+            <div class="arc__t">Enquadrar: do desenho ao design</div>
+            <div class="arc__mode">hoje · presencial</div>
+          </div>
+          <div class="arc__step">
+            <div class="arc__n">Aula 2</div>
+            <div class="arc__t">Imergir: campo de empatia com o cidadão</div>
+            <div class="arc__mode">a distância</div>
+          </div>
+          <div class="arc__step">
+            <div class="arc__n">Aula 3</div>
+            <div class="arc__t">Definir e idear: da evidência à solução candidata</div>
+            <div class="arc__mode">presencial</div>
+          </div>
+          <div class="arc__step">
+            <div class="arc__n">Aula 4</div>
+            <div class="arc__t">Prototipar e testar: campo de experimentação</div>
+            <div class="arc__mode">a distância</div>
+          </div>
+          <div class="arc__step">
+            <div class="arc__n">Aula 5</div>
+            <div class="arc__t">Iterar e encaminhar: da solução testada à política implementável</div>
+            <div class="arc__mode">presencial</div>
+          </div>
+          <div class="arc__step">
+            <div class="arc__n">Aula 6</div>
+            <div class="arc__t">Apresentar: pitch e encaminhamento das soluções</div>
+            <div class="arc__mode">presencial</div>
+          </div>
+        </div>
+        <!-- <p class="lead" style="margin-top:34px">4 presenciais, 2 a distância, que são campo, não EAD passivo.</p> -->
+        <aside class="notes">
+          <p>Apresente-se e apresente o arco das 6 aulas (mostre a tabela do plano de ensino): 4 presenciais, 2 a distância que são campo, não EAD passivo: na Aula 2 eles vão para a rua ouvir o cidadão; na Aula 4, testar o protótipo com ele. (R:60)</p>
+        </aside>
+      </section>
 
-  .cardrow { display: flex; gap: 22px; }
-  .card { flex: 1; border: 1.5px solid var(--line); border-radius: 14px; padding: 26px 26px; background: #fff; }
-  .card h3 { font-size: 23px; margin-bottom: 10px; }
-  .card p { font-size: 19px; line-height: 1.4; color: var(--muted); }
+      <!-- R:39-48 -->
+      <section class="slide" data-hud="Abertura">
+        <p class="eyebrow">Roteiro do dia · 250 min</p>
+        <h2 style="margin-bottom:22px">Agenda</h2>
+        <div class="agenda">
+          <div class="agenda__i">
+            <div class="agenda__n">0</div>
+            <div class="agenda__t">Abertura e contrato do curso</div>
+            <div class="agenda__d">15 min</div>
+          </div>
+          <div class="agenda__i">
+            <div class="agenda__n">3</div>
+            <div class="agenda__t">Design Thinking no setor público</div>
+            <div class="agenda__d">30 min</div>
+          </div>
+          <div class="agenda__i">
+            <div class="agenda__n">1</div>
+            <div class="agenda__t">Desenho × design de políticas públicas</div>
+            <div class="agenda__d">40 min</div>
+          </div>
+          <div class="agenda__i">
+            <div class="agenda__n">4</div>
+            <div class="agenda__t">Oficina: IA como copiloto do policymaker</div>
+            <div class="agenda__d">60 min</div>
+          </div>
+          <div class="agenda__i">
+            <div class="agenda__n">2</div>
+            <div class="agenda__t">Ciclo de políticas, evidências e empatia</div>
+            <div class="agenda__d">40 min</div>
+          </div>
+          <div class="agenda__i">
+            <div class="agenda__n">5</div>
+            <div class="agenda__t">Formação dos grupos e escolha do problema</div>
+            <div class="agenda__d">40 min</div>
+          </div>
+          <div class="agenda__i agenda__i--break">
+            <div class="agenda__n">☕</div>
+            <div class="agenda__t">Intervalo</div>
+            <div class="agenda__d">15 min</div>
+          </div>
+          <div class="agenda__i">
+            <div class="agenda__n">6</div>
+            <div class="agenda__t">Briefing do campo (Aula 2) e encerramento</div>
+            <div class="agenda__d">10 min</div>
+          </div>
+        </div>
+        <!-- <p class="footnote">Total do dia: 250 min · confere com a carga de 5 h/a (R:6, R:39-48).</p> -->
+        <aside class="notes">
+          <p>A coluna da esquerda é a primeira metade, a da direita a segunda. Se a turma perguntar do horário, esta é a tela para voltar.</p>
+        </aside>
+      </section>
 
-  .statement { font-size: 46px; line-height: 1.3; font-weight: 800; max-width: 1050px; }
-  .statement .accent { color: var(--red); }
-  .dark .statement .accent { color: #FFD9DD; }
+      <!-- ============================================================
+             BLOCO 0: ABERTURA E CONTRATO DO CURSO · 15 min
+             ============================================================ -->
 
-  ul.clean { list-style: none; }
-  ul.clean li { font-size: 24px; line-height: 1.4; margin-bottom: 18px; padding-left: 34px; position: relative; }
-  ul.clean li::before { content: ""; position: absolute; left: 0; top: 12px; width: 12px; height: 12px; border-radius: 50%; background: var(--red); }
+      <!-- R:41, R:52 -->
+      <section class="slide slide--dark" data-hud="Bloco 0 · Abertura e contrato">
+        <p class="divider-num">00</p>
+        <p class="divider-title">Abertura e contrato<br />do curso</p>
+        <p class="divider-time">15 min</p>
+      </section>
 
-  .num { display: inline-flex; align-items: center; justify-content: center; width: 46px; height: 46px; border-radius: 50%; background: var(--red); color: #fff; font-weight: 800; font-size: 22px; flex: none; }
+      <!-- R:56 -->
+      <section class="slide slide--dark slide--center" data-hud="Bloco 0 · Abertura e contrato">
+        <p class="statement">
+          "Vocês não vão sair daqui com um trabalho escrito.<br />Vão sair com uma
+          <span class="accent">solução prototipada</span>, testada com o cidadão e
+          encaminhada para virar realidade."
+        </p>
+      </section>
 
-  /* ---------- navigation chrome (screen only) ---------- */
-  #counter {
-    position: fixed; right: 18px; bottom: 14px; z-index: 10;
-    font-size: 14px; color: rgba(255,255,255,.75); font-family: inherit;
-    background: rgba(0,0,0,.45); padding: 4px 12px; border-radius: 20px; user-select: none;
-  }
-  #hint {
-    position: fixed; left: 18px; bottom: 14px; z-index: 10;
-    font-size: 13px; color: rgba(255,255,255,.55); user-select: none;
-  }
+      <!-- R:61 -->
+      <section class="slide slide--ink" data-hud="Bloco 0 · Abertura e contrato">
+        <p class="eyebrow eyebrow--accent">A regra de ouro da disciplina</p>
+        <p class="consigna">O problema é do cidadão, não do CBMDF.</p>
+        <p class="consigna-note">
+          "Falta de viatura" não é problema elegível; "o idoso que cai em casa e
+          fica horas sem socorro" é.
+        </p>
+      </section>
 
-  /* ---------- print: one exact 16:9 page per slide ---------- */
-  @page { size: 1280px 720px; margin: 0; }
-  @media print {
-    html, body { background: #fff; height: auto; }
-    #viewport { position: static; display: block; overflow: visible; }
-    #stage { transform: none !important; width: 1280px; height: auto; }
-    .slide { display: flex !important; position: relative; page-break-after: always; break-after: page; }
-    #counter, #hint { display: none; }
-  }
-</style>
-</head>
-<body>
-<div id="viewport"><div id="stage">
+      <!-- R:62 -->
+      <section class="slide" data-hud="Bloco 0 · Abertura e contrato">
+        <p class="eyebrow">Como a disciplina avalia</p>
+        <h2 style="margin-bottom:30px">Não há prova, há projeto</h2>
+        <!-- <div class="stack">
+          <div class="row">
+            <div class="row__key">40%</div>
+            <div class="row__val">Solução + pitch</div>
+          </div>
+          <div class="row">
+            <div class="row__key">30%</div>
+            <div class="row__val">Entregáveis de campo</div>
+          </div>
+          <div class="row">
+            <div class="row__key">20%</div>
+            <div class="row__val">Plano de monitoramento</div>
+          </div>
+          <div class="row">
+            <div class="row__key">10%</div>
+            <div class="row__val">Participação</div>
+          </div>
+        </div> -->
+      </section>
 
-<!-- 1 · CAPA -->
-<section class="slide dark">
-  <div class="grow" style="align-items:flex-start;">
-    <div class="kicker">CAEO · Curso de Altos Estudos para Oficiais — CEPED / CBMDF</div>
-    <div style="font-size:30px; font-weight:600; color:#F3C9CE; margin-bottom:24px;">Design de Políticas Públicas Baseadas em Evidências</div>
-    <div class="statement" style="font-size:58px;">Aula 1<br>Enquadrar: <span class="accent">do desenho ao design</span></div>
-    <div style="margin-top:44px; font-size:22px; color:#F3C9CE;">Design Thinking · Evidências · IA como copiloto · O cidadão no centro</div>
-  </div>
-  <div class="footer"><span>Disciplina de 30 h/a — 6 encontros</span><span>Aula 1 de 6 · Presencial</span></div>
-</section>
+      <!-- R:63 -->
+      <section class="slide slide--dark slide--center" data-hud="Bloco 0 · Abertura e contrato">
+        <p class="eyebrow eyebrow--accent">O combinado sobre IA</p>
+        <p class="statement">
+          Será usada em <span class="accent">todas as aulas</span>, às claras, como
+          copiloto, e com salvaguardas que serão praticadas hoje.
+        </p>
+      </section>
 
-<!-- 2 · CONTRATO DO CURSO -->
-<section class="slide">
-  <div class="kicker">O contrato do curso</div>
-  <div class="grow">
-    <div class="statement">Vocês não vão sair daqui com um trabalho escrito.</div>
-    <div class="statement" style="margin-top:34px;">Vão sair com uma <span class="accent">solução prototipada</span>, <span class="accent">testada com o cidadão</span> e <span class="accent">encaminhada</span> para virar realidade.</div>
-  </div>
-  <div class="footer"><span>Aula 1 · Enquadrar</span><span>Tecnológica ou não — o formato é livre; o teste é obrigatório</span></div>
-</section>
+      <!-- ============================================================
+             BLOCO 1: DESENHO × DESIGN DE POLÍTICAS PÚBLICAS · 40 min
+             ============================================================ -->
 
-<!-- 3 · ARCO DAS 6 AULAS -->
-<section class="slide">
-  <div class="kicker">O caminho até lá</div>
-  <h1>O arco das 6 aulas</h1>
-  <div class="grow">
-    <div class="cardrow" style="align-items:stretch;">
-      <div class="card" style="padding:20px 16px;"><div class="num" style="margin-bottom:12px;">1</div><h3 style="font-size:20px;">Enquadrar</h3><p style="font-size:16px;">Desenho × design, evidências, IA, escolha do problema</p><p style="font-size:14px; margin-top:10px; font-weight:700; color:var(--navy);">PRESENCIAL</p></div>
-      <div class="card" style="padding:20px 16px; background:var(--soft); border-color:var(--red);"><div class="num" style="margin-bottom:12px;">2</div><h3 style="font-size:20px;">Campo de empatia</h3><p style="font-size:16px;">Imersão com o cidadão afetado</p><p style="font-size:14px; margin-top:10px; font-weight:700; color:var(--red);">A DISTÂNCIA · CAMPO</p></div>
-      <div class="card" style="padding:20px 16px;"><div class="num" style="margin-bottom:12px;">3</div><h3 style="font-size:20px;">Definir e idear</h3><p style="font-size:16px;">Da evidência à solução; retroalimentação por dados</p><p style="font-size:14px; margin-top:10px; font-weight:700; color:var(--navy);">PRESENCIAL</p></div>
-      <div class="card" style="padding:20px 16px; background:var(--soft); border-color:var(--red);"><div class="num" style="margin-bottom:12px;">4</div><h3 style="font-size:20px;">Campo de teste</h3><p style="font-size:16px;">Prototipar e testar com o cidadão</p><p style="font-size:14px; margin-top:10px; font-weight:700; color:var(--red);">A DISTÂNCIA · CAMPO</p></div>
-      <div class="card" style="padding:20px 16px;"><div class="num" style="margin-bottom:12px;">5</div><h3 style="font-size:20px;">Iterar e encaminhar</h3><p style="font-size:16px;">Implementação, monitoramento, pitch</p><p style="font-size:14px; margin-top:10px; font-weight:700; color:var(--navy);">PRESENCIAL</p></div>
-      <div class="card" style="padding:20px 16px;"><div class="num" style="margin-bottom:12px;">6</div><h3 style="font-size:20px;">Apresentar</h3><p style="font-size:16px;">Pitch das soluções à banca</p><p style="font-size:14px; margin-top:10px; font-weight:700; color:var(--navy);">PRESENCIAL</p></div>
+      <!-- R:69-71 -->
+      <section class="slide slide--dark" data-hud="Bloco 1 · Desenho × design">
+        <p class="divider-num">01</p>
+        <p class="divider-title">Desenho × design<br />de políticas públicas</p>
+        <p class="divider-time">40 min</p>
+        <!-- <p class="divider-goal">Formato: exercício provocador (15 min) + exposição dialogada (25 min).</p> -->
+      </section>
+
+      <!-- R:75-77 -->
+      <section class="slide slide--ink" data-hud="Bloco 1 · Desenho × design">
+        <p class="eyebrow eyebrow--accent">Atividade · "O documento resolve?"</p>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:40px;margin-top:20px">
+          <div style="flex:1;min-width:0">
+            <p class="consigna" style="margin:0">
+              Que problema do cidadão essa política resolve? Como sabemos se está
+              funcionando? O que aconteceu depois da publicação?
+            </p>
+            <p class="consigna-note" style="margin:20px 0 0;max-width:52ch">
+              Projete (ou distribua) o exemplo real de política pública publicada como
+              documento extenso.
+              <!-- LACUNA: exemplo específico de política-documento não nomeado em roteiro-docente.md (R:32) -->
+            </p>
+          </div>
+          <div style="display:flex;align-items:center;gap:18px;flex:0 0 auto">
+            <a href="https://www.gov.br/mj/pt-br/acesso-a-informacao/governanca/carteira/arquivos-pdf-por-unidades/senasp-retificado-05-03-2025.pdf" target="_blank" rel="noopener" style="display:block;background:#fff;padding:8px;border-radius:8px" aria-label="Abrir a Carteira de Políticas Públicas">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&amp;data=https%3A%2F%2Fwww.gov.br%2Fmj%2Fpt-br%2Facesso-a-informacao%2Fgovernanca%2Fcarteira%2Farquivos-pdf-por-unidades%2Fsenasp-retificado-05-03-2025.pdf" alt="QR code para abrir a Carteira de Políticas Públicas" width="150" height="150" style="display:block" />
+            </a>
+            <p style="margin:0;max-width:28ch;font-size:18px;line-height:1.35">
+              <strong>Carteira de Políticas Públicas da SENASP</strong><br />
+            </p>
+          </div>
+        </div>
+        <div class="timer" data-t="5">
+          <div class="timer__time">05:00</div>
+          <div class="timer__hint">T inicia · R zera</div>
+        </div>
+        <aside class="notes">
+          <p>5 min de discussão por ilha, 5 min de plenária. (R:76)</p>
+          <p>R:32 pede ao docente separar 2-3 exemplos reais de política publicada como documento extenso, de preferência do próprio DF/CBMDF; os exemplos concretos não constam de nenhum dos dois fontes desta aula.</p>
+        </aside>
+      </section>
+
+      <!-- R:77 -->
+      <section class="slide slide--center" data-hud="Bloco 1 · Desenho × design">
+        <p class="eyebrow">Plenária</p>
+        <p class="statement">
+          Tipicamente ninguém sabe dizer o efeito prático: esse desconforto é o
+          <span class="accent">gancho</span> da aula.
+        </p>
+        <!-- <div class="timer" data-t="5">
+          <div class="timer__time">05:00</div>
+          <div class="timer__hint">T inicia · R zera</div>
+        </div> -->
+      </section>
+
+      <!-- R:83 -->
+      <section class="slide slide--soft" data-hud="Bloco 1 · Desenho × design">
+        <p class="eyebrow">Policy design tradicional</p>
+        <h2 style="margin-bottom:30px">Desenho</h2>
+        <p class="lead lead--wide">
+          Etapa do ciclo em que se formaliza a política: objetivos, instrumentos,
+          normas.
+        </p>
+        <p class="footnote">
+          Risco: virar fim em si mesmo, o "documento prolixo" que nasce pronto e
+          não é testado.
+        </p>
+      </section>
+
+      <!-- R:84 -->
+      <section class="slide" data-hud="Bloco 1 · Desenho × design">
+        <p class="eyebrow">Abordagem projetual</p>
+        <h2 style="margin-bottom:30px">Design</h2>
+        <p class="lead lead--wide">
+          Processo iterativo que começa na necessidade real do usuário, formula
+          hipóteses, prototipa, testa e só então consolida.
+        </p>
+        <p class="footnote">
+          A política é tratada como <strong>produto/serviço que precisa
+          funcionar</strong>, não como texto que precisa ser publicado.
+        </p>
+      </section>
+
+      <!-- R:87-93 -->
+      <section class="slide" data-hud="Bloco 1 · Desenho × design">
+        <p class="eyebrow">Quadro comparativo, construído com a turma</p>
+        <h2 style="margin-bottom:26px">Desenho × design</h2>
+        <div class="compare">
+          <div class="compare__row compare__row--head">
+            <div class="compare__head">Desenho (tradicional)</div>
+            <div class="compare__head compare__head--now">Design (abordagem da disciplina)</div>
+          </div>
+          <div class="compare__row" data-step>
+            <div class="compare__cell">Parte do gabinete</div>
+            <div class="compare__cell compare__cell--now">Parte do cidadão</div>
+          </div>
+          <div class="compare__row" data-step>
+            <div class="compare__cell">Opinião e precedente</div>
+            <div class="compare__cell compare__cell--now">Evidência (quali + quanti)</div>
+          </div>
+          <div class="compare__row" data-step>
+            <div class="compare__cell">Documento como entregável</div>
+            <div class="compare__cell compare__cell--now">Solução testada como entregável</div>
+          </div>
+          <div class="compare__row" data-step>
+            <div class="compare__cell">Erro descoberto na implementação</div>
+            <div class="compare__cell compare__cell--now">Erro descoberto no protótipo (barato)</div>
+          </div>
+          <div class="compare__row" data-step>
+            <div class="compare__cell">Avaliação, se houver, anos depois</div>
+            <div class="compare__cell compare__cell--now">Monitoramento embutido desde o design</div>
+          </div>
+        </div>
+        <aside class="notes">
+          <p>Quadro a construir COM a turma (quadro branco, duas colunas). (R:85)</p>
+          <p><strong>Cautela ao afirmar que design produz políticas melhores</strong>: Howlett (2024) MODERADO: só a página do editor foi acessada, confirma tema mas não o argumento (P:34). Simon (1996) FRACO: só página de catálogo (P:35). Peters (2018) FRACO, refutada 3/3: texto promocional de editora (P:36). Bason (2014) FRACO, refutada 3/3 quanto a ser "marco fundacional"; mas é FORTE (0/3 refutações) que é coletânea prescritiva, não estudo empírico (P:37-38). Howlett & Lejano (2013) é ensaio conceitual e normativo, sem evidência empírica (P:39, FORTE 0/3).</p>
+        </aside>
+      </section>
+
+      <!-- P:30 -->
+      <section class="slide slide--center" data-hud="Bloco 1 · Desenho × design">
+        <p class="statement">
+          Policy design é simultaneamente substantivo e verbo (resultado e processo) e atravessa duas etapas do ciclo: formulação e implementação.
+        </p>
+        <p class="src">
+          <!-- <span class="grade grade--forte">FORTE · 3/3 votos</span> -->
+          Howlett, M. &amp; Lejano, R. P. (2013). <em>Tales From the Crypt: The
+          Rise and Fall (and Rebirth?) of Policy Design.</em> Administration &amp;
+          Society.
+        </p>
+      </section>
+
+      <!-- P:33 -->
+      <!-- <section class="slide slide--ink slide--center" data-hud="Bloco 1 · Desenho × design">
+        <p class="quote">
+          "A confiança moderna no desenho sistemático não foi confirmada pela
+          experiência."
+        </p>
+        <p class="src" style="margin-left:auto;margin-right:auto;text-align:left">
+          <!-- <span class="grade grade--forte">FORTE · 3/3 votos</span> -->
+          Colebatch, H. K. (2018). <em>The idea of policy design: Intention,
+          process, outcome, meaning and validity.</em>
+        </p>
+        <aside class="notes">
+          <p>Contra o modelo de "desenhista especialista aconselhando decisor autoritativo", Colebatch mostra que a prática real envolve múltiplos participantes em locais diversos, sem hierarquia única, e reconceitua policy design como exercício de produção de sentido (framing) que legitima práticas, não como engenharia técnica de soluções. (P:31-32, ambos FORTE 3/3)</p>
+        </aside>
+      </section> -->
+
+      <!-- R:95 -->
+      <section class="slide slide--dark slide--center" data-hud="Bloco 1 · Desenho × design">
+        <p class="statement">
+          O "baseadas em evidências" do nome é o que impede o design de virar
+          <span class="accent">achismo criativo</span>; o "design" é o que impede a
+          evidência de virar <span class="accent">relatório engavetado</span>.
+        </p>
+        <aside class="notes">
+          <p>A citação "críticos argumentaram que políticas não podem ser desenhadas como se desenha uma casa" circula atribuída a Dryzek &amp; Ripley (1988): a atribuição foi refutada 3/3 votos, não confere com a fonte original. Não usar essa autoria em sala. (P:40)</p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+             BLOCO 2: CICLO DE POLÍTICAS, EVIDÊNCIAS E EMPATIA · 40 min
+             ============================================================ -->
+
+      <!-- R:99-101 -->
+      <section class="slide slide--dark" data-hud="Bloco 2 · Ciclo e evidências">
+        <p class="divider-num">02</p>
+        <p class="divider-title">Ciclo de políticas,<br />evidências e empatia</p>
+        <p class="divider-time">40 min</p>
+        <!-- <p class="divider-goal">Formato: exposição dialogada (25 min) + exercício rápido (15 min).</p> -->
+      </section>
+
+      <!-- R:105 -->
+      <section class="slide" data-hud="Bloco 2 · Ciclo e evidências">
+        <p class="eyebrow">O ciclo de políticas públicas</p>
+        <h2 style="margin-bottom:30px">Onde a evidência entra em cada fase</h2>
+        <div class="cols" style="grid-template-columns:repeat(5,1fr)">
+          <div class="card" data-step><span class="tag">1</span><h3 style="font-size:22px">Agenda</h3></div>
+          <div class="card" data-step><span class="tag">2</span><h3 style="font-size:22px">Formulação</h3></div>
+          <div class="card" data-step><span class="tag">3</span><h3 style="font-size:22px">Implementação</h3></div>
+          <div class="card" data-step><span class="tag">4</span><h3 style="font-size:22px">Monitoramento</h3></div>
+          <div class="card" data-step><span class="tag">5</span><h3 style="font-size:22px">Avaliação</h3></div>
+        </div>
+        <p class="footnote">
+          Inclusive na identificação do problema, que é onde a maioria pula
+          direto para a solução.
+        </p>
+        <aside class="notes">
+          <p>Sabatier (1991) argumenta que o modelo de estágios "esgotou sua utilidade e deve ser substituído", principalmente por não ser teoria causal (P:48, FORTE). Sabatier (2007, cap. 1) nomeia quatro críticas: não é teoria causal; a sequência é descritivamente imprecisa; tem viés legalista e top-down; assume um ciclo único quando há múltiplos ciclos interativos (P:49, FORTE). A origem do modelo NÃO se confirma em Lasswell (1956), obra sem texto integral acessível; Sabatier (1991) atribui a popularização a Jones (1970), Anderson (1975) e Peters (1986), não a Lasswell (P:50-51).</p>
+        </aside>
+      </section>
+
+      <!-- R:106, D4 -->
+      <section class="slide slide--soft" data-hud="Bloco 2 · Ciclo e evidências">
+        <p class="eyebrow">Não para descartar o que está "embaixo"</p>
+        <h2 style="margin-bottom:30px">Quanto peso dar a cada fonte</h2>
+        <div class="weights">
+          <div class="weight">
+            <div class="weight__bar" style="width:420px"></div>
+            <div class="weight__label">Revisões sistemáticas e experimentos</div>
+          </div>
+          <div class="weight">
+            <div class="weight__bar" style="width:310px"></div>
+            <div class="weight__label">Estudos observacionais</div>
+          </div>
+          <div class="weight">
+            <div class="weight__bar" style="width:200px"></div>
+            <div class="weight__label">Dados administrativos</div>
+          </div>
+          <div class="weight">
+            <div class="weight__bar" style="width:100px"></div>
+            <div class="weight__label">Opinião de especialista</div>
+          </div>
+        </div>
+        <p class="footnote">Escala de peso, não ranking fixo: o próximo slide mostra por quê.</p>
+        <aside class="notes">
+          <p>Deliberadamente sem atribuição de origem: Banks (2009) NÃO apresenta hierarquia alguma: lista 8 atributos de boa metodologia e registra debate ativo sobre méritos relativos dos métodos (P:59, NÃO SUSTENTADO); é, isto sim, a fonte primária da crítica "policy-based evidence" (P:60, FORTE). O Nesta Standards of Evidence não hierarquiza métodos nem exige ECR (P:58). A página oficial da Canadian Task Force (1979) não reproduz os níveis I/II/III nem os graus A-E (P:52). A página do NIJ não menciona a Maryland Scientific Methods Scale de Sherman et al. 1997 (P:61). Cartwright &amp; Hardie (2012): métodos dominantes de EBP falham em prever se uma política funcionará em novo contexto: MODERADO, livro não conferido integralmente (P:62).</p>
+        </aside>
+      </section>
+
+      <!-- P:53-54 -->
+      <!-- <section class="slide slide--center" data-hud="Bloco 2 · Ciclo e evidências">
+        <p class="statement">
+          No GRADE, ECRs começam como alta qualidade e observacionais como
+          baixa: a hierarquia é <span class="accent">ponto de partida</span>,
+          não veredito.
+        </p>
+        <p class="lead lead--wide" style="margin-left:auto;margin-right:auto">
+          ECRs podem ser rebaixados (limitações, inconsistência, imprecisão, viés
+          de publicação); observacionais, elevados (magnitude de efeito,
+          dose-resposta).
+        </p>
+        <p class="src" style="margin-left:auto;margin-right:auto;text-align:left;max-width:62ch">
+          <!-- <span class="grade grade--forte">FORTE</span> -->
+          Guyatt, G. H. et al. (2008). <em>GRADE: an emerging consensus…</em> BMJ.
+        </p>
+      </section> -->
+
+      <!-- P:56-57 -->
+      <section class="slide slide--ink" data-hud="Bloco 2 · Ciclo e evidências">
+        <p class="eyebrow eyebrow--accent">Parkhurst (2017)</p>
+        <p class="consigna">
+          Hierarquias de evidência foram feitas para julgar efeito de intervenção, não relevância de política.
+        </p>
+        <p class="consigna-note">
+          Transpô-las para priorizar escolhas públicas impõe "issue bias".
+          Parkhurst propõe trocar "hierarquia" por <strong>adequação</strong>: o
+          critério de qualidade só se escolhe depois de saber qual evidência é
+          útil à questão.
+        </p>
+        <p class="src">
+          <!-- <span class="grade grade--forte">FORTE</span> -->
+          Parkhurst, J. (2017). <em>The Politics of Evidence.</em> Routledge
+          (acesso aberto).
+        </p>
+      </section>
+
+      <!-- R:107 -->
+      <section class="slide" data-hud="Bloco 2 · Ciclo e evidências">
+        <p class="eyebrow">Empatia como evidência qualitativa</p>
+        <p class="statement">
+          O dado quantitativo diz <span class="accent">o quê</span> e
+          <span class="accent">quanto</span>; o campo diz
+          <span class="accent">por quê</span> e como se manifesta na vida do
+          cidadão.
+        </p>
+        <p class="footnote">A entrevista em profundidade e a observação direta não competem com a estatística: respondem a perguntas diferentes.</p>
+      </section>
+
+      <!-- P:70-72, D5 -->
+      <!-- <section class="slide slide--soft" data-hud="Bloco 2 · Ciclo e evidências">
+        <p class="eyebrow">Quantas entrevistas bastam</p>
+        <h2 style="margin-bottom:20px">Saturação de dados</h2>
+        <div class="figures">
+          <div>
+            <div class="figure__n accent">6</div>
+            <div class="figure__l">entrevistas → 73% das codificações já apareceram</div>
+          </div>
+          <div>
+            <div class="figure__n">12</div>
+            <div class="figure__l">entrevistas → 92% das codificações</div>
+          </div>
+        </div>
+        <p class="src">
+          <!-- <span class="grade grade--forte">FORTE</span> -->
+          Guest, G., Bunce, A. &amp; Johnson, L. (2006). <em>How Many Interviews
+          Are Enough?</em> Field Methods.
+        </p>
+        <p class="footnote">
+          Vale para entrevistas semiestruturadas com perguntas similares: os próprios autores advertem que <strong>não</strong> se aplica a técnicas
+          exploratórias abertas, nem quando o grupo é heterogêneo ou o domínio é
+          difuso.
+        </p>
+      </section> -->
+
+      <!-- R:107 -->
+      <!-- <section class="slide slide--dark slide--center" data-hud="Bloco 2 · Ciclo e evidências">
+        <p class="statement">
+          A triangulação dos dois é o
+          <span class="accent">padrão-ouro</span> da disciplina.
+        </p>
+        <aside class="notes">
+          <p>Fonte primária da origem do conceito de triangulação (cruzamento de qualitativo e quantitativo) não localizada nesta pesquisa: Denzin (1970), <em>The Research Act</em>, e Webb et al. (1966), <em>Unobtrusive Measures</em>, não foram alcançados. Apresentar como postura metodológica da disciplina, sem atribuir a autor. (P:73)</p>
+        </aside>
+      </section> -->
+
+      <!-- R:108 -->
+      <!-- <section class="slide" data-hud="Bloco 2 · Ciclo e evidências">
+        <p class="eyebrow">Antecipando a análise da Aula 3</p>
+        <h2 style="margin-bottom:30px">Vieses a vigiar</h2>
+        <div class="cols cols-4">
+          <div class="card" data-step><h3 style="font-size:24px">Confirmação</h3></div>
+          <div class="card" data-step><h3 style="font-size:24px">Seleção</h3></div>
+          <div class="card" data-step><h3 style="font-size:24px">Sobrevivência</h3></div>
+          <div class="card" data-step><h3 style="font-size:24px">Anedota vívida × dado representativo</h3></div>
+        </div>
+      </section> -->
+
+      <!-- R:112-117 -->
+      <section class="slide slide--ink" data-hud="Bloco 2 · Ciclo e evidências">
+        <p class="eyebrow eyebrow--accent">Exercício · "Isso é evidência?"</p>
+        <p class="consigna" style="font-size:36px">
+          Classifiquem: forte, fraca, ou não é evidência, e por quê.
+        </p>
+        <div class="stack" style="margin-top:26px">
+          <div class="row">
+            <div class="row__val">"Nos últimos 3 anos, 40% dos atendimentos pré-hospitalares do CBMDF na região X foram quedas de idosos em domicílio." <em data-step>(dado administrativo: forte para dimensionar)</em></div>
+          </div>
+          <div class="row">
+            <div class="row__val">"Um coronel da reserva afirma que antigamente havia menos incêndios em ocupações irregulares." <em data-step>(opinião/memória: fraca, precisa verificação)</em></div>
+          </div>
+          <div class="row">
+            <div class="row__val">"Entrevistamos 12 moradores da área e 9 relataram não saber o que fazer nos primeiros minutos de um afogamento." <em data-step>(evidência qualitativa de campo: forte para entender o problema, não para generalizar estatisticamente)</em></div>
+          </div>
+          <div class="row">
+            <div class="row__val">"Uma matéria de jornal diz que o programa Y reduziu acidentes em 80%." <em data-step>(fonte secundária sem método: verificar na origem)</em></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+             INTERVALO · 15 min
+             ============================================================ -->
+
+      <!-- R:121 -->
+      <section class="slide slide--dark slide--center" data-hud="Intervalo">
+        <p class="display">☕</p>
+        <h1 style="font-size:72px;margin-top:24px">Intervalo</h1>
+        <div class="timer" data-t="15">
+          <div class="timer__time">15:00</div>
+          <div class="timer__hint">T inicia · R zera</div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+             BLOCO 3: DESIGN THINKING NO SETOR PÚBLICO · 30 min
+             ============================================================ -->
+
+      <!-- R:125-127 -->
+      <section class="slide slide--dark" data-hud="Bloco 3 · Design Thinking">
+        <p class="divider-num">03</p>
+        <p class="divider-title">Design Thinking<br />no setor público</p>
+        <p class="divider-time">30 min</p>
+        <!-- <p class="divider-goal">Formato: exposição com casos.</p> -->
+        <aside class="notes">
+          <p>Se o gestor convidado estiver presente: comprima este bloco em 25 min, para abrir espaço aos 5 minutos de fala dele no Bloco 6. (R:230)</p>
+        </aside>
+      </section>
+
+      <!-- R:129, P:83-84 -->
+      <section class="slide" data-hud="Bloco 3 · Design Thinking">
+        <p class="eyebrow">O duplo diamante</p>
+        <h2 style="margin-bottom:28px">Divergir/convergir no problema, divergir/convergir na solução</h2>
+        <div class="cols cols-4">
+          <div class="card" data-step><span class="tag">01</span><h3>Descobrir</h3></div>
+          <div class="card" data-step><span class="tag">02</span><h3>Definir</h3></div>
+          <div class="card" data-step><span class="tag">03</span><h3>Desenvolver</h3></div>
+          <div class="card" data-step><span class="tag">04</span><h3>Entregar</h3></div>
+        </div>
+        <p class="src">
+          <!-- <span class="grade grade--forte">FORTE</span> -->
+          Design Council. <em>The Double Diamond</em> (página institucional). O
+          primeiro diamante é para compreender (e não presumir) o problema.
+        </p>
+        <aside class="notes">
+          <p>Datação ambígua na própria fonte: uma página do Design Council diz 2003, a página do Framework for Innovation diz 2004; não afirmar "2004/2005" com segurança (P:82, P:146). O Framework for Innovation apresenta quatro princípios de design, não três (P:85), e a página oficial não declara o ano de publicação, "2019" não é confirmável (P:86).</p>
+        </aside>
+      </section>
+
+      <!-- P:84 -->
+      <section class="slide slide--soft slide--center" data-hud="Bloco 3 · Design Thinking">
+        <p class="statement">
+          Entregar é testar soluções em pequena escala e
+          <span class="accent">rejeitar as que não funcionam</span>.
+        </p>
+        <p class="src" style="margin-left:auto;margin-right:auto;text-align:left">
+          <!-- <span class="grade grade--forte">FORTE</span> -->
+          Design Council. <em>The Double Diamond.</em>
+        </p>
+      </section>
+
+      <!-- R:129, docs/index.html -->
+      <section class="slide" data-hud="Bloco 3 · Design Thinking">
+        <p class="eyebrow">"Vocês estão aqui"</p>
+        <h2 style="margin-bottom:30px">Empatizar → definir → idear → prototipar → testar</h2>
+        <div class="cols" style="grid-template-columns:repeat(5,1fr)">
+          <div class="card card--accent" data-step><h3 style="font-size:24px">Empatizar</h3><p>Aula 2</p></div>
+          <div class="card" data-step><h3 style="font-size:24px">Definir</h3><p>Aula 3</p></div>
+          <div class="card" data-step><h3 style="font-size:24px">Idear</h3><p>Aula 3</p></div>
+          <div class="card" data-step><h3 style="font-size:24px">Prototipar</h3><p>Aula 4</p></div>
+          <div class="card" data-step><h3 style="font-size:24px">Testar</h3><p>Aula 4</p></div>
+        </div>
+        <p class="footnote">
+          Hoje: enquadramento, o degrau antes do primeiro diamante. <!-- inferido de docs/index.html: Aula 2 = "campo de empatia", Aula 3 = "Definir e idear", Aula 4 = "Prototipar e testar" -->
+        </p>
+      </section>
+
+      <!-- R:131-133 -->
+      <section class="slide" data-hud="Bloco 3 · Design Thinking">
+        <!-- <p class="eyebrow">Contados como história, não como lista</p> -->
+        <h2 style="margin-bottom:28px">Casos de governo</h2>
+        <div class="cols cols-3">
+          <div class="card" data-step>
+            <span class="tag">Brasil</span>
+            <h3>GNova/ENAP</h3>
+            <p>Laboratório de inovação do governo federal brasileiro; exemplos de serviços redesenhados a partir de imersão com usuários.</p>
+          </div>
+          <div class="card" data-step>
+            <span class="tag">Reino Unido</span>
+            <h3>UK Policy Lab</h3>
+            <p>Etnografia e prototipagem influenciando políticas nacionais.</p>
+          </div>
+          <!-- <div class="card" data-step>
+            <span class="tag">LACUNA</span>
+            <h3>Segurança pública / defesa civil</h3>
+            <p> LACUNA: exemplo local, idealmente do DF/CBMDF, não nomeado em roteiro-docente.md (R:133) 
+          </div> -->
+        </div>
+        <aside class="notes">
+          <p>O acervo do GNova (repositório institucional) é de produtos de projeto, chamadas e guias; nenhum relatório de avaliação de efeito; a URL é de página de coleção, não de item com autor e ano (P:93).</p>
+        </aside>
+      </section>
+
+      <!-- D2, P:150-156 -->
+      <section class="slide slide--ink" data-hud="Bloco 3 · Design Thinking">
+        <p class="eyebrow eyebrow--accent">O ponto mais sensível da aula</p>
+        <p class="consigna">
+          Design Thinking em governo é uma
+          <span class="accent">aposta metodológica</span>: reduzir o risco de
+          gastar dinheiro público em solução que não funciona, testando barato
+          antes de escalar.
+        </p>
+        </section>
+        <!-- <section class="slide slide--ink" data-hud="Bloco 3 · Design Thinking">
+        <p class="consigna-note">
+          <!-- <span class="grade grade--nao">NÃO SUSTENTADO</span> -->
+          Não há evidência primária de que abordagens de design produzam
+          políticas melhores, convergente em quatro fontes independentes:
+        </p>
+        <div class="stack" style="margin-top:20px">
+          <div class="row" data-step>
+            <div class="row__key" style="flex-basis:220px">Kimbell (2015)</div>
+            <div class="row__val">Após um ano dentro do Policy Lab do Cabinet Office, afirma que não conseguiu demonstrar melhores políticas, melhores resultados ou economia de recursos.</div>
+          </div>
+          <div class="row" data-step>
+            <div class="row__key" style="flex-basis:220px">McGann et al. (2018)</div>
+            <div class="row__val">Classificam a narrativa de "nova era experimental" como retórica dos proponentes.</div>
+          </div>
+          <div class="row" data-step>
+            <div class="row__key" style="flex-basis:220px">Kimbell &amp; Bailey (2017)</div>
+            <div class="row__val">Afirmam que a prototipagem ainda não é atividade legítima de produção de evidência.</div>
+          </div>
+          <div class="row" data-step>
+            <div class="row__key" style="flex-basis:220px">Design Council</div>
+            <div class="row__val">Sustenta o Duplo Diamante por adoção e difusão, não por efeito medido.</div>
+          </div>
+        </div>
+        <p class="footnote">
+          Uma disciplina que exige evidência dos alunos e não a tem sobre o
+          próprio método precisa dizer isso em voz alta.
+        </p>
+        <!-- <aside class="notes">
+          <p>Kimbell (2015) não é avaliação: é estudo etnográfico-interpretativo de fellowship, com casos "emblemáticos, não definitivos", em formato de graphic novel, para provocar discussão (P:89).</p>
+        </aside> -->
+      </section> -->
+
+      <!-- P:91, P:158 -->
+      <section class="slide slide--center" data-hud="Bloco 3 · Design Thinking">
+        <p class="statement">
+          Política baseada em evidências e design thinking
+          <span class="accent">convivem de forma desconfortável</span>.
+        </p>
+        <p class="src" style="margin-left:auto;margin-right:auto;text-align:left;max-width:56ch">
+          McGann, M., Blomkamp, E. &amp; Lewis, J. M. (2018). <em>The rise of
+          public sector innovation labs.</em> Policy Sciences.
+        </p>
+        <!-- <p class="footnote">Tensão real entre os conteúdos 1.2 e 1.4 desta aula, reconhecida na literatura.</p> -->
+      </section>
+
+      <!-- R:135 -->
+      <section class="slide slide--dark slide--center" data-hud="Bloco 3 · Design Thinking">
+        <p class="eyebrow">Critério de sucesso da disciplina</p>
+        <p class="statement">
+          Solução <span class="accent">encaminhada</span> (processo aberto, patrocínio identificado), não apenas apresentada.
+        </p>
+      </section>
+
+      <!-- ============================================================
+             BLOCO 4: OFICINA PRÁTICA: IA COMO COPILOTO DO POLICYMAKER · 60 min
+             ============================================================ -->
+
+      <!-- R:139-143 -->
+      <section class="slide slide--dark" data-hud="Bloco 4 · Oficina de IA">
+        <p class="divider-num">04</p>
+        <p class="divider-title">Oficina prática:<br />IA como copiloto</p>
+        <p class="divider-time">60 min</p>
+        <p class="divider-goal">
+          Objetivo: todo aluno sai tendo usado IA para revisão rápida de
+          evidências e tendo flagrado ao menos uma limitação (alucinação, fonte
+          inexistente, generalização indevida).
+        </p>
+        <aside class="notes">
+          <p>Plano B se o Wi-Fi cair: docente roda a demonstração pelo 4G/celular espelhado; prática em ilhas vira exercício guiado coletivo; prática individual fica como tarefa da semana. Ter 2ª e 3ª opções de ferramenta de IA testadas antes da aula. (R:238-239)</p>
+        </aside>
+      </section>
+
+      <!-- R:149 -->
+      <section class="slide slide--ink slide--center" data-hud="Bloco 4 · Oficina de IA">
+        <p class="quote">
+          "Você está usando a IA para resolver problemas reais, ou para
+            problematizar soluções virtuais?"
+        </p>
+      </section>
+
+      <!-- R:151 -->
+      <section class="slide slide--center" data-hud="Bloco 4 · Oficina de IA">
+        <p class="statement">
+          A IA amplifica o que já fazemos. Quem parte do seu setor produz
+          burocracia mais rápido; quem parte do cidadão investiga mais fundo.
+        </p>
+      </section>
+
+      <!-- R:156 -->
+      <section class="slide slide--ink" data-hud="Bloco 4 · Oficina de IA">
+        <p class="eyebrow eyebrow--accent">Prompt de exploração do problema</p>
+        <p class="consigna" style="font-size:32px">
+          "Atue como analista de políticas públicas. Quero entender o problema de
+          [quedas de idosos em domicílio no DF]. Liste: (a) o que se sabe sobre
+          magnitude e causas, indicando os tipos de fonte onde eu verificaria cada
+          afirmação; (b) políticas já testadas no Brasil e no mundo; (c) as 5
+          perguntas mais importantes que eu deveria responder com dados locais
+          antes de propor qualquer solução."
+        </p>
+      </section>
+
+      <!-- R:157-158 -->
+      <section class="slide slide--ink" data-hud="Bloco 4 · Oficina de IA">
+        <p class="eyebrow eyebrow--accent">Prompt de contra-argumentação</p>
+        <p class="consigna" style="font-size:32px">
+          "Assuma que eu vou propor [solução X]. Aja como um avaliador cético:
+          quais evidências enfraqueceriam essa proposta? Que efeitos colaterais e
+          custos ocultos ela pode ter?"
+        </p>
+        <p class="consigna-note">Mostra que IA serve para atacar a própria ideia.</p>
+      </section>
+
+      <!-- R:159 -->
+      <section class="slide" data-hud="Bloco 4 · Oficina de IA">
+        <p class="eyebrow">Ao vivo</p>
+        <p class="statement">Flagre uma limitação ao vivo</p>
+        <p class="lead lead--wide">
+          Peça as referências ("liste as fontes com autor, ano e link") e verifique
+          uma na hora. Se a IA citar fonte inexistente ou imprecisa, celebre: "é
+          exatamente por isso que a regra é verificar na fonte".
+        </p>
+      </section>
+
+      <!-- P:102-103 -->
+      <section class="slide slide--soft" data-hud="Bloco 4 · Oficina de IA">
+        <p class="eyebrow">O tamanho do problema</p>
+        <h2 style="margin-bottom:20px">Referências fabricadas</h2>
+        <div class="figures">
+          <div>
+            <div class="figure__n accent">55%</div>
+            <div class="figure__l">das referências do GPT-3.5 são fabricadas</div>
+          </div>
+          <div>
+            <div class="figure__n">18%</div>
+            <div class="figure__l">das referências do GPT-4 são fabricadas</div>
+          </div>
+        </div>
+        <p class="src">
+          <!-- <span class="grade grade--forte">FORTE</span> -->
+          Walters, W. H. &amp; Wilder, E. I. (2023). <em>Fabrication and errors in
+          the bibliographic citations generated by ChatGPT.</em> Scientific
+          Reports.
+        </p>
+        <p class="footnote">
+          Mesmo entre as citações reais, 43% (GPT-3.5) e 24% (GPT-4) tinham erros
+          substantivos de autor, ano, volume ou página: conferir se a obra
+          existe não basta, os metadados também falham.
+        </p>
+      </section>
+
+      <!-- P:105-106 -->
+      <section class="slide" data-hud="Bloco 4 · Oficina de IA">
+        <p class="eyebrow">A fronteira irregular</p>
+        <h2 style="margin-bottom:24px">A IA não falha uniformemente</h2>
+        <div class="stack">
+          <div class="row row--hot">
+            <div class="row__key" style="flex-basis:180px">Dentro da fronteira</div>
+            <div class="row__val">+12,2% de tarefas concluídas, 25,1% mais rápido, qualidade 40% superior</div>
+          </div>
+          <div class="row">
+            <div class="row__key" style="flex-basis:180px">Fora da fronteira</div>
+            <div class="row__val">controle acertou 84,5%; grupos com IA, 60% e 70%: queda média de 19 pontos percentuais</div>
+          </div>
+        </div>
+        <p class="src">
+          <!-- <span class="grade grade--forte">FORTE</span> -->
+          Dell'Acqua, F. et al. (2023). <em>Navigating the Jagged Technological
+          Frontier.</em> Experimento de campo com 758 consultores da BCG.
+        </p>
+        <p class="footnote">Ela falha em recorte que o usuário não enxerga.</p>
+        <aside class="notes">
+          <p>Noy &amp; Zhang (2023, Science): ChatGPT em escrita profissional, tempo médio −40%, qualidade +18%: MODERADO. O experimento teve 453 participantes (não 444). Os autores registram que as tarefas não exigiam exatidão factual, e que em trabalho real a checagem de fatos reduzirá o ganho: os 40% são teto sob dispensa de verificação (P:107).</p>
+        </aside>
+      </section>
+
+      <!-- R:163-168 -->
+      <section class="slide slide--ink" data-hud="Bloco 4 · Oficina de IA">
+        <p class="eyebrow eyebrow--accent">Prática em ilhas</p>
+        <p class="consigna" style="font-size:32px">
+          Cada ilha escolhe um problema-treino (ainda não é o do projeto) e
+          percorre o roteiro:
+        </p>
+        <div class="stack" style="margin-top:20px">
+          <div class="row" data-step><div class="row__val">1. Rodar o prompt de exploração do problema (adaptando o tema)</div></div>
+          <div class="row" data-step><div class="row__val">2. Rodar o prompt de contra-argumentação sobre uma solução que imaginarem</div></div>
+          <div class="row" data-step><div class="row__val">3. Pedir as fontes e verificar 2 delas na origem: a fonte existe? Diz o que a IA afirmou?</div></div>
+          <div class="row" data-step><div class="row__val">4. Prompt de síntese: "Resuma em 5 bullets o que temos de evidência forte, o que é incerto e o que precisamos coletar em campo."</div></div>
+        </div>
+        <div class="timer" data-t="35">
+          <div class="timer__time">35:00</div>
+          <div class="timer__hint">T inicia · R zera</div>
+        </div>
+      </section>
+
+      <!-- R:172 -->
+      <section class="slide slide--center" data-hud="Bloco 4 · Oficina de IA">
+        <p class="eyebrow">Debriefing</p>
+        <p class="statement">
+          O que a IA acelerou? Onde errou ou inventou?
+        </p>
+        <p class="lead lead--wide" style="margin-left:auto;margin-right:auto">
+          "Hoje, vocês usaram a IA para resolver um problema real, ou para
+          problematizar uma solução virtual?"
+        </p>
+        <div class="timer" data-t="10">
+          <div class="timer__time">10:00</div>
+          <div class="timer__hint">T inicia · R zera</div>
+        </div>
+      </section>
+
+      <!-- R:174-176, P:104 -->
+      <section class="slide" data-hud="Bloco 4 · Oficina de IA">
+        <p class="eyebrow">Fica escrito no quadro, retomado em toda aula</p>
+        <h2 style="margin-bottom:30px">As três salvaguardas</h2>
+        <div class="stack">
+          <div class="row row--hot">
+            <div class="row__key" style="flex-basis:60px">1</div>
+            <div class="row__val">Dados pessoais, sensíveis ou institucionais restritos não entram em ferramenta pública de IA.</div>
+          </div>
+          <div class="row row--hot">
+            <div class="row__key" style="flex-basis:60px">2</div>
+            <div class="row__val">Toda evidência sugerida por IA é verificada na fonte original antes de ser usada.</div>
+          </div>
+          <div class="row row--hot">
+            <div class="row__key" style="flex-basis:60px">3</div>
+            <div class="row__val">IA é copiloto: a análise crítica e a decisão são do Oficial, e ele responde por elas.</div>
+          </div>
+        </div>
+        <p class="src">
+          <!-- <span class="grade grade--forte">FORTE</span> -->
+          Brasil. Secretaria de Governo Digital (SGD/MGI) e SERPRO. <em>Guia de IA
+          Generativa.</em> gov.br: documento oficial brasileiro que sustenta as
+          salvaguardas com fonte do próprio governo federal.
+        </p>
+        <aside class="notes">
+          <p>Base legal de IA citada em sala (LGPD, Lei 14.129/2021, PL 2338/2023, EU AI Act, OCDE, UNESCO) não foi verificada nesta pesquisa; precisa de verificação própria antes de afirmar em aula (P:108).</p>
+        </aside>
+      </section>
+
+      <section class="slide slide--dark slide--center" data-hud="Intervalo">
+        <p class="display">☕</p>
+        <h1 style="font-size:72px;margin-top:24px">Intervalo</h1>
+        <div class="timer" data-t="15">
+          <div class="timer__time">15:00</div>
+          <div class="timer__hint">T inicia · R zera</div>
+        </div>
+      </section>
+      <!-- ============================================================
+             BLOCO 5: FORMAÇÃO DOS GRUPOS E ESCOLHA DO PROBLEMA · 40 min
+             ============================================================ -->
+
+      <!-- R:180-182 -->
+      <section class="slide slide--dark" data-hud="Bloco 5 · Escolha do problema">
+        <p class="divider-num">05</p>
+        <p class="divider-title">Formação dos grupos<br />e escolha do problema</p>
+        <p class="divider-time">40 min</p>
+        <!-- <p class="divider-goal">Formato: dinâmica orientada.</p> -->
+      </section>
+
+      <!-- R:186-187 -->
+      <section class="slide slide--ink" data-hud="Bloco 5 · Escolha do problema">
+        <p class="eyebrow eyebrow--accent">Formação dos grupos</p>
+        <p class="consigna">
+          Grupos de 8 a 10 pessoas
+        </p>
+        <!-- <p class="consigna-note">
+          Dimensione para que a turma produza de 4 a 6 projetos (bancas ficam
+          viáveis na Aula 6).
+        </p> -->
+        <div class="timer" data-t="10">
+          <div class="timer__time">10:00</div>
+          <div class="timer__hint">T inicia · R zera</div>
+        </div>
+      </section>
+
+      <!-- R:193-197 -->
+      <section class="slide" data-hud="Bloco 5 · Escolha do problema">
+        <p class="eyebrow">Folha impressa por grupo</p>
+        <h2 style="margin-bottom:28px">Critérios de elegibilidade</h2>
+        <div class="stack">
+          <div class="row" data-step>
+            <div class="row__key" style="flex-basis:60px">1</div>
+            <div class="row__val">É um problema <strong>do cidadão</strong>: a frase começa com "o cidadão/a família/o morador…", não com "o CBMDF…"</div>
+          </div>
+          <div class="row" data-step>
+            <div class="row__key" style="flex-basis:60px">2</div>
+            <div class="row__val">É <strong>real e observável</strong>: o grupo consegue encontrar e ouvir pessoas afetadas no campo da Aula 2</div>
+          </div>
+          <div class="row" data-step>
+            <div class="row__key" style="flex-basis:60px">3</div>
+            <div class="row__val">Está <strong>ao alcance de atuação do CBMDF</strong>: prevenção, resposta, educação pública, articulação comunitária</div>
+          </div>
+          <div class="row" data-step>
+            <div class="row__key" style="flex-basis:60px">4</div>
+            <div class="row__val"><strong>Não é problema exclusivamente interno</strong> da corporação (efetivo, viatura, escala, sistema interno)</div>
+          </div>
+          <div class="row" data-step>
+            <div class="row__key" style="flex-basis:60px">5</div>
+            <div class="row__val">Tem <strong>potencial de evidência</strong>: existe (ou pode ser coletado) dado sobre ele</div>
+          </div>
+        </div>
+        <aside class="notes">
+          <p>Os 5 critérios são construção didática do docente, não derivados de fonte primária: Secchi &amp; Zappellini, Bardach (A Practical Guide for Policy Analysis) e Mark Moore (Creating Public Value) não foram alcançados nesta pesquisa (P:116).</p>
+        </aside>
+      </section>
+
+      <!-- R:201 -->
+      <section class="slide slide--center" data-hud="Bloco 5 · Escolha do problema">
+        <p class="eyebrow">Passo 1</p>
+        <p class="statement">Cada grupo lista 3 candidatos a problema</p>
+        <p class="lead lead--wide" style="margin-left:auto;margin-right:auto">
+          Brainstorm livre: pode usar IA para explorar, aplicando o que treinou
+          no Bloco 4.
+        </p>
+        <div class="timer" data-t="10">
+          <div class="timer__time">10:00</div>
+          <div class="timer__hint">T inicia · R zera</div>
+        </div>
+      </section>
+
+      <!-- R:202, R:214 -->
+      <section class="slide slide--center" data-hud="Bloco 5 · Escolha do problema">
+        <p class="eyebrow">Passo 2</p>
+        <p class="statement">Passa cada candidato pelos 5 critérios e escolhe 1</p>
+        <div class="timer" data-t="10">
+          <div class="timer__time">10:00</div>
+          <div class="timer__hint">T inicia · R zera</div>
+        </div>
+        <aside class="notes">
+          <p>Atenção do docente: o desvio mais comum é o grupo escolher uma solução disfarçada de problema ("falta um aplicativo de…") ou um problema interno reformatado. Devolva com a pergunta: "qual é a dor do cidadão por trás disso?" (R:214)</p>
+        </aside>
+      </section>
+
+      <!-- R:203-208 -->
+      <section class="slide" data-hud="Bloco 5 · Escolha do problema">
+        <p class="eyebrow">Passo 3</p>
+        <h2 style="margin-bottom:28px">Canvas do Problema (versão preliminar)</h2>
+        <div class="stack">
+          <div class="row"><div class="row__val">Quem é o cidadão afetado? (perfil, território)</div></div>
+          <div class="row"><div class="row__val">Qual é a dor, na voz dele? (uma frase em primeira pessoa)</div></div>
+          <div class="row"><div class="row__val">O que já sabemos? (dados/fatos que temos hoje)</div></div>
+          <div class="row"><div class="row__val">O que precisamos descobrir no campo? (3 a 5 perguntas)</div></div>
+          <div class="row"><div class="row__val">Onde encontraremos essas pessoas? (locais concretos para a imersão)</div></div>
+        </div>
+        <div class="timer" data-t="5">
+          <div class="timer__time">05:00</div>
+          <div class="timer__hint">T inicia · R zera</div>
+        </div>
+      </section>
+
+      <!-- R:212 -->
+      <section class="slide slide--ink slide--center" data-hud="Bloco 5 · Escolha do problema">
+        <p class="eyebrow eyebrow--accent">Validação relâmpago</p>
+        <p class="consigna consigna--center">
+          Cada grupo lê em 30 segundos: quem é o cidadão + qual é a dor.
+        </p>
+        <p class="lead lead--wide" style="margin-left:auto;margin-right:auto">
+          "É problema do cidadão? Dá para ir a campo?"
+        </p>
+        <div class="timer" data-t="5">
+          <div class="timer__time">05:00</div>
+          <div class="timer__hint">T inicia · R zera</div>
+        </div>
+      </section>
+
+      <!-- R:241, D6 -->
+      <section class="slide slide--soft" data-hud="Bloco 5 · Escolha do problema">
+        <p class="eyebrow">Reserva · só se algum grupo travar</p>
+        <h2 style="margin-bottom:26px">Banco de dores do cidadão</h2>
+        <div class="cols cols-3">
+          <div class="card"><p>Quedas de idosos em domicílio</p></div>
+          <div class="card"><p>Afogamento em lagos</p></div>
+          <div class="card"><p>Incêndio em ocupações irregulares</p></div>
+          <div class="card"><p>Pânico em multidões</p></div>
+          <div class="card"><p>Queimaduras domésticas em crianças</p></div>
+          <div class="card"><p>Primeiros socorros na escola</p></div>
+        </div>
+        <p class="footnote">Oferecer como inspiração, nunca como imposição.</p>
+        <aside class="notes">
+          <p>Exemplo verificado, pronto para uso em sala: exercício reduz a taxa de quedas em idosos da comunidade em ~23% (RaR 0,77; IC95% 0,71-0,83), alta certeza: 108 ECRs, 23.407 participantes, 25 países (Sherrington, C. et al. 2019, Cochrane, FORTE, P:117). O mesmo estudo reporta −15% no número de pessoas que caem (RR 0,85; IC95% 0,81-0,89); mas fraturas, hospitalização e qualidade de vida têm certeza baixa a muito baixa (P:118).</p>
+          <p>Educação domiciliar de segurança aumenta práticas preventivas, como detectores de fumaça funcionantes: citar a versão atualizada Kendrick et al. 2012 (pub3, 98 estudos, 2.605.044 pessoas: IRR 0,89, IC95% 0,78-1,01), não a de 2007, que já está superada (P:120, MODERADO).</p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+             BLOCO 6: BRIEFING DO CAMPO DE EMPATIA E ENCERRAMENTO · 10 min
+             ============================================================ -->
+
+      <!-- R:218 -->
+      <section class="slide slide--dark" data-hud="Bloco 6 · Briefing e encerramento">
+        <p class="divider-num">06</p>
+        <p class="divider-title">Briefing do campo<br />de empatia</p>
+        <p class="divider-time">10 min</p>
+      </section>
+
+      <!-- R:222, D5 -->
+      <section class="slide slide--ink" data-hud="Bloco 6 · Briefing e encerramento">
+        <p class="eyebrow eyebrow--accent">Missão</p>
+        <p class="consigna">Imersão com o cidadão afetado</p>
+        <p class="consigna-note">
+          Mínimo de <strong>5 entrevistas em profundidade</strong> e
+          <strong>1 sessão de observação direta</strong> no território, por
+          grupo; complementar com dados secundários (estatísticas de
+          atendimento, dados abertos, literatura).
+        </p>
+        <aside class="notes">
+          <p>Os 5 são o mínimo do curso definido no briefing (R:222), não o ponto de saturação de dados, que a evidência (P:70-72) situa entre 6 (73%) e 12 (92%) entrevistas semiestruturadas. Se a turma perguntar por que 5 e não 6, essa é a resposta honesta.</p>
+        </aside>
+      </section>
+
+      <!-- R:223 -->
+      <section class="slide" data-hud="Bloco 6 · Briefing e encerramento">
+        <p class="eyebrow">Uso de IA no campo</p>
+        <p class="lead lead--wide">
+          Gerar roteiro de entrevista, transcrever e sintetizar falas, sempre com as 3 salvaguardas.
+        </p>
+        <p class="footnote">
+          Em especial: <strong>não subir áudio/dados pessoais de cidadãos
+          identificáveis em ferramenta pública</strong>; anonimizar antes.
+        </p>
+      </section>
+
+      <!-- R:224 -->
+      <section class="slide" data-hud="Bloco 6 · Briefing e encerramento">
+        <p class="eyebrow">Conduta</p>
+        <p class="lead lead--wide">
+          Apresentar-se, explicar o objetivo acadêmico, pedir consentimento
+          verbal para registrar; fardamento/identificação conforme orientação do
+          curso.
+        </p>
+      </section>
+
+      <!-- R:225-226 -->
+      <section class="slide slide--soft" data-hud="Bloco 6 · Briefing e encerramento">
+        <p class="eyebrow">Entregável · trazer pronto na Aula 3</p>
+        <h2 style="margin-bottom:20px">Mapa de Evidências do Problema</h2>
+        <p class="lead lead--wide">
+          Quem é o cidadão afetado, o que foi ouvido e observado (citações reais
+          anonimizadas), o que os dados mostram, o que ainda não sabemos.
+        </p>
+        <p class="footnote">Canal de mentoria assíncrona do docente durante a semana de campo.</p>
+      </section>
+
+      <!-- R:228, R:230 -->
+      <section class="slide slide--dark slide--center" data-hud="Bloco 6 · Briefing e encerramento">
+        <p class="statement">
+          "Na próxima vez que nos virmos presencialmente, vocês não vão me
+          contar o que <span class="accent">acham</span>; vão me contar o que
+          ouviram e o que os dados mostram."
+        </p>
+        <aside class="notes">
+          <p>Se o gestor convidado estiver presente: 5 minutos de fala dele sobre a expectativa institucional com as soluções (nesse caso, o Bloco 3 já foi comprimido para 25 min). (R:230)</p>
+        </aside>
+      </section>
+
+      <section class="slide slide--dark slide--center" data-hud="Bloco 6 · Briefing e encerramento">
+        <div class="rule"></div>
+        <h1 style="font-size:56px;font-weight:600">Até a próxima aula</h1>
+      </section>
     </div>
-    <p style="margin-top:30px; font-size:22px; color:var(--muted);">As aulas a distância <strong style="color:var(--red);">são campo, não EAD passivo</strong> — é quando o Design Thinking pede rua, não sala.</p>
-  </div>
-  <div class="footer"><span>Aula 1 · Enquadrar</span><span>30 h/a · 6 encontros de 5 h/a</span></div>
-</section>
 
-<!-- 4 · REGRA DE OURO -->
-<section class="slide">
-  <div class="kicker">A regra de ouro da disciplina</div>
-  <h1>O problema é <span style="color:var(--red);">do cidadão</span>, não do CBMDF</h1>
-  <div class="grow">
-    <div class="cardrow">
-      <div class="card" style="border-color:#C9C9C9;">
-        <h3 style="color:var(--muted);">✘ &nbsp;Não elegível</h3>
-        <p style="font-size:21px; margin-top:14px;">"Falta de viatura na região X."</p>
-        <p style="font-size:21px; margin-top:10px;">"O CBMDF tem pouco efetivo."</p>
-        <p style="margin-top:18px; font-size:17px;">Problemas internos são legítimos — mas de outra disciplina.</p>
+    <div id="hud">
+      <div id="hud-block"></div>
+      <div id="hud-count"></div>
+    </div>
+
+    <div id="notes">
+      <h4>Notas do instrutor</h4>
+      <div id="notes-body"></div>
+    </div>
+
+    <div id="overview">
+      <h4>Visão geral, clique para ir · Esc fecha</h4>
+      <div class="ov-grid" id="ov-grid"></div>
+    </div>
+
+    <div id="help">
+      <h4>Atalhos: Esc fecha</h4>
+      <div class="help-grid">
+        <div>
+          <span>Avançar (passo ou slide)</span
+          ><span><kbd>→</kbd> <kbd>espaço</kbd> <kbd>PgDn</kbd></span>
+        </div>
+        <div>
+          <span>Iniciar / pausar cronômetro</span><span><kbd>T</kbd></span>
+        </div>
+        <div>
+          <span>Voltar</span><span><kbd>←</kbd> <kbd>PgUp</kbd></span>
+        </div>
+        <div>
+          <span>Zerar cronômetro</span><span><kbd>R</kbd></span>
+        </div>
+        <div>
+          <span>Ajustar cronômetro em 30s</span><span><kbd>+</kbd> <kbd>-</kbd></span>
+        </div>
+        <div>
+          <span>Primeiro / último slide</span
+          ><span><kbd>Home</kbd> <kbd>End</kbd></span>
+        </div>
+        <div>
+          <span>Notas do instrutor</span><span><kbd>P</kbd></span>
+        </div>
+        <div>
+          <span>Visão geral dos slides</span><span><kbd>O</kbd></span>
+        </div>
+        <div>
+          <span>Tela preta (atenção na sala)</span><span><kbd>B</kbd></span>
+        </div>
+        <div>
+          <span>Tela cheia</span><span><kbd>F</kbd></span>
+        </div>
+        <div>
+          <span>Esta ajuda</span><span><kbd>?</kbd></span>
+        </div>
       </div>
-      <div class="card" style="border-color:var(--red); background:var(--soft);">
-        <h3 style="color:var(--red);">✔ &nbsp;Elegível</h3>
-        <p style="font-size:21px; margin-top:14px; color:var(--ink);">"O idoso que cai em casa fica horas sem socorro."</p>
-        <p style="font-size:21px; margin-top:10px; color:var(--ink);">"A família da ocupação não sabe agir nos primeiros minutos do incêndio."</p>
-        <p style="margin-top:18px; font-size:17px;">A frase começa com o cidadão — a empatia é com o nosso cliente.</p>
-      </div>
+      <p style="margin-top:30px;color:#86868b;font-size:16px">
+        Clique na metade direita da tela para avançar, na esquerda para voltar.
+        Deslize o dedo em telas sensíveis ao toque.<br />
+        Para gerar PDF: <kbd>Ctrl</kbd>+<kbd>P</kbd>, um slide por página,
+        orientação paisagem, com "gráficos de fundo" ativado.
+      </p>
     </div>
-  </div>
-  <div class="footer"><span>Aula 1 · Enquadrar</span><span>Teste da frase: começa com "o cidadão / a família / o morador..."</span></div>
-</section>
 
-<!-- 5 · AVALIAÇÃO -->
-<section class="slide">
-  <div class="kicker">Avaliação da aprendizagem</div>
-  <h1>Não há prova. <span class="thin">O projeto é a prova.</span></h1>
-  <div class="grow">
-    <div class="cardrow">
-      <div class="card"><div style="font-size:62px; font-weight:800; color:var(--red);">40%</div><h3>Solução + pitch</h3><p>Protótipo, fundamentação em evidências, teste com o cidadão, viabilidade do encaminhamento</p></div>
-      <div class="card"><div style="font-size:62px; font-weight:800; color:var(--red);">30%</div><h3>Entregáveis de campo</h3><p>Mapa de evidências (Aula 2) e protótipo com registro de testes (Aula 4)</p></div>
-      <div class="card"><div style="font-size:62px; font-weight:800; color:var(--red);">20%</div><h3>Monitoramento</h3><p>Indicadores, linha de base e coleta de dados embutidos na solução</p></div>
-      <div class="card"><div style="font-size:62px; font-weight:800; color:var(--red);">10%</div><h3>Participação</h3><p>Engajamento individual nas oficinas e contribuição ao grupo</p></div>
-    </div>
-  </div>
-  <div class="footer"><span>Aula 1 · Enquadrar</span><span>Trabalho em grupos mistos — áreas fim e meio</span></div>
-</section>
+    <div id="blackout"></div>
 
-<!-- 6 · EXERCÍCIO: O DOCUMENTO RESOLVE? -->
-<section class="slide">
-  <div class="kicker">Exercício em ilhas · 5 min + 5 min de plenária</div>
-  <h1>"O documento resolve?"</h1>
-  <div class="grow">
-    <p class="lead" style="margin-bottom:30px;">Analisem a política pública projetada e respondam:</p>
-    <ul class="clean">
-      <li>Que <strong>problema do cidadão</strong> essa política resolve?</li>
-      <li>Como sabemos se ela <strong>está funcionando</strong>?</li>
-      <li>O que <strong>aconteceu depois</strong> da publicação?</li>
-    </ul>
-  </div>
-  <div class="footer"><span>Aula 1 · Bloco 1</span><span>Não vale achar — vale apontar onde está a resposta</span></div>
-</section>
-
-<!-- 7 · DESENHO × DESIGN -->
-<section class="slide">
-  <div class="kicker">O porquê do nome novo</div>
-  <h1>Desenho <span class="thin">×</span> Design</h1>
-  <div class="grow">
-    <table style="width:100%; border-collapse:collapse; font-size:22px;">
-      <tr style="background:var(--soft);">
-        <th style="text-align:left; padding:13px 20px; width:50%; border-bottom:2.5px solid var(--red); font-size:23px;">Desenho <span style="font-weight:400; color:var(--muted);">(tradicional)</span></th>
-        <th style="text-align:left; padding:13px 20px; border-bottom:2.5px solid var(--red); font-size:23px; color:var(--red);">Design <span style="font-weight:400; color:var(--muted);">(esta disciplina)</span></th>
-      </tr>
-      <tr><td style="padding:13px 20px; border-bottom:1px solid var(--line);">Parte do gabinete</td><td style="padding:13px 20px; border-bottom:1px solid var(--line); font-weight:600;">Parte do cidadão</td></tr>
-      <tr><td style="padding:13px 20px; border-bottom:1px solid var(--line);">Opinião e precedente</td><td style="padding:13px 20px; border-bottom:1px solid var(--line); font-weight:600;">Evidência — qualitativa e quantitativa</td></tr>
-      <tr><td style="padding:13px 20px; border-bottom:1px solid var(--line);">Documento como entregável</td><td style="padding:13px 20px; border-bottom:1px solid var(--line); font-weight:600;">Solução testada como entregável</td></tr>
-      <tr><td style="padding:13px 20px; border-bottom:1px solid var(--line);">Erro descoberto na implementação</td><td style="padding:13px 20px; border-bottom:1px solid var(--line); font-weight:600;">Erro descoberto no protótipo — barato</td></tr>
-      <tr><td style="padding:13px 20px;">Avaliação, se houver, anos depois</td><td style="padding:13px 20px; font-weight:600;">Monitoramento embutido desde o design</td></tr>
-    </table>
-  </div>
-  <div class="footer"><span>Aula 1 · Bloco 1</span><span>A política como produto que precisa funcionar — não como texto que precisa ser publicado</span></div>
-</section>
-
-<!-- 8 · SÍNTESE DO NOME -->
-<section class="slide dark">
-  <div class="grow">
-    <div class="statement" style="font-size:42px;">Design sem evidência é <span class="accent">achismo criativo</span>.</div>
-    <div class="statement" style="font-size:42px; margin-top:30px;">Evidência sem design é <span class="accent">relatório engavetado</span>.</div>
-    <div style="margin-top:48px; font-size:24px; color:#F3C9CE;">O nome da disciplina não é etiqueta — é programa de trabalho.</div>
-  </div>
-  <div class="footer"><span>Aula 1 · Bloco 1</span><span>Design de Políticas Públicas Baseadas em Evidências</span></div>
-</section>
-
-<!-- 9 · CICLO DE POLÍTICAS -->
-<section class="slide">
-  <div class="kicker">Onde a evidência entra</div>
-  <h1>O ciclo de políticas públicas</h1>
-  <div class="grow" style="flex-direction:row; align-items:center; gap:50px;">
-    <svg width="545" height="420" viewBox="0 0 545 420" role="img" aria-label="Ciclo de políticas públicas">
-      <defs>
-        <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#B9AEB0"/></marker>
-      </defs>
-      <circle cx="260" cy="210" r="120" fill="none" stroke="#B9AEB0" stroke-width="2.5" stroke-dasharray="4 7" marker-end="url(#arr)"/>
-      <g font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#1F1F1F" text-anchor="middle">
-        <g><rect x="175" y="18" width="170" height="44" rx="22" fill="#990011"/><text x="260" y="46" fill="#fff">Agenda</text></g>
-        <g><rect x="360" y="120" width="170" height="44" rx="22" fill="#F5F1F1" stroke="#990011" stroke-width="1.5"/><text x="445" y="148">Formulação</text></g>
-        <g><rect x="330" y="300" width="185" height="44" rx="22" fill="#F5F1F1" stroke="#990011" stroke-width="1.5"/><text x="422" y="328">Implementação</text></g>
-        <g><rect x="15" y="300" width="190" height="44" rx="22" fill="#F5F1F1" stroke="#990011" stroke-width="1.5"/><text x="110" y="328">Monitoramento</text></g>
-        <g><rect x="0" y="120" width="160" height="44" rx="22" fill="#F5F1F1" stroke="#990011" stroke-width="1.5"/><text x="80" y="148">Avaliação</text></g>
-        <text x="260" y="202" font-size="21" fill="#990011">EVIDÊNCIA</text>
-        <text x="260" y="228" font-size="15" font-weight="400" fill="#5C5C5C">em todas as fases</text>
-      </g>
-    </svg>
-    <div style="flex:1;">
-      <ul class="clean" style="font-size:22px;">
-        <li style="font-size:22px;">A maioria pula da <strong>agenda</strong> direto para a <strong>solução</strong> — sem evidência sobre o problema;</li>
-        <li style="font-size:22px;">Evidência não é só para avaliar no fim: ela <strong>define o problema</strong>, <strong>compara alternativas</strong> e <strong>corrige a rota</strong>;</li>
-        <li style="font-size:22px;">Nosso projeto percorre o ciclo completo — em 6 aulas, em escala de protótipo.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer"><span>Aula 1 · Bloco 2</span><span>Agenda · Formulação · Implementação · Monitoramento · Avaliação</span></div>
-</section>
-
-<!-- 10 · HIERARQUIA DE EVIDÊNCIAS -->
-<section class="slide">
-  <div class="kicker">Nem toda evidência pesa igual</div>
-  <h1>Hierarquia de evidências</h1>
-  <div class="grow" style="flex-direction:row; align-items:center; gap:60px;">
-    <svg width="560" height="400" viewBox="0 0 560 400" role="img" aria-label="Pirâmide de evidências">
-      <g font-family="Arial, sans-serif" text-anchor="middle">
-        <polygon points="280,10 350,80 210,80" fill="#990011"/>
-        <polygon points="203,90 357,90 392,160 168,160" fill="#B23342"/>
-        <polygon points="161,170 399,170 434,240 126,240" fill="#C96673"/>
-        <polygon points="119,250 441,250 476,320 84,320" fill="#DFA0A8"/>
-        <polygon points="77,330 483,330 518,398 42,398" fill="#EFD0D4"/>
-        <text x="280" y="63" font-size="15" font-weight="700" fill="#fff">Revisões</text>
-        <text x="280" y="135" font-size="16" font-weight="700" fill="#fff">Experimentos e</text>
-        <text x="280" y="153" font-size="16" font-weight="700" fill="#fff">quase-experimentos</text>
-        <text x="280" y="213" font-size="16" font-weight="700" fill="#fff">Estudos observacionais</text>
-        <text x="280" y="293" font-size="16" font-weight="700" fill="#4A1219">Dados administrativos e casos</text>
-        <text x="280" y="371" font-size="16" font-weight="700" fill="#4A1219">Opinião de especialista</text>
-      </g>
-    </svg>
-    <div style="flex:1;">
-      <p class="lead" style="font-size:24px;">A pirâmide <strong>não descarta a base</strong> — ela diz <strong style="color:var(--red);">quanto peso</strong> dar a cada fonte.</p>
-      <p class="lead" style="font-size:24px; margin-top:24px;">A experiência operacional de vocês é evidência valiosa — que precisa ser <strong>confrontada com dados</strong>, não substituída por eles.</p>
-    </div>
-  </div>
-  <div class="footer"><span>Aula 1 · Bloco 2</span><span>Revisões sistemáticas → experimentos → observacionais → administrativos → opinião</span></div>
-</section>
-
-<!-- 11 · EMPATIA COMO EVIDÊNCIA -->
-<section class="slide">
-  <div class="kicker">Quali e quanti não competem</div>
-  <h1>Empatia é evidência</h1>
-  <div class="grow">
-    <div class="cardrow">
-      <div class="card">
-        <h3 style="color:var(--navy);">Quantitativo</h3>
-        <p style="font-size:30px; font-weight:800; color:var(--ink); margin:12px 0;">o quê · quanto</p>
-        <p style="font-size:19px;">Estatísticas de atendimento, dados abertos, literatura. Dimensiona o problema e mede o resultado.</p>
-      </div>
-      <div class="card">
-        <h3 style="color:var(--red);">Qualitativo</h3>
-        <p style="font-size:30px; font-weight:800; color:var(--ink); margin:12px 0;">por quê · como</p>
-        <p style="font-size:19px;">Entrevistas em profundidade, observação direta. Revela o contexto da dor na vida real do cidadão.</p>
-      </div>
-    </div>
-    <div style="margin-top:30px; background:var(--soft); border-radius:14px; padding:22px 30px; font-size:24px;">
-      <strong style="color:var(--red);">Triangulação</strong> — cruzar os dois — é o padrão-ouro da disciplina. É o que vocês farão entre a Aula 2 (campo) e a Aula 3 (análise).
-    </div>
-  </div>
-  <div class="footer"><span>Aula 1 · Bloco 2</span><span>A estatística diz o quanto; o campo diz o porquê</span></div>
-</section>
-
-<!-- 12 · VIESES -->
-<section class="slide">
-  <div class="kicker">Cuidado no caminho</div>
-  <h1>Quatro vieses a vigiar</h1>
-  <div class="grow">
-    <div class="cardrow">
-      <div class="card"><h3>Confirmação</h3><p>Procurar (e achar) só o que confirma a solução que já queríamos propor</p></div>
-      <div class="card"><h3>Seleção</h3><p>Ouvir apenas quem está acessível — e concluir pelo todo</p></div>
-      <div class="card"><h3>Sobrevivência</h3><p>Analisar só os casos que deram certo e ignorar os que sumiram</p></div>
-      <div class="card"><h3>Anedota vívida</h3><p>Um caso marcante pesar mais do que o dado representativo</p></div>
-    </div>
-    <p style="margin-top:30px; font-size:22px; color:var(--muted);">Eles voltam na Aula 3, quando analisarmos o que o campo trouxe — inclusive nos resultados sugeridos pela IA.</p>
-  </div>
-  <div class="footer"><span>Aula 1 · Bloco 2</span><span>Viés não se elimina — se vigia</span></div>
-</section>
-
-<!-- 13 · EXERCÍCIO: ISSO É EVIDÊNCIA? -->
-<section class="slide">
-  <div class="kicker">Exercício em ilhas · 15 min</div>
-  <h1>"Isso é evidência?"</h1>
-  <p class="lead" style="margin-bottom:24px;">Classifiquem: <strong>forte</strong>, <strong>fraca</strong> ou <strong>não é evidência</strong> — e digam por quê.</p>
-  <div class="grow" style="justify-content:flex-start;">
-    <ol style="font-size:21px; line-height:1.45; padding-left:30px;">
-      <li style="margin-bottom:16px;">"Nos últimos 3 anos, 40% dos atendimentos pré-hospitalares na região X foram quedas de idosos em domicílio."</li>
-      <li style="margin-bottom:16px;">"Um coronel da reserva afirma que antigamente havia menos incêndios em ocupações irregulares."</li>
-      <li style="margin-bottom:16px;">"Entrevistamos 12 moradores e 9 relataram não saber agir nos primeiros minutos de um afogamento."</li>
-      <li>"Uma matéria de jornal diz que o programa Y reduziu acidentes em 80%."</li>
-    </ol>
-  </div>
-  <div class="footer"><span>Aula 1 · Bloco 2</span><span>Dica: pergunte sempre — forte para quê? Dimensionar? Entender? Generalizar?</span></div>
-</section>
-
-<!-- 14 · DIVISOR DT -->
-<section class="slide dark">
-  <div class="grow">
-    <div class="kicker">Bloco 3</div>
-    <div class="statement" style="font-size:54px;">Design Thinking<br>no setor público</div>
-    <div style="margin-top:40px; font-size:24px; color:#F3C9CE;">O método que estrutura as nossas 6 aulas</div>
-  </div>
-  <div class="footer"><span>Aula 1 · Bloco 3</span><span>Duplo diamante · casos de governo</span></div>
-</section>
-
-<!-- 15 · DUPLO DIAMANTE -->
-<section class="slide">
-  <div class="kicker">O mapa do método</div>
-  <h1>O duplo diamante</h1>
-  <div class="grow" style="align-items:center;">
-    <svg width="1030" height="360" viewBox="0 0 1030 360" role="img" aria-label="Duplo diamante do Design Thinking">
-      <g font-family="Arial, sans-serif" text-anchor="middle">
-        <polygon points="90,180 285,55 480,180 285,305" fill="#F5F1F1" stroke="#990011" stroke-width="2.5"/>
-        <polygon points="550,180 745,55 940,180 745,305" fill="#F5F1F1" stroke="#2F3C7E" stroke-width="2.5"/>
-        <text x="285" y="35" font-size="21" font-weight="800" fill="#990011">PROBLEMA</text>
-        <text x="745" y="35" font-size="21" font-weight="800" fill="#2F3C7E">SOLUÇÃO</text>
-        <text x="195" y="165" font-size="18" font-weight="700" fill="#1F1F1F">Descobrir</text>
-        <text x="195" y="188" font-size="15" fill="#5C5C5C">empatia · campo</text>
-        <text x="195" y="207" font-size="15" fill="#5C5C5C">(Aula 2)</text>
-        <text x="380" y="165" font-size="18" font-weight="700" fill="#1F1F1F">Definir</text>
-        <text x="380" y="188" font-size="15" fill="#5C5C5C">POV · HMW</text>
-        <text x="380" y="207" font-size="15" fill="#5C5C5C">(Aula 3)</text>
-        <text x="655" y="165" font-size="18" font-weight="700" fill="#1F1F1F">Desenvolver</text>
-        <text x="655" y="188" font-size="15" fill="#5C5C5C">idear · prototipar</text>
-        <text x="655" y="207" font-size="15" fill="#5C5C5C">(Aulas 3–4)</text>
-        <text x="840" y="165" font-size="18" font-weight="700" fill="#1F1F1F">Entregar</text>
-        <text x="840" y="188" font-size="15" fill="#5C5C5C">testar · encaminhar</text>
-        <text x="840" y="207" font-size="15" fill="#5C5C5C">(Aulas 4–6)</text>
-        <circle cx="90" cy="180" r="11" fill="#990011"/>
-        <text x="90" y="248" font-size="17" font-weight="800" fill="#990011">VOCÊS ESTÃO AQUI</text>
-        <line x1="480" y1="180" x2="550" y2="180" stroke="#B9AEB0" stroke-width="2.5"/>
-      </g>
-    </svg>
-    <p style="font-size:22px; color:var(--muted); margin-top:14px;">Divergir para <strong>explorar</strong>, convergir para <strong>decidir</strong> — duas vezes: primeiro no problema, depois na solução.</p>
-  </div>
-  <div class="footer"><span>Aula 1 · Bloco 3</span><span>Empatizar → Definir → Idear → Prototipar → Testar</span></div>
-</section>
-
-<!-- 16 · CASOS DE GOVERNO -->
-<section class="slide">
-  <div class="kicker">Quem já faz</div>
-  <h1>Design Thinking em governo</h1>
-  <div class="grow">
-    <div class="cardrow">
-      <div class="card">
-        <h3 style="color:var(--red);">GNova / ENAP — Brasil</h3>
-        <p style="font-size:20px;">Laboratório de inovação do governo federal: serviços públicos redesenhados a partir de imersão com usuários reais, prototipados antes de escalar.</p>
-      </div>
-      <div class="card">
-        <h3 style="color:var(--navy);">Policy Lab — Reino Unido</h3>
-        <p style="font-size:20px;">Etnografia e prototipagem influenciando políticas nacionais: evidência de campo tratada com o mesmo rigor da estatística.</p>
-      </div>
-    </div>
-    <p style="margin-top:30px; font-size:22px; color:var(--muted);">E na segurança pública e defesa civil: comunicação de risco, prevenção comunitária e serviços de emergência redesenhados a partir da experiência de quem os usa.</p>
-  </div>
-  <div class="footer"><span>Aula 1 · Bloco 3</span><span>Prototipar barato antes de escalar caro</span></div>
-</section>
-
-<!-- 17 · NÃO É POST-IT -->
-<section class="slide dark">
-  <div class="grow">
-    <div class="statement" style="font-size:46px;">Design Thinking em governo<br><span class="accent">não é dinâmica de post-it.</span></div>
-    <div style="margin-top:40px; font-size:26px; line-height:1.5; color:#F3C9CE; max-width:980px;">É disciplina de reduzir o risco de gastar dinheiro público em solução que não funciona — <strong style="color:#fff;">testando barato antes de escalar</strong>.</div>
-  </div>
-  <div class="footer"><span>Aula 1 · Bloco 3</span><span>Critério de sucesso da disciplina: solução encaminhada, não apenas apresentada</span></div>
-</section>
-
-<!-- 18 · DIVISOR OFICINA IA -->
-<section class="slide dark">
-  <div class="grow">
-    <div class="kicker">Bloco 4 · Oficina prática · 60 min</div>
-    <div class="statement" style="font-size:50px;">IA como copiloto<br>do policymaker</div>
-    <div style="margin-top:40px; font-size:24px; color:#F3C9CE; max-width:980px;">Objetivo: todos saem tendo usado IA para revisar evidências — <strong style="color:#fff;">e tendo flagrado ao menos uma limitação dela</strong>.</div>
-  </div>
-  <div class="footer"><span>Aula 1 · Bloco 4</span><span>Demonstração → prática em ilhas → debriefing</span></div>
-</section>
-
-<!-- 19 · PROVOCAÇÃO IA -->
-<section class="slide dark">
-  <div class="kicker">Antes de abrir a ferramenta, uma pergunta</div>
-  <div class="grow">
-    <div class="statement" style="font-size:42px;">Você está usando a IA para <span class="accent">resolver problemas reais</span> — ou para problematizar soluções virtuais?</div>
-    <div style="margin-top:44px; font-size:27px; line-height:1.5; color:#F3C9CE; max-width:1000px;">Estamos <strong style="color:#fff;">automatizando a burocracia</strong>, ou olhando para o problema que está <strong style="color:#fff;">na vida real</strong>?</div>
-  </div>
-  <div class="footer"><span>Aula 1 · Bloco 4</span><span>A oficina de hoje existe para vocês responderem isso na prática</span></div>
-</section>
-
-<!-- 20 · OS 3 PROMPTS -->
-<section class="slide">
-  <div class="kicker">A demonstração — acompanhem no roteiro impresso</div>
-  <h1>Três jeitos de usar a IA agora</h1>
-  <div class="grow" style="gap:18px; justify-content:center;">
-    <div style="display:flex; gap:20px; align-items:flex-start;"><span class="num">1</span><div><h3 style="font-size:24px;">Explorar o problema</h3><p style="font-size:20px; color:var(--muted);">"O que se sabe sobre magnitude e causas? Que políticas já foram testadas? Que 5 perguntas eu deveria responder com dados locais?"</p></div></div>
-    <div style="display:flex; gap:20px; align-items:flex-start;"><span class="num">2</span><div><h3 style="font-size:24px;">Atacar a própria ideia</h3><p style="font-size:20px; color:var(--muted);">"Aja como avaliador cético: que evidências enfraquecem minha proposta? Que custos ocultos ela tem?"</p></div></div>
-    <div style="display:flex; gap:20px; align-items:flex-start;"><span class="num">3</span><div><h3 style="font-size:24px;">Pedir as fontes — e verificar</h3><p style="font-size:20px; color:var(--muted);">"Liste autor, ano, título e link." Depois: conferir na origem. <strong style="color:var(--red);">Se a fonte não existir, vocês acabaram de aprender a regra mais importante.</strong></p></div></div>
-  </div>
-  <div class="footer"><span>Aula 1 · Bloco 4</span><span>Prática em ilhas: problema-treino, 4 passos, 35 min</span></div>
-</section>
-
-<!-- 20 · SALVAGUARDAS -->
-<section class="slide">
-  <div class="kicker">Valem em todas as aulas — e na carreira</div>
-  <h1>As 3 salvaguardas da disciplina</h1>
-  <div class="grow" style="gap:24px; justify-content:center;">
-    <div style="display:flex; gap:22px; align-items:center; background:var(--soft); border-radius:14px; padding:22px 28px;"><span class="num">1</span><p style="font-size:23px;"><strong>Dado pessoal, sensível ou restrito não entra em ferramenta pública de IA.</strong> Anonimize antes; na dúvida, não insira.</p></div>
-    <div style="display:flex; gap:22px; align-items:center; background:var(--soft); border-radius:14px; padding:22px 28px;"><span class="num">2</span><p style="font-size:23px;"><strong>Toda evidência sugerida por IA é verificada na fonte original.</strong> Fonte que não se acha, não se cita.</p></div>
-    <div style="display:flex; gap:22px; align-items:center; background:var(--soft); border-radius:14px; padding:22px 28px;"><span class="num">3</span><p style="font-size:23px;"><strong>IA é copiloto: a análise crítica e a decisão são do Oficial</strong> — e ele responde por elas.</p></div>
-  </div>
-  <div class="footer"><span>Aula 1 · Bloco 4</span><span>Debriefing: onde a IA acelerou? Onde errou ou inventou?</span></div>
-</section>
-
-<!-- 21 · ESCOLHA DO PROBLEMA -->
-<section class="slide">
-  <div class="kicker">Bloco 5 · Grupos mistos (fim + meio)</div>
-  <h1>Escolham o problema do cidadão</h1>
-  <div class="grow" style="flex-direction:row; gap:40px;">
-    <div style="flex:1.2;">
-      <h3 style="font-size:23px; margin-bottom:14px;">Os 5 critérios de elegibilidade</h3>
-      <ol style="font-size:21px; line-height:1.4; padding-left:26px;">
-        <li style="margin-bottom:10px;">É um problema <strong>do cidadão</strong> (teste da frase);</li>
-        <li style="margin-bottom:10px;">É <strong>real e observável</strong> — dá para ir a campo na Aula 2;</li>
-        <li style="margin-bottom:10px;">Está <strong>ao alcance de atuação</strong> do CBMDF;</li>
-        <li style="margin-bottom:10px;"><strong>Não é interno</strong> à corporação;</li>
-        <li>Tem <strong>potencial de evidência</strong> — dado existente ou coletável.</li>
-      </ol>
-    </div>
-    <div style="flex:1;">
-      <h3 style="font-size:23px; margin-bottom:14px; color:var(--red);">As 2 armadilhas</h3>
-      <div class="card" style="margin-bottom:16px;"><p style="font-size:19px;"><strong style="color:var(--ink);">Solução disfarçada de problema</strong> — "falta um aplicativo de..." Pergunte: qual é a dor por trás?</p></div>
-      <div class="card"><p style="font-size:19px;"><strong style="color:var(--ink);">Problema interno reformatado</strong> — "o cidadão sofre porque o CBMDF tem pouco efetivo" continua interno.</p></div>
-    </div>
-  </div>
-  <div class="footer"><span>Aula 1 · Bloco 5</span><span>3 candidatos → triagem pelos critérios → 1 escolhido → Canvas do Problema</span></div>
-</section>
-
-<!-- 22 · BRIEFING DO CAMPO + FECHAMENTO -->
-<section class="slide dark">
-  <div class="kicker">Até a Aula 3 — campo de empatia (Aula 2, a distância)</div>
-  <div class="grow">
-    <div style="display:flex; gap:26px; margin-bottom:48px;">
-      <div style="flex:1; background:rgba(255,255,255,.08); border-radius:14px; padding:24px;"><div style="font-size:44px; font-weight:800;">5</div><p style="font-size:20px; color:#F3C9CE;">entrevistas em profundidade com cidadãos afetados</p></div>
-      <div style="flex:1; background:rgba(255,255,255,.08); border-radius:14px; padding:24px;"><div style="font-size:44px; font-weight:800;">1</div><p style="font-size:20px; color:#F3C9CE;">sessão de observação direta no território</p></div>
-      <div style="flex:1; background:rgba(255,255,255,.08); border-radius:14px; padding:24px;"><div style="font-size:44px; font-weight:800;">+</div><p style="font-size:20px; color:#F3C9CE;">dados secundários verificados na fonte</p></div>
-    </div>
-    <div class="statement" style="font-size:38px;">"Na Aula 3, vocês não vão me contar o que <span class="accent">acham</span> —<br>vão me contar o que <span class="accent">ouviram</span> e o que os <span class="accent">dados mostram</span>."</div>
-  </div>
-  <div class="footer"><span>Aula 1 · Encerramento</span><span>Entregável: Mapa de Evidências do Problema · mentoria assíncrona na semana</span></div>
-</section>
-
-</div></div>
-
-<div id="counter">1 / 22</div>
-<div id="hint">← → navegar · F tela cheia</div>
-
-<script>
-(function () {
-  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
-  var counter = document.getElementById('counter');
-  var stage = document.getElementById('stage');
-  var i = 0;
-
-  function clamp(n) { return Math.max(0, Math.min(slides.length - 1, n)); }
-  function show(n) {
-    i = clamp(n);
-    slides.forEach(function (s, k) { s.classList.toggle('active', k === i); });
-    counter.textContent = (i + 1) + ' / ' + slides.length;
-    if (history.replaceState) history.replaceState(null, '', '#' + (i + 1));
-  }
-  function fit() {
-    var s = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
-    stage.style.transform = 'scale(' + s + ')';
-  }
-
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(i + 1); }
-    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp') { e.preventDefault(); show(i - 1); }
-    else if (e.key === 'Home') { show(0); }
-    else if (e.key === 'End') { show(slides.length - 1); }
-    else if (e.key === 'f' || e.key === 'F') {
-      if (document.fullscreenElement) { document.exitFullscreen(); }
-      else { document.documentElement.requestFullscreen(); }
-    }
-  });
-  document.addEventListener('click', function (e) {
-    if (e.clientX > window.innerWidth * 2 / 3) show(i + 1);
-    else if (e.clientX < window.innerWidth / 3) show(i - 1);
-  });
-  window.addEventListener('resize', fit);
-
-  var fromHash = parseInt((location.hash || '').replace('#', ''), 10);
-  show(isNaN(fromHash) ? 0 : fromHash - 1);
-  fit();
-})();
-</script>
-</body>
+    <script src="../assets/deck.js"></script>
+  </body>
 </html>
