@@ -1,0 +1,80 @@
+pages 4
+len 11684
+idx 6008
+These insights will lead you to the 
+innovative solutions.  The best solutions come out of the best insights into human behavior.  But learning to 
+recognize those insights is harder than you might think.  Why?  Because our minds automatically ﬁlter out a 
+lot of information in ways we aren’t even aware of.  We need to learn to see things “with a fresh set of eyes” 
+– tools for empathy, along with a human-centered mindset, is what gives us those new eyes. 
+Engaging with people directly reveals a tremendous amount about the way they think and the values they 
+hold.  Sometimes these thoughts and values are not obvious to the people who hold them.  A deep 
+engagement can surprise both the designer and the designee by the unanticipated insights that are 
+revealed.  The stories that people tell and the things that people say they do—even if they are di ﬀerent from 
+what they actually do—are strong indicators of their deeply held beliefs about the way the world is.  Good 
+designs are built on a solid understanding of these kinds of beliefs and values.  Engage to: 
+•!  Uncover needs that people have which they may or may not be aware of 
+•!  Guide innovation e ﬀorts 
+•!  Identify the right users to design for 
+•!  Discover the emotions that guide behaviors 
+In addition to speaking with and observing your users, you need to have personal experience in the design 
+space yourself.  Find (or create if necessary) experiences to immerse yourself to better understand the 
+situation that your users are in, and for which you are designing. 
+Empathize 
+MODE 
+# #) 
+::  1  :: 
+---PAGE---
+The deﬁne mode is when you unpack and synthesize your empathy ﬁndings into compelling needs and 
+insights, and scope a speciﬁc and meaningful challenge.  It is a mode of “focus” rather than “ﬂaring.”  T wo 
+goals of the deﬁne mode are to develop a deep understanding of your users and the design space and, 
+based on that understanding, to come up with an actionable problem statement: your point of view .  Y our 
+point of view should be a guiding statement that focuses on speciﬁc users, and insights and needs that you 
+uncovered during the empathize mode.   
+More than simply deﬁning the problem to work on, your point of view is your unique design vision that you 
+crafted based on your discoveries during your empathy work.  Understanding the meaningful challenge to 
+address and the insights that you can leverage in your design work is fundamental to creating a successful 
+solution. 
+The deﬁne mode is critical to the design process because it explicitly expresses the problem you are 
+striving to address through your e ﬀorts.  In order to be truly generative, you must ﬁrst craft a speciﬁc and 
+compelling problem statement to use as a solution-generation springboard.   
+As a test, a good point of view (POV) is one that: 
+•! Provides focus and frames the problem 
+•! Inspires your team 
+•! Provides a reference for evaluating competing ideas 
+•! Empowers your team to make decisions independently in parallel 
+•! Fuels brainstorms by suggesting “how might we” statements 
+•! Captures the hearts and minds of people you meet 
+•! Saves you from the impossible task of developing concepts that are all things to all people 
+•! Is something you revisit and reformulate as you learn by doing 
+•! Guides your innovation e ﬀorts 
+ " #   
+  
+Deﬁne 
+MODE 
+" #  
+::  2  :: 
+Ideate is the mode during your design process in which you focus on idea generation.  Mentally it 
+represents a process of “going wide” in terms of concepts and outcomes—it is a mode of “ﬂaring” rather than 
+“focus.”  The goal of ideation is to explore a wide solution space – both a large quantity of ideas and a 
+diversity among those ideas.  From this vast depository of ideas you can build prototypes to test with users. 
+Y ou ideate in order to transition from identifying problems into exploring solutions for your users.  Various 
+forms of ideation are leveraged to: 
+•! Step beyond obvious solutions and thus increase the innovation potential of your solution set 
+•! Harness the collective perspectives and strengths of your teams 
+•! Uncover unexpected areas of exploration 
+•! Create ﬂuency (volume) and ﬂexibility (variety) in your innovation options 
+•! Get obvious solutions out of your heads, and drive your team beyond them 
+Regardless of what ideation method you use, the fundamental principle of ideation is to be cognizant of 
+when you and your team are generating ideas and when you are evaluating ideas – and mix the two only 
+intentionally. 
+ " # #  
+ # 
+Ideate 
+MODE 
+" # # 
+::  3  :: 
+---PAGE---
+T raditionally prototyping is thought of as a way to test functionality.  But prototyping is used for many 
+reasons, including these (non-mutually-exclusive) categories: 
+•! Empathy gaining: Prototyping is a tool to deepen your understanding of the design space and your user, 
+even at a pre-solution phase of your projec

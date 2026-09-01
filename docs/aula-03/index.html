@@ -1,0 +1,747 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Aula 3 · Definir e Idear: da evidência à solução candidata · Design de Políticas Públicas Baseadas em Evidências · CAEO/CEPED-CBMDF
+    </title>
+    <meta
+      name="description"
+      content="Slides da Aula 3 da disciplina Design de Políticas Públicas Baseadas em Evidências do CAEO/CEPED-CBMDF."
+    />
+    <link rel="stylesheet" href="../assets/deck.css" />
+  </head>
+
+  <body>
+    <div id="progress"></div>
+
+    <div id="stage">
+      <!-- ============================================================
+             ABERTURA
+             ============================================================ -->
+
+      <section class="slide" data-hud="Abertura">
+        <div class="rule"></div>
+        <p class="eyebrow">Aula 3</p>
+        <h1>Definir e Idear: da evidência à solução candidata</h1>
+        <p class="cover-meta">
+          Ten-Cel. Muniz<br />
+        </p>
+        <aside class="notes">
+          <p><strong>Objetivos de aprendizagem da Aula 3:</strong> ao final, o aluno deve ser capaz de:</p>
+          <p>1. Analisar criticamente o Mapa de Evidências do Problema trazido do campo, identificando vieses, lacunas e pontos de triangulação;</p>
+          <p>2. Formular o Ponto de Vista do problema e derivar perguntas "Como poderíamos..." que não sejam solução disfarçada;</p>
+          <p>3. Conduzir, com apoio de IA, uma oficina de ideação e prospecção de soluções semelhantes;</p>
+          <p>4. Construir a Teoria da Mudança e o Modelo Lógico da solução escolhida;</p>
+          <p>5. Desenhar a primeira versão dos indicadores, da linha de base e dos mecanismos de coleta embutidos.</p>
+          <p><strong>Entregável da aula:</strong> Canvas de Definição e Ideação preenchido + orientação de campo da Aula 4.</p>
+          <p><strong>Pré-requisito de entrada:</strong> cada grupo chega com o Mapa de Evidências do Problema (Aula 2) e o Canvas do Problema (Aula 1) preenchidos.</p>
+        </aside>
+      </section>
+
+      <section class="slide slide--soft" data-hud="Abertura">
+        <p class="eyebrow">Onde estamos</p>
+        <div class="arc">
+          <div class="arc__step">
+            <div class="arc__n">Aula 1</div>
+            <div class="arc__t">Enquadrar: do desenho ao design</div>
+            <div class="arc__mode">presencial</div>
+          </div>
+          <div class="arc__step">
+            <div class="arc__n">Aula 2</div>
+            <div class="arc__t">Imergir: campo de empatia com o cidadão</div>
+            <div class="arc__mode">a distância</div>
+          </div>
+          <div class="arc__step is-now">
+            <div class="arc__n">Aula 3</div>
+            <div class="arc__t">Definir e idear: da evidência à solução candidata</div>
+            <div class="arc__mode">hoje · presencial</div>
+          </div>
+          <div class="arc__step">
+            <div class="arc__n">Aula 4</div>
+            <div class="arc__t">Prototipar e testar: campo de experimentação</div>
+            <div class="arc__mode">a distância</div>
+          </div>
+          <div class="arc__step">
+            <div class="arc__n">Aula 5</div>
+            <div class="arc__t">Iterar e encaminhar: da solução testada à política implementável</div>
+            <div class="arc__mode">presencial</div>
+          </div>
+          <div class="arc__step">
+            <div class="arc__n">Aula 6</div>
+            <div class="arc__t">Apresentar: pitch e encaminhamento das soluções</div>
+            <div class="arc__mode">presencial</div>
+          </div>
+        </div>
+        <aside class="notes">
+          <p>Cada grupo chega hoje com o próprio Mapa de Evidências do Problema, produzido no campo da Aula 2. Hoje eles saem da evidência bruta e chegam a uma solução candidata.</p>
+        </aside>
+      </section>
+
+      <section class="slide" data-hud="Abertura">
+        <p class="eyebrow">Os 4 movimentos do dia</p>
+        <div class="clusters">
+          <div class="cluster">
+            <div class="cluster__n">01</div>
+            <div class="cluster__name">Analisar</div>
+            <div class="cluster__unit">Bloco 1 · 40 min</div>
+          </div>
+          <div class="cluster">
+            <div class="cluster__n">02</div>
+            <div class="cluster__name">Definir</div>
+            <div class="cluster__unit">Bloco 2 · 35 min</div>
+          </div>
+          <div class="cluster">
+            <div class="cluster__n">03</div>
+            <div class="cluster__name">Idear</div>
+            <div class="cluster__unit">Bloco 3 · 58 min</div>
+          </div>
+          <div class="cluster">
+            <div class="cluster__n">04</div>
+            <div class="cluster__name">Retroalimentar</div>
+            <div class="cluster__unit">Blocos 4–5 · 57 min</div>
+          </div>
+        </div>
+        <p class="footnote">Da evidência analisada até a solução instrumentada para gerar seu próprio dado.</p>
+      </section>
+
+      <section class="slide" data-hud="Abertura">
+        <p class="eyebrow">Roteiro do dia · 230 min</p>
+        <h2 style="margin-bottom:22px">Agenda</h2>
+        <div class="agenda">
+          <div class="agenda__i">
+            <div class="agenda__n">0</div>
+            <div class="agenda__t">Abertura: do campo à solução candidata</div>
+            <div class="agenda__d">10 min</div>
+          </div>
+          <div class="agenda__i">
+            <div class="agenda__n">3</div>
+            <div class="agenda__t">Ideação e prospecção com IA</div>
+            <div class="agenda__d">58 min</div>
+          </div>
+          <div class="agenda__i">
+            <div class="agenda__n">1</div>
+            <div class="agenda__t">Análise crítica das evidências e triangulação</div>
+            <div class="agenda__d">40 min</div>
+          </div>
+          <div class="agenda__i">
+            <div class="agenda__n">4</div>
+            <div class="agenda__t">Teoria da Mudança e Modelo Lógico</div>
+            <div class="agenda__d">37 min</div>
+          </div>
+          <div class="agenda__i">
+            <div class="agenda__n">2</div>
+            <div class="agenda__t">Ponto de Vista e "Como poderíamos"</div>
+            <div class="agenda__d">35 min</div>
+          </div>
+          <div class="agenda__i">
+            <div class="agenda__n">5</div>
+            <div class="agenda__t">Indicadores e linha de base</div>
+            <div class="agenda__d">20 min</div>
+          </div>
+          <div class="agenda__i agenda__i--break">
+            <div class="agenda__n">☕</div>
+            <div class="agenda__t">Intervalo</div>
+            <div class="agenda__d">15 min</div>
+          </div>
+          <div class="agenda__i">
+            <div class="agenda__n">6</div>
+            <div class="agenda__t">Fechamento, coerência e orientação de campo (Aula 4)</div>
+            <div class="agenda__d">15 min</div>
+          </div>
+        </div>
+        <aside class="notes">
+          <p>Coluna da esquerda: primeira metade do dia. Coluna da direita: segunda metade, após o intervalo.</p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+             BLOCO 0: ABERTURA · 10 min
+             ============================================================ -->
+
+      <section class="slide slide--dark" data-hud="Bloco 0 · Abertura">
+        <p class="divider-num">00</p>
+        <p class="divider-title">Abertura: do campo<br />à solução candidata</p>
+        <p class="divider-time">10 min</p>
+      </section>
+
+      <section class="slide slide--ink" data-hud="Bloco 0 · Abertura">
+        <p class="eyebrow eyebrow--accent">A rodada de abertura</p>
+        <p class="consigna">
+          60 segundos por grupo: a citação mais forte do Mapa de Evidências.
+        </p>
+        <p class="consigna-note">
+          Só a fala literal do cidadão — sem comentário do grupo.
+        </p>
+        <div class="timer" data-t="5">
+          <div class="timer__time">05:00</div>
+          <div class="timer__hint">T inicia · R zera</div>
+        </div>
+        <aside class="notes">
+          <p>"Na Aula 1 eu disse que hoje vocês não iam me contar o que acham — iam contar o que ouviram e o que os dados mostram. Chegou a hora."</p>
+        </aside>
+      </section>
+
+      <section class="slide slide--dark slide--center" data-hud="Bloco 0 · Abertura">
+        <p class="statement">
+          A solução ainda é do <span class="accent">cidadão</span>, não da corporação.
+        </p>
+        <p class="footnote">
+          Quem já chegou com solução pronta na cabeça corre o risco de reforçar viés de confirmação — o Bloco 1 existe para testar isso.
+        </p>
+      </section>
+
+      <!-- ============================================================
+             BLOCO 1: ANÁLISE CRÍTICA DAS EVIDÊNCIAS E TRIANGULAÇÃO · 40 min
+             ============================================================ -->
+
+      <section class="slide slide--dark" data-hud="Bloco 1 · Análise crítica e triangulação">
+        <p class="divider-num">01</p>
+        <p class="divider-title">Análise crítica<br />das evidências</p>
+        <p class="divider-time">40 min</p>
+      </section>
+
+      <section class="slide" data-hud="Bloco 1 · Análise crítica e triangulação">
+        <p class="eyebrow">Os vieses, agora como lente sobre o próprio campo</p>
+        <h2 style="margin-bottom:26px">Vieses a vigiar no Mapa de Evidências</h2>
+        <div class="stack">
+          <div class="row">
+            <div class="row__key" style="flex-basis:170px">Confirmação</div>
+            <div class="row__val">Vocês só ouviram quem já concordava com a hipótese da Aula 1?</div>
+          </div>
+          <div class="row">
+            <div class="row__key" style="flex-basis:170px">Seleção</div>
+            <div class="row__val">A amostra cobriu perfis diferentes do território, ou só quem estava mais acessível?</div>
+          </div>
+          <div class="row">
+            <div class="row__key" style="flex-basis:170px">Sobrevivência</div>
+            <div class="row__val">Vocês só falaram com quem "sobreviveu" ao problema, sem ouvir quem desistiu ou não foi alcançado?</div>
+          </div>
+          <div class="row">
+            <div class="row__key" style="flex-basis:170px">Anedota vívida</div>
+            <div class="row__val">Uma citação forte está sendo tratada como se fosse representativa de todos?</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide slide--center" data-hud="Bloco 1 · Análise crítica e triangulação">
+        <p class="eyebrow">Triangulação qualitativo/quantitativo</p>
+        <p class="statement">
+          Não é palavra mágica de validação: é um <span class="accent">debate</span>, não um consenso.
+        </p>
+      </section>
+
+      <section class="slide" data-hud="Bloco 1 · Análise crítica e triangulação">
+        <div class="compare">
+          <div class="compare__row compare__row--head">
+            <div class="compare__head">Denzin</div>
+            <div class="compare__head compare__head--now">Mathison · Flick</div>
+          </div>
+          <div class="compare__row" data-step>
+            <div class="compare__cell">Convergência entre método qualitativo e quantitativo reforça validade</div>
+            <div class="compare__cell compare__cell--now">Triangulação frequentemente produz divergência, não confirmação</div>
+          </div>
+          <div class="compare__row" data-step>
+            <div class="compare__cell">O acordo entre fontes é o objetivo</div>
+            <div class="compare__cell compare__cell--now">Revelar contradição e contexto é o valor real</div>
+          </div>
+        </div>
+        <p class="footnote">Diga isso em sala: é mais honesto do que apresentar "triangulação" como palavra mágica.</p>
+      </section>
+
+      <section class="slide" data-hud="Bloco 1 · Análise crítica e triangulação">
+        <p class="eyebrow">O que a fala revela × o que o dado mostra</p>
+        <div class="matrix">
+          <div class="matrix__ylab" style="grid-row:1/3">O que ouvimos</div>
+          <div class="matrix__cell">
+            <div class="matrix__verb">Convergência</div>
+            <div class="matrix__desc">fala e dado apontam a mesma direção</div>
+          </div>
+          <div class="matrix__cell is-hot">
+            <div class="matrix__verb">Divergência</div>
+            <div class="matrix__desc">material bruto do Ponto de Vista</div>
+          </div>
+          <div class="matrix__cell">
+            <div class="matrix__verb">Só o dado</div>
+            <div class="matrix__desc">o dado mostra algo que ninguém verbalizou no campo</div>
+          </div>
+          <div class="matrix__cell">
+            <div class="matrix__verb">Lacuna dupla</div>
+            <div class="matrix__desc">nem a fala nem o dado tocam nisso</div>
+          </div>
+          <div class="matrix__corner"></div>
+          <div class="matrix__xlab">Dado forte</div>
+          <div class="matrix__xlab">Dado fraco ou ausente</div>
+        </div>
+        <aside class="notes">
+          <p>Conecte com a seção 4 do Mapa de Evidências ("o que ainda não sabemos"): é onde mora a divergência entre o que o cidadão disse e o que o dado mostra.</p>
+        </aside>
+      </section>
+
+      <section class="slide slide--ink" data-hud="Bloco 1 · Análise crítica e triangulação">
+        <p class="eyebrow eyebrow--accent">Exercício · "onde a fala e o dado não batem"</p>
+        <div class="stack" style="margin-top:20px">
+          <div class="row" data-step><div class="row__val">1. Liste, lado a lado, uma fala forte (seção 2) e um dado (seção 3) sobre o mesmo aspecto</div></div>
+          <div class="row" data-step><div class="row__val">2. Marque: convergem, divergem, ou um deles é silêncio</div></div>
+          <div class="row" data-step><div class="row__val">3. Para cada divergência ou silêncio: vazio de evidência real, ou viés de quem coletou?</div></div>
+          <div class="row" data-step><div class="row__val">4. Feche com uma frase: "o que ainda não sabemos, de fato, sobre este problema?"</div></div>
+        </div>
+        <div class="timer" data-t="28">
+          <div class="timer__time">28:00</div>
+          <div class="timer__hint">T inicia · R zera</div>
+        </div>
+        <aside class="notes">
+          <p>Atenção: grupos que só encontram convergência devem ser provocados — "vocês só ouviram quem já concordava com a hipótese que escolheram na Aula 1?"</p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+             BLOCO 2: PONTO DE VISTA E "COMO PODERÍAMOS" · 35 min
+             ============================================================ -->
+
+      <section class="slide slide--dark" data-hud="Bloco 2 · Ponto de Vista e Como Poderíamos">
+        <p class="divider-num">02</p>
+        <p class="divider-title">Ponto de Vista e<br />"Como poderíamos"</p>
+        <p class="divider-time">35 min</p>
+      </section>
+
+      <section class="slide" data-hud="Bloco 2 · Ponto de Vista e Como Poderíamos">
+        <p class="eyebrow">Do campo ao Ponto de Vista</p>
+        <div class="why">
+          <div class="why__row">
+            <div class="why__q">O que ouvimos</div>
+            <div class="why__line"></div>
+            <div class="why__tag">fala literal do cidadão</div>
+          </div>
+          <div class="why__row">
+            <div class="why__q">O que isso revela</div>
+            <div class="why__line"></div>
+            <div class="why__tag">padrão por trás da fala</div>
+          </div>
+          <div class="why__row">
+            <div class="why__q">Por que importa</div>
+            <div class="why__line"></div>
+            <div class="why__tag">consequência real</div>
+          </div>
+          <div class="why__row">
+            <div class="why__q">Para quem, exatamente</div>
+            <div class="why__line"></div>
+            <div class="why__tag">o usuário do Ponto de Vista</div>
+          </div>
+          <div class="why__row">
+            <div class="why__q">Ponto de Vista</div>
+            <div class="why__line"></div>
+            <div class="why__tag">a frase final</div>
+          </div>
+        </div>
+        <p class="footnote">Usuário específico + necessidade + motivo profundo — a dor refinada pelo campo, não a genérica do Canvas do Problema.</p>
+      </section>
+
+      <section class="slide slide--soft slide--center" data-hud="Bloco 2 · Ponto de Vista e Como Poderíamos">
+        <p class="statement">
+          "Como poderíamos..." não foi criado pelo <span class="accent">IDEO</span>.
+        </p>
+        <p class="src">
+          Min Basadur, Procter &amp; Gamble, anos 1970, a partir do método de resolução criativa de problemas de Osborn e Parnes. Difundido depois pelo IDEO (via Charles Warren) e popularizado por Tim Brown.
+        </p>
+        <p class="footnote">Mesma lição do Duplo Diamante na Aula 1: histórias de origem que circulam em treinamento de design nem sempre resistem à fonte primária.</p>
+      </section>
+
+      <section class="slide" data-hud="Bloco 2 · Ponto de Vista e Como Poderíamos">
+        <div class="compare">
+          <div class="compare__row compare__row--head">
+            <div class="compare__head">Inválido</div>
+            <div class="compare__head compare__head--now">Válido</div>
+          </div>
+          <div class="compare__row">
+            <div class="compare__cell">"Como poderíamos criar um aplicativo de alerta?"</div>
+            <div class="compare__cell compare__cell--now">"Como poderíamos fazer com que o idoso saiba o que fazer nos primeiros minutos de uma queda, mesmo morando sozinho?"</div>
+          </div>
+        </div>
+        <p class="footnote">O teste: "isso abre para mais de uma solução possível?"</p>
+      </section>
+
+      <section class="slide slide--ink" data-hud="Bloco 2 · Ponto de Vista e Como Poderíamos">
+        <p class="eyebrow eyebrow--accent">Oficina aplicada</p>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:40px;margin-top:20px">
+          <div style="flex:1;min-width:0">
+            <p class="consigna" style="margin:0">
+              Escrevam o Ponto de Vista e de 3 a 5 perguntas "Como poderíamos".
+            </p>
+          </div>
+          <div style="display:flex;align-items:center;gap:18px;flex:0 0 auto">
+            <a href="https://munizigor.github.io/aula-design-politicas-publicas/anexos/canvas-definir-idear.docx" target="_blank" rel="noopener" style="display:block;background:#fff;padding:8px;border-radius:8px" aria-label="Abrir o Canvas de Definição e Ideação">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&amp;data=https%3A%2F%2Fmunizigor.github.io%2Faula-design-politicas-publicas%2Fanexos%2Fcanvas-definir-idear.docx" alt="QR code para abrir o Canvas de Definição e Ideação" width="120" height="120" style="display:block" />
+            </a>
+            <p style="margin:0;max-width:22ch;font-size:18px;line-height:1.35">
+              <strong>Canvas de Definição e Ideação</strong>
+            </p>
+          </div>
+        </div>
+        <div class="stack" style="margin-top:20px">
+          <div class="row" data-step><div class="row__val">1. Ponto de Vista, a partir da frase do Bloco 1 + a dor original do Canvas do Problema</div></div>
+          <div class="row" data-step><div class="row__val">2. 3 a 5 perguntas "Como poderíamos", todas abertas</div></div>
+          <div class="row" data-step><div class="row__val">3. Teste cada uma: "abre para mais de uma solução possível?"</div></div>
+          <div class="row" data-step><div class="row__val">4. Escolham 1 pergunta como foco da oficina de ideação</div></div>
+        </div>
+        <div class="timer" data-t="27">
+          <div class="timer__time">27:00</div>
+          <div class="timer__hint">T inicia · R zera</div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+             INTERVALO · 15 min
+             ============================================================ -->
+
+      <section class="slide slide--dark slide--center" data-hud="Intervalo">
+        <p class="display">☕</p>
+        <h1 style="font-size:72px;margin-top:24px">Intervalo</h1>
+        <div class="timer" data-t="15">
+          <div class="timer__time">15:00</div>
+          <div class="timer__hint">T inicia · R zera</div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+             BLOCO 3: IDEAÇÃO E PROSPECÇÃO COM IA · 58 min
+             ============================================================ -->
+
+      <section class="slide slide--dark" data-hud="Bloco 3 · Ideação e prospecção com IA">
+        <p class="divider-num">03</p>
+        <p class="divider-title">Ideação e prospecção<br />com IA</p>
+        <p class="divider-time">58 min</p>
+        <p class="divider-goal">Objetivo: sair com 1 solução candidata escolhida por critério explícito, não por preferência do subgrupo mais vocal.</p>
+      </section>
+
+      <section class="slide slide--ink" data-hud="Bloco 3 · Ideação e prospecção com IA">
+        <p class="eyebrow eyebrow--accent">Instrução 1 · geração ampliada</p>
+        <p class="consigna">
+          Peça à IA alternativas de naturezas diferentes para a mesma pergunta: uma tecnológica, uma de processo/serviço, uma comunicacional/educativa.
+        </p>
+        <p class="consigna-note">Evita que a primeira resposta vire âncora.</p>
+      </section>
+
+      <section class="slide slide--ink" data-hud="Bloco 3 · Ideação e prospecção com IA">
+        <p class="eyebrow eyebrow--accent">Instrução 2 · contra-argumentação</p>
+        <p class="consigna">
+          "Assuma que vamos propor [alternativa X]; aja como avaliador cético — que evidência enfraquece essa proposta, que efeito colateral ela pode ter?"
+        </p>
+      </section>
+
+      <section class="slide slide--ink" data-hud="Bloco 3 · Ideação e prospecção com IA">
+        <p class="eyebrow eyebrow--accent">Instrução 3 · prospecção</p>
+        <p class="consigna">
+          Peça exemplos de políticas semelhantes já testadas no Brasil e no mundo, e pergunte: "o que precisamos saber do contexto de origem antes de considerar importar isso para o DF?"
+        </p>
+        <p class="consigna-note">
+          Transferência de política entre jurisdições falha quando é incompleta, inadequada ao novo contexto, ou baseada em informação insuficiente sobre onde funcionou primeiro (Dolowitz e Marsh). Prospectar sem essa checagem é cópia, não prospecção.
+        </p>
+      </section>
+
+      <section class="slide" data-hud="Bloco 3 · Ideação e prospecção com IA">
+        <p class="eyebrow">Salvaguarda desta oficina</p>
+        <p class="statement">
+          IA aumenta a quantidade e a qualidade média das ideias, mas também <span class="accent">homogeneíza</span> ideias entre grupos que usam instruções parecidas.
+        </p>
+        <p class="footnote">Se toda a turma sair com a mesma "solução óbvia de aplicativo", é homogeneização, não convergência de boas ideias — variem as instruções.</p>
+      </section>
+
+      <section class="slide slide--ink" data-hud="Bloco 3 · Ideação e prospecção com IA">
+        <p class="eyebrow eyebrow--accent">Prática em ilhas</p>
+        <div class="stack" style="margin-top:20px">
+          <div class="row" data-step><div class="row__val">1. Gerem 5–6 alternativas — diversidade de natureza, não volume</div></div>
+          <div class="row" data-step><div class="row__val">2. Contra-argumentação e prospecção nas 2–3 alternativas mais fortes</div></div>
+          <div class="row" data-step><div class="row__val">3. Matriz de seleção nessas finalistas: evidência, viabilidade, impacto (1–3 cada)</div></div>
+          <div class="row" data-step><div class="row__val">4. Escolham 1 solução candidata — a de maior pontuação, salvo justificativa</div></div>
+        </div>
+        <div class="timer" data-t="40">
+          <div class="timer__time">40:00</div>
+          <div class="timer__hint">T inicia · R zera</div>
+        </div>
+      </section>
+
+      <section class="slide slide--center" data-hud="Bloco 3 · Ideação e prospecção com IA">
+        <p class="eyebrow">Seleção e síntese</p>
+        <p class="statement">
+          A solução escolhida e o critério que mais pesou.
+        </p>
+        <p class="footnote">É solução do cidadão, testável na Aula 4 — ou já virou processo interno disfarçado?</p>
+        <div class="timer" data-t="10">
+          <div class="timer__time">10:00</div>
+          <div class="timer__hint">T inicia · R zera</div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+             BLOCO 4: TEORIA DA MUDANÇA E MODELO LÓGICO · 37 min
+             ============================================================ -->
+
+      <section class="slide slide--dark" data-hud="Bloco 4 · Teoria da Mudança e Modelo Lógico">
+        <p class="divider-num">04</p>
+        <p class="divider-title">Teoria da Mudança<br />e Modelo Lógico</p>
+        <p class="divider-time">37 min</p>
+        <p class="divider-goal">Hoje: versão de 3 colunas. A versão completa de 5 é refinamento assíncrono antes da Aula 5.</p>
+      </section>
+
+      <section class="slide" data-hud="Bloco 4 · Teoria da Mudança e Modelo Lógico">
+        <div class="compare">
+          <div class="compare__row compare__row--head">
+            <div class="compare__head">Teoria da Mudança</div>
+            <div class="compare__head compare__head--now">Modelo Lógico</div>
+          </div>
+          <div class="compare__row" data-step>
+            <div class="compare__cell">Explicita o mecanismo causal: "se X, então Y, porque Z"</div>
+            <div class="compare__cell compare__cell--now">Organiza operacionalmente o que a solução faz, entrega e muda</div>
+          </div>
+          <div class="compare__row" data-step>
+            <div class="compare__cell">Linhagem: avaliação — Weiss; Connell e Kubisch; Aspen Institute</div>
+            <div class="compare__cell compare__cell--now">Linhagem: cooperação internacional — Ortegón, Pacheco e Prieto (CEPAL/ILPES, 2005)</div>
+          </div>
+        </div>
+        <p class="src">Duas ferramentas, duas origens, funções complementares — não a mesma coisa.</p>
+      </section>
+
+      <section class="slide slide--center" data-hud="Bloco 4 · Teoria da Mudança e Modelo Lógico">
+        <p class="statement">
+          Não há teste robusto provando que Teoria da Mudança explícita gera melhor avaliação depois.
+        </p>
+        <p class="footnote">É boa prática consolidada, não resultado comprovado — a mesma humildade epistêmica da Aula 1 sobre os limites de evidência do próprio Design Thinking.</p>
+      </section>
+
+      <section class="slide slide--ink" data-hud="Bloco 4 · Teoria da Mudança e Modelo Lógico">
+        <p class="eyebrow eyebrow--accent">Construção em grupo</p>
+        <p class="consigna">
+          "Se [a solução candidata] for implementada, então [resultado esperado], porque [mecanismo/pressuposto causal]."
+        </p>
+        <p class="consigna-note">Depois: Modelo Lógico simplificado, em 3 colunas.</p>
+        <div class="timer" data-t="24">
+          <div class="timer__time">24:00</div>
+          <div class="timer__hint">T inicia · R zera</div>
+        </div>
+      </section>
+
+      <section class="slide slide--soft" data-hud="Bloco 4 · Teoria da Mudança e Modelo Lógico">
+        <p class="eyebrow">Exemplo ilustrativo · quedas de idosos</p>
+        <div class="cols cols-3">
+          <div class="card">
+            <span class="tag">O que fazemos</span>
+            <h3 style="font-size:22px">Campanha educativa</h3>
+          </div>
+          <div class="card">
+            <span class="tag">O que entregamos</span>
+            <h3 style="font-size:22px">Campanha realizada</h3>
+          </div>
+          <div class="card card--accent">
+            <span class="tag">O que muda</span>
+            <h3 style="font-size:22px">Idosos sabem o que fazer e caem menos</h3>
+          </div>
+        </div>
+        <p class="footnote">"O que muda" precisa bater com o "Y" da Teoria da Mudança — se não bater, um dos dois está inflado.</p>
+      </section>
+
+      <!-- ============================================================
+             BLOCO 5: INDICADORES E LINHA DE BASE · 20 min
+             ============================================================ -->
+
+      <section class="slide slide--dark" data-hud="Bloco 5 · Indicadores e linha de base">
+        <p class="divider-num">05</p>
+        <p class="divider-title">Indicadores e<br />linha de base</p>
+        <p class="divider-time">20 min</p>
+        <p class="divider-goal">Primeira versão — a Aula 5 consolida o plano de monitoramento completo.</p>
+      </section>
+
+      <section class="slide" data-hud="Bloco 5 · Indicadores e linha de base">
+        <p class="eyebrow">O ciclo de retroalimentação</p>
+        <svg class="cycle" viewBox="0 0 900 460" role="img" aria-label="Ciclo de retroalimentação: solução, dado, indicador, ajuste">
+          <defs></defs>
+          <g>
+            <path class="arrow" d="M 560,90 C 650,110 690,160 700,195" />
+            <polygon points="700,195 686,178 706,172" style="fill:var(--accent)" />
+
+            <path class="arrow" d="M 700,265 C 690,320 650,360 570,385" />
+            <polygon points="570,385 590,378 583,398" style="fill:var(--accent)" />
+
+            <path class="arrow" d="M 340,385 C 250,360 210,320 200,265" />
+            <polygon points="200,265 194,285 214,278" style="fill:var(--accent)" />
+
+            <path class="arrow" d="M 200,195 C 210,140 250,100 340,90" />
+            <polygon points="340,90 320,97 327,77" style="fill:var(--accent)" />
+
+            <rect class="box" x="345" y="20" width="210" height="66" rx="14" />
+            <text x="450" y="48" font-size="19" font-weight="650" text-anchor="middle">A solução roda</text>
+            <text x="450" y="72" font-size="15" text-anchor="middle" fill="var(--mute)">no dia a dia do cidadão</text>
+
+            <rect class="box" x="635" y="198" width="210" height="66" rx="14" />
+            <text x="740" y="226" font-size="19" font-weight="650" text-anchor="middle">Gera o dado</text>
+            <text x="740" y="250" font-size="15" text-anchor="middle" fill="var(--mute)">mecanismo embutido</text>
+
+            <rect class="box" x="345" y="376" width="210" height="66" rx="14" />
+            <text x="450" y="404" font-size="19" font-weight="650" text-anchor="middle">Vira indicador</text>
+            <text x="450" y="428" font-size="15" text-anchor="middle" fill="var(--mute)">de processo ou resultado</text>
+
+            <rect class="box" x="55" y="198" width="210" height="66" rx="14" />
+            <text x="160" y="226" font-size="19" font-weight="650" text-anchor="middle">Aponta o ajuste</text>
+            <text x="160" y="250" font-size="15" text-anchor="middle" fill="var(--mute)">o que muda na solução</text>
+
+            <text class="rlab" x="450" y="235" font-size="18" text-anchor="middle">retroalimentação</text>
+          </g>
+        </svg>
+        <p class="footnote">O indicador desenhado hoje é o dado que, no futuro, sustenta o próximo ajuste da solução — ou não, se for mal desenhado agora.</p>
+      </section>
+
+      <section class="slide slide--center" data-hud="Bloco 5 · Indicadores e linha de base">
+        <p class="statement">
+          Quanto mais um indicador é usado para decidir, mais tende a <span class="accent">corromper</span> o processo que deveria medir.
+        </p>
+        <p class="src">Bevan, G. &amp; Hood, C. (2006). <em>What's measured is what matters.</em> Public Administration — "lei de Campbell".</p>
+      </section>
+
+      <section class="slide" data-hud="Bloco 5 · Indicadores e linha de base">
+        <p class="eyebrow">Linha de base sem comparação não isola causa</p>
+        <p class="lead lead--wide">
+          Um único exemplo viável na escala de um órgão distrital: comparar a região administrativa onde a solução roda com uma parecida, onde não roda.
+        </p>
+        <p class="footnote">Outras técnicas (leitura complementar, Silva/ENAP): não é jargão para hoje.</p>
+      </section>
+
+      <section class="slide slide--ink" data-hud="Bloco 5 · Indicadores e linha de base">
+        <p class="eyebrow eyebrow--accent">Oficina aplicada</p>
+        <div class="stack" style="margin-top:20px">
+          <div class="row" data-step><div class="row__val">1–2 indicadores de processo (a solução está sendo executada como planejado?)</div></div>
+          <div class="row" data-step><div class="row__val">1 indicador de resultado, ligado ao "Y" da Teoria da Mudança</div></div>
+          <div class="row" data-step><div class="row__val">Linha de base: qual dado usar, e onde ele já existe ou precisa ser coletado</div></div>
+          <div class="row" data-step><div class="row__val">Mecanismo de coleta embutido: como a própria solução gera o dado</div></div>
+        </div>
+        <div class="timer" data-t="14">
+          <div class="timer__time">14:00</div>
+          <div class="timer__hint">T inicia · R zera</div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+             BLOCO 6: FECHAMENTO, COERÊNCIA E ORIENTAÇÃO DE CAMPO · 15 min
+             ============================================================ -->
+
+      <section class="slide slide--dark" data-hud="Bloco 6 · Fechamento e orientação de campo">
+        <p class="divider-num">06</p>
+        <p class="divider-title">Fechamento e<br />orientação de campo</p>
+        <p class="divider-time">15 min</p>
+      </section>
+
+      <section class="slide slide--ink slide--center" data-hud="Bloco 6 · Fechamento e orientação de campo">
+        <p class="eyebrow eyebrow--accent">Checagem de coerência</p>
+        <p class="consigna consigna--center">
+          Releiam o Canvas inteiro, em silêncio, de ponta a ponta.
+        </p>
+        <p class="lead lead--wide" style="margin-left:auto;margin-right:auto">
+          A solução resolve a pergunta escolhida? "O que muda" bate com o "Y"? O indicador mede esse "Y"?
+        </p>
+        <div class="timer" data-t="5">
+          <div class="timer__time">05:00</div>
+          <div class="timer__hint">T inicia · R zera</div>
+        </div>
+        <aside class="notes">
+          <p>Circule rápido pelas ilhas só para flagrar desconexões óbvias — não é hora de nova rodada de debate, é checagem final. Com o docente por perto, o erro é barato; sozinho em campo, custa a semana inteira.</p>
+        </aside>
+      </section>
+
+      <section class="slide slide--soft" data-hud="Bloco 6 · Fechamento e orientação de campo">
+        <p class="eyebrow">Entregável · trazer pronto na Aula 5</p>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:32px;margin-bottom:20px">
+          <h2 style="margin:0">Protótipo funcional + registro dos testes</h2>
+          <div style="display:flex;align-items:center;gap:18px;flex:0 0 auto">
+            <a href="https://munizigor.github.io/aula-design-politicas-publicas/anexos/orientacao-campo-aula-4.docx" target="_blank" rel="noopener" style="display:block;background:#fff;padding:8px;border-radius:8px" aria-label="Abrir a orientação de campo da Aula 4">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&amp;data=https%3A%2F%2Fmunizigor.github.io%2Faula-design-politicas-publicas%2Fanexos%2Forientacao-campo-aula-4.docx" alt="QR code para abrir a orientação de campo da Aula 4" width="120" height="120" style="display:block" />
+            </a>
+            <p style="margin:0;max-width:22ch;font-size:18px;line-height:1.35">
+              <strong>Orientação de campo da Aula 4</strong>
+            </p>
+          </div>
+        </div>
+        <p class="lead lead--wide">
+          Construir o protótipo da solução candidata e testá-lo com os cidadãos afetados — mínimo de 5 sessões de teste.
+        </p>
+        <p class="footnote">Mentoria assíncrona do docente durante a semana de campo.</p>
+      </section>
+
+      <section class="slide slide--dark slide--center" data-hud="Bloco 6 · Fechamento e orientação de campo">
+        <p class="statement">
+          "Vocês saem hoje com uma solução candidata sustentada em evidência — o campo da próxima semana é o que vai dizer se ela <span class="accent">sobrevive</span> ao contato com o cidadão real."
+        </p>
+      </section>
+
+      <section class="slide slide--dark slide--center" data-hud="Bloco 6 · Fechamento e orientação de campo">
+        <div class="rule"></div>
+        <h1 style="font-size:56px;font-weight:600">Até a Aula 5</h1>
+      </section>
+    </div>
+
+    <div id="hud">
+      <div id="hud-block"></div>
+      <div id="hud-count"></div>
+    </div>
+
+    <div id="notes">
+      <h4>Notas do instrutor</h4>
+      <div id="notes-body"></div>
+    </div>
+
+    <div id="overview">
+      <h4>Visão geral, clique para ir · Esc fecha</h4>
+      <div class="ov-grid" id="ov-grid"></div>
+    </div>
+
+    <div id="help">
+      <h4>Atalhos: Esc fecha</h4>
+      <div class="help-grid">
+        <div>
+          <span>Avançar (passo ou slide)</span
+          ><span><kbd>→</kbd> <kbd>espaço</kbd> <kbd>PgDn</kbd></span>
+        </div>
+        <div>
+          <span>Iniciar / pausar cronômetro</span><span><kbd>T</kbd></span>
+        </div>
+        <div>
+          <span>Voltar</span><span><kbd>←</kbd> <kbd>PgUp</kbd></span>
+        </div>
+        <div>
+          <span>Zerar cronômetro</span><span><kbd>R</kbd></span>
+        </div>
+        <div>
+          <span>Ajustar cronômetro em 30s</span><span><kbd>+</kbd> <kbd>-</kbd></span>
+        </div>
+        <div>
+          <span>Primeiro / último slide</span
+          ><span><kbd>Home</kbd> <kbd>End</kbd></span>
+        </div>
+        <div>
+          <span>Notas do instrutor</span><span><kbd>P</kbd></span>
+        </div>
+        <div>
+          <span>Visão geral dos slides</span><span><kbd>O</kbd></span>
+        </div>
+        <div>
+          <span>Tela preta (atenção na sala)</span><span><kbd>B</kbd></span>
+        </div>
+        <div>
+          <span>Tela cheia</span><span><kbd>F</kbd></span>
+        </div>
+        <div>
+          <span>Esta ajuda</span><span><kbd>?</kbd></span>
+        </div>
+      </div>
+      <p style="margin-top:30px;color:#86868b;font-size:16px">
+        Clique na metade direita da tela para avançar, na esquerda para voltar.
+        Deslize o dedo em telas sensíveis ao toque.<br />
+        Para gerar PDF: <kbd>Ctrl</kbd>+<kbd>P</kbd>, um slide por página,
+        orientação paisagem, com "gráficos de fundo" ativado.
+      </p>
+    </div>
+
+    <div id="blackout"></div>
+
+    <script src="../assets/deck.js"></script>
+  </body>
+</html>
