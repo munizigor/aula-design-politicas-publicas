@@ -5,7 +5,7 @@
 
 ## A missão
 
-Construir o **protótipo** da solução candidata definida no Canvas de Definição e Ideação (Aula 3) e **testá-lo com os cidadãos afetados**. Nesta semana, vocês saem da teoria e colocam algo tangível na frente de quem vive o problema — a qualidade do protótipo importa menos do que a qualidade do teste.
+Construir o **protótipo** da solução candidata definida no Caderno de Definição e Ideação (Aula 3) e **testá-lo com os cidadãos afetados**. Nesta semana, vocês saem da teoria e colocam algo tangível na frente de quem vive o problema — a qualidade do protótipo importa menos do que a qualidade do teste.
 
 **Mínimo por grupo:**
 
@@ -45,7 +45,7 @@ Trazido pronto na Aula 5:
 
 1. **O protótipo**, em qualquer fidelidade;
 2. **O registro das 5 sessões de teste** — o que cada cidadão fez, disse e sentiu ao usar o protótipo, com citações literais anonimizadas;
-3. **Uma síntese do grupo**: o que o teste confirmou da Teoria da Mudança do Canvas, o que contradisse, e o que precisa mudar antes de seguir.
+3. **Uma síntese do grupo**: o que o teste confirmou da Teoria da Mudança do Caderno, o que contradisse, e o que precisa mudar antes de seguir.
 
 ## Apoio durante a semana
 

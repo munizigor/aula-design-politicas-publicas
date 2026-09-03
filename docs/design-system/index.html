@@ -1,0 +1,1306 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design system dos decks · Design de Políticas Públicas Baseadas em Evidências · CAEO/CEPED-CBMDF</title>
+<meta name="description" content="Styleguide vivo do sistema visual dos decks da disciplina Design de Políticas Públicas Baseadas em Evidências — tokens, componentes e comportamento, renderizados em tamanho de projeção.">
+
+<!-- A fonte da verdade. O styleguide nao redefine nada: ele demonstra. -->
+<link rel="stylesheet" href="../assets/deck.css">
+
+<style>
+  /* =========================================================
+     Chrome do styleguide.
+
+     Vem DEPOIS de deck.css e desfaz o que o deck impoe ao
+     documento (palco fixo, overflow oculto, fundo preto), porque
+     aqui a pagina rola. Tudo com prefixo --sg- / .sg-, para nao
+     colidir com os tokens dos slides: redefinir --accent no :root
+     estragaria a renderizacao dos specimens claros.
+     ========================================================= */
+
+  :root {
+    --sg-bg:   #ffffff;
+    --sg-ink:  #1d1d1f;
+    --sg-mute: #6e6e73;
+    --sg-hair: #d2d2d7;
+    --sg-chip: #f5f5f7;
+    --sg-accent: #b22222;
+    --sg-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --sg-bg:   #0b0b0d;
+      --sg-ink:  #f5f5f7;
+      --sg-mute: #98989d;
+      --sg-hair: #2c2c2e;
+      --sg-chip: #1c1c1e;
+      --sg-accent: #e2564d;
+    }
+  }
+
+  html, body {
+    height: auto;
+    overflow: visible;
+    background: var(--sg-bg);
+    color: var(--sg-ink);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-size: 16px;
+    line-height: 1.6;
+    padding-bottom: 120px;
+  }
+
+  ::selection { background: var(--sg-accent); color: #fff; }
+
+  .sg-wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- cabecalho ---------- */
+
+  .sg-top {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--sg-bg);
+    background: color-mix(in srgb, var(--sg-bg) 88%, transparent);
+    backdrop-filter: saturate(180%) blur(18px);
+    -webkit-backdrop-filter: saturate(180%) blur(18px);
+    border-bottom: 1px solid var(--sg-hair);
+  }
+
+  .sg-top__in {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 12px 32px;
+    display: flex;
+    align-items: baseline;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+
+  .sg-top__name {
+    font-size: 14px;
+    font-weight: 650;
+    letter-spacing: -.01em;
+    white-space: nowrap;
+  }
+
+  .sg-nav {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    font-size: 13px;
+  }
+
+  .sg-nav a {
+    color: var(--sg-mute);
+    text-decoration: none;
+    letter-spacing: .02em;
+  }
+
+  .sg-nav a:hover { color: var(--sg-accent); }
+
+  /* ---------- hero ---------- */
+
+  .sg-hero { padding: 74px 0 54px; border-bottom: 1px solid var(--sg-hair); }
+
+  .sg-hero__rule {
+    width: 76px; height: 4px;
+    background: var(--sg-accent);
+    border-radius: 2px;
+    margin-bottom: 30px;
+  }
+
+  .sg-hero h1 {
+    font-size: 46px;
+    line-height: 1.08;
+    letter-spacing: -.03em;
+    margin: 0 0 18px;
+    max-width: 20ch;
+  }
+
+  .sg-hero p {
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--sg-mute);
+    max-width: 66ch;
+    margin: 0 0 14px;
+  }
+
+  .sg-hero a { color: var(--sg-accent); }
+
+  /* ---------- secoes ---------- */
+
+  .sg-sec { padding: 62px 0 10px; }
+
+  .sg-sec__n {
+    font-size: 12px;
+    font-weight: 650;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--sg-accent);
+    margin: 0 0 10px;
+  }
+
+  .sg-sec > h2 {
+    font-size: 34px;
+    line-height: 1.12;
+    letter-spacing: -.025em;
+    margin: 0 0 12px;
+  }
+
+  .sg-sec > p:not(.sg-sec__n) {
+    font-size: 17px;
+    color: var(--sg-mute);
+    max-width: 70ch;
+    margin: 0 0 12px;
+  }
+
+  /* escopado ao chrome: dentro de .spec o markup e do deck, nao do styleguide */
+  .sg-wrap code {
+    font-family: var(--sg-mono);
+    font-size: .88em;
+    background: var(--sg-chip);
+    border-radius: 5px;
+    padding: 1px 6px;
+  }
+
+  .sg-code pre code {
+    background: none;
+    padding: 0;
+    font-size: inherit;
+  }
+
+  /* ---------- specimen ---------- */
+
+  .sg-item { margin-top: 44px; }
+
+  .sg-item__head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+  }
+
+  .sg-item__name {
+    font-family: var(--sg-mono);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--sg-ink);
+  }
+
+  .sg-item__tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--sg-mute);
+    border: 1px solid var(--sg-hair);
+    border-radius: 999px;
+    padding: 2px 9px;
+  }
+
+  .sg-item__tag--unused { color: var(--sg-accent); border-color: currentColor; }
+
+  .sg-item__use {
+    font-size: 15px;
+    color: var(--sg-mute);
+    margin: 0 0 16px;
+    max-width: 78ch;
+  }
+
+  .sg-item__use b { color: var(--sg-ink); font-weight: 600; }
+
+  /* moldura do palco: 1280x720 reduzido para a largura da coluna */
+  .spec {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 1px solid var(--sg-hair);
+    border-radius: 14px;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .spec__inner {
+    position: absolute;
+    left: 0; top: 0;
+    width: 1280px;
+    height: 720px;
+    transform-origin: 0 0;
+  }
+
+  /* dentro da moldura o slide se comporta como no palco */
+  .spec .slide { position: absolute; inset: 0; }
+
+  .sg-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+
+  .sg-cap {
+    font-size: 13px;
+    color: var(--sg-mute);
+    margin: 8px 0 0;
+  }
+
+  /* ---------- codigo ---------- */
+
+  details.sg-code {
+    margin-top: 12px;
+    border: 1px solid var(--sg-hair);
+    border-radius: 10px;
+    background: var(--sg-chip);
+  }
+
+  details.sg-code > summary {
+    cursor: pointer;
+    padding: 9px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--sg-mute);
+    letter-spacing: .02em;
+    list-style: none;
+  }
+
+  details.sg-code > summary::-webkit-details-marker { display: none; }
+  details.sg-code > summary::before { content: "▸ "; }
+  details.sg-code[open] > summary::before { content: "▾ "; }
+  details.sg-code > summary:hover { color: var(--sg-accent); }
+
+  .sg-code__body { position: relative; border-top: 1px solid var(--sg-hair); }
+
+  .sg-code pre {
+    margin: 0;
+    padding: 16px 18px;
+    overflow-x: auto;
+    font-family: var(--sg-mono);
+    font-size: 12.5px;
+    line-height: 1.55;
+    tab-size: 2;
+  }
+
+  .sg-copy {
+    position: absolute;
+    top: 10px; right: 12px;
+    font: inherit;
+    font-size: 11px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    font-weight: 650;
+    color: var(--sg-mute);
+    background: var(--sg-bg);
+    border: 1px solid var(--sg-hair);
+    border-radius: 6px;
+    padding: 4px 10px;
+    cursor: pointer;
+  }
+
+  .sg-copy:hover { color: var(--sg-accent); border-color: currentColor; }
+
+  /* ---------- amostras de cor ---------- */
+
+  .sg-swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(178px, 1fr));
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  .sg-sw {
+    border: 1px solid var(--sg-hair);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .sg-sw__chip { height: 78px; }
+
+  .sg-sw__meta { padding: 11px 13px 13px; }
+
+  .sg-sw__tok {
+    font-family: var(--sg-mono);
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .sg-sw__hex {
+    font-family: var(--sg-mono);
+    font-size: 12px;
+    color: var(--sg-mute);
+    text-transform: uppercase;
+  }
+
+  .sg-sw__role {
+    font-size: 12.5px;
+    color: var(--sg-mute);
+    line-height: 1.4;
+    margin-top: 6px;
+  }
+
+  /* ---------- tabelas ---------- */
+
+  .sg-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 22px;
+    font-size: 14.5px;
+  }
+
+  .sg-table th, .sg-table td {
+    text-align: left;
+    padding: 10px 14px 10px 0;
+    border-bottom: 1px solid var(--sg-hair);
+    vertical-align: top;
+  }
+
+  .sg-table th {
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--sg-mute);
+    font-weight: 650;
+  }
+
+  .sg-table td:first-child { font-family: var(--sg-mono); font-size: 13px; white-space: nowrap; }
+  .sg-table td em { color: var(--sg-mute); font-style: normal; }
+
+  /* ---------- avisos ---------- */
+
+  .sg-note {
+    border-left: 3px solid var(--sg-accent);
+    padding: 2px 0 2px 18px;
+    margin: 22px 0;
+    font-size: 15px;
+    color: var(--sg-mute);
+    max-width: 74ch;
+  }
+
+  .sg-note b { color: var(--sg-ink); font-weight: 600; }
+
+  /* ---------- rodape ---------- */
+
+  .sg-foot {
+    margin-top: 78px;
+    padding-top: 30px;
+    border-top: 1px solid var(--sg-hair);
+    font-size: 14px;
+    color: var(--sg-mute);
+  }
+
+  .sg-foot p { font-size: 14px; line-height: 1.6; margin: 0 0 6px; }
+
+  .sg-foot a { color: var(--sg-accent); }
+
+  .sg-btn {
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--sg-bg);
+    background: var(--sg-accent);
+    border: 0;
+    border-radius: 8px;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin-top: 14px;
+  }
+
+  @media (max-width: 760px) {
+    .sg-grid2 { grid-template-columns: 1fr; }
+    .sg-wrap, .sg-top__in { padding-left: 20px; padding-right: 20px; }
+  }
+</style>
+</head>
+
+<body>
+
+<header class="sg-top">
+  <div class="sg-top__in">
+    <div class="sg-top__name">Design system · decks da disciplina</div>
+    <nav class="sg-nav">
+      <a href="#fundamentos">Fundamentos</a>
+      <a href="#cor">Cor</a>
+      <a href="#tipografia">Tipografia</a>
+      <a href="#slides">Slides</a>
+      <a href="#conteudo">Conteúdo</a>
+      <a href="#fontes">Fontes</a>
+      <a href="#comportamento">Comportamento</a>
+    </nav>
+  </div>
+</header>
+
+<div class="sg-wrap">
+
+  <section class="sg-hero">
+    <div class="sg-hero__rule"></div>
+    <h1>Design system dos decks da disciplina</h1>
+    <p>
+      Sistema visual e de comportamento comum às seis aulas de
+      <strong>Design de Políticas Públicas Baseadas em Evidências</strong> —
+      CAEO · CEPED/CBMDF.
+    </p>
+    <p>
+      Tudo aqui é renderizado pelo próprio <code>../assets/deck.css</code>, no palco
+      real de 1280×720 reduzido para caber na coluna. O que você vê é o que o
+      projetor mostra. Esta página <b>demonstra</b>; ela não redefine nada.
+    </p>
+    <p>
+      Leitura de apoio:
+      <a href="README.md">README</a> (princípios e como criar uma aula) ·
+      <a href="tokens.md">tokens.md</a> ·
+      <a href="componentes.md">componentes.md</a> ·
+      <a href="template-aula.html">template-aula.html</a>
+    </p>
+  </section>
+
+  <!-- ==================================================== -->
+  <section class="sg-sec" id="fundamentos">
+    <p class="sg-sec__n">01</p>
+    <h2>Fundamentos</h2>
+    <p>
+      Oito regras que estão codificadas no CSS, não são preferências avulsas.
+      O detalhe de cada uma está no <a href="README.md">README</a>.
+    </p>
+
+    <table class="sg-table">
+      <tr>
+        <th style="width:210px">Regra</th>
+        <th>Consequência prática</th>
+      </tr>
+      <tr>
+        <td>Palco fixo 1280×720</td>
+        <td>Você desenha para a projeção. Nada é responsivo: slide que só cabe diminuindo a fonte está errado.</td>
+      </tr>
+      <tr>
+        <td>Um slide, uma ideia</td>
+        <td>As larguras máximas (<em>21ch, 24ch, 26ch</em>) são o teste. Estourou? São duas ideias.</td>
+      </tr>
+      <tr>
+        <td>Só tokens, nunca <code>#hex</code></td>
+        <td>Componente que usa tokens funciona nas quatro variantes de fundo sem regra extra.</td>
+      </tr>
+      <tr>
+        <td>Vermelho com parcimônia</td>
+        <td>Um elemento em <code>--accent</code> por slide. Quatro elementos vermelhos = ênfase nenhuma.</td>
+      </tr>
+      <tr>
+        <td>Contraste vence marca</td>
+        <td>No escuro o accent vira <code>#e2564d</code>. É proposital — não desfaça.</td>
+      </tr>
+      <tr>
+        <td>Nota mora no slide</td>
+        <td><code>&lt;aside class="notes"&gt;</code> dentro da <code>&lt;section&gt;</code>. Nada dessincroniza.</td>
+      </tr>
+      <tr>
+        <td>Sem build, sem rede</td>
+        <td>Dois arquivos estáticos e HTML. <code>file://</code> funciona.</td>
+      </tr>
+      <tr>
+        <td>Afirmação rastreável</td>
+        <td>Comentário <code>R:</code>/<code>P:</code> no HTML, <code>.src</code> no slide, <code>.grade</code> quando o grau importa.</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- ==================================================== -->
+  <section class="sg-sec" id="cor">
+    <p class="sg-sec__n">02</p>
+    <h2>Cor</h2>
+    <p>
+      Dois tokens globais e cinco de superfície que <b>cada variante de fundo
+      reescreve</b>. É por isso que os componentes não precisam de regra por variante.
+    </p>
+
+    <div class="sg-swatches">
+      <div class="sg-sw">
+        <div class="sg-sw__chip" style="background:#b22222"></div>
+        <div class="sg-sw__meta">
+          <div class="sg-sw__tok">--accent</div>
+          <div class="sg-sw__hex">#b22222</div>
+          <div class="sg-sw__role">Vermelho bombeiro. Ênfase única por slide.</div>
+        </div>
+      </div>
+      <div class="sg-sw">
+        <div class="sg-sw__chip" style="background:#e2564d"></div>
+        <div class="sg-sw__meta">
+          <div class="sg-sw__tok">--accent <em>(escuro)</em></div>
+          <div class="sg-sw__hex">#e2564d</div>
+          <div class="sg-sw__role">Substituto em <code>--dark</code> e <code>--ink</code>: o #b22222 não passa contraste no projetor.</div>
+        </div>
+      </div>
+      <div class="sg-sw">
+        <div class="sg-sw__chip" style="background:#c99700"></div>
+        <div class="sg-sw__meta">
+          <div class="sg-sw__tok">--gold</div>
+          <div class="sg-sw__hex">#c99700</div>
+          <div class="sg-sw__role">Só o aviso do cronômetro. Nunca em conteúdo.</div>
+        </div>
+      </div>
+      <div class="sg-sw">
+        <div class="sg-sw__chip" style="background:#1d1d1f"></div>
+        <div class="sg-sw__meta">
+          <div class="sg-sw__tok">--ink</div>
+          <div class="sg-sw__hex">#1d1d1f</div>
+          <div class="sg-sw__role">Tinta principal. No escuro, #f5f5f7.</div>
+        </div>
+      </div>
+      <div class="sg-sw">
+        <div class="sg-sw__chip" style="background:#6e6e73"></div>
+        <div class="sg-sw__meta">
+          <div class="sg-sw__tok">--mute</div>
+          <div class="sg-sw__hex">#6e6e73</div>
+          <div class="sg-sw__role">Texto secundário, rótulos, fontes.</div>
+        </div>
+      </div>
+      <div class="sg-sw">
+        <div class="sg-sw__chip" style="background:#d2d2d7"></div>
+        <div class="sg-sw__meta">
+          <div class="sg-sw__tok">--hair</div>
+          <div class="sg-sw__hex">#d2d2d7</div>
+          <div class="sg-sw__role">Fios e bordas de 1px.</div>
+        </div>
+      </div>
+      <div class="sg-sw">
+        <div class="sg-sw__chip" style="background:#f5f5f7;border-bottom:1px solid #d2d2d7"></div>
+        <div class="sg-sw__meta">
+          <div class="sg-sw__tok">--chip</div>
+          <div class="sg-sw__hex">#f5f5f7</div>
+          <div class="sg-sw__role">Preenchimento sutil: card cheio, destaque.</div>
+        </div>
+      </div>
+      <div class="sg-sw">
+        <div class="sg-sw__chip" style="background:#ffffff;border-bottom:1px solid #d2d2d7"></div>
+        <div class="sg-sw__meta">
+          <div class="sg-sw__tok">--bg</div>
+          <div class="sg-sw__hex">#ffffff</div>
+          <div class="sg-sw__role">Fundo do slide. Varia por variante.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sg-item">
+      <div class="sg-item__head">
+        <span class="sg-item__name">.slide · .slide--soft · .slide--dark · .slide--ink</span>
+        <span class="sg-item__tag">4 variantes</span>
+      </div>
+      <p class="sg-item__use">
+        O mesmo slide nas quatro variantes, sem uma linha de CSS adicional.
+        <b>Padrão</b> para conteúdo comum · <b>soft</b> para respiro entre brancos ·
+        <b>dark</b> para divisores e afirmações que param a sala ·
+        <b>ink</b> para consigna e atividade: escuro sem o peso do divisor.
+      </p>
+
+      <div class="sg-grid2">
+        <div>
+          <div class="spec">
+            <div class="spec__inner">
+              <section class="slide current">
+                <p class="eyebrow">Rótulo do slide</p>
+                <h2 style="margin-bottom:20px">Título em duas linhas</h2>
+                <p class="lead lead--wide">Subtítulo em <span class="accent">--mute</span>, com uma palavra em accent.</p>
+                <p class="footnote">Nota de rodapé, o "mas" da afirmação.</p>
+              </section>
+            </div>
+          </div>
+          <p class="sg-cap"><code>.slide</code> — bg #ffffff</p>
+        </div>
+        <div>
+          <div class="spec">
+            <div class="spec__inner">
+              <section class="slide slide--soft current">
+                <p class="eyebrow">Rótulo do slide</p>
+                <h2 style="margin-bottom:20px">Título em duas linhas</h2>
+                <p class="lead lead--wide">Subtítulo em <span class="accent">--mute</span>, com uma palavra em accent.</p>
+                <p class="footnote">Nota de rodapé, o "mas" da afirmação.</p>
+              </section>
+            </div>
+          </div>
+          <p class="sg-cap"><code>.slide--soft</code> — bg #fbfbfd</p>
+        </div>
+        <div>
+          <div class="spec">
+            <div class="spec__inner">
+              <section class="slide slide--dark current">
+                <p class="eyebrow">Rótulo do slide</p>
+                <h2 style="margin-bottom:20px">Título em duas linhas</h2>
+                <p class="lead lead--wide">Subtítulo em <span class="accent">--mute</span>, com uma palavra em accent.</p>
+                <p class="footnote">Nota de rodapé, o "mas" da afirmação.</p>
+              </section>
+            </div>
+          </div>
+          <p class="sg-cap"><code>.slide--dark</code> — bg #000000, accent clareado</p>
+        </div>
+        <div>
+          <div class="spec">
+            <div class="spec__inner">
+              <section class="slide slide--ink current">
+                <p class="eyebrow">Rótulo do slide</p>
+                <h2 style="margin-bottom:20px">Título em duas linhas</h2>
+                <p class="lead lead--wide">Subtítulo em <span class="accent">--mute</span>, com uma palavra em accent.</p>
+                <p class="footnote">Nota de rodapé, o "mas" da afirmação.</p>
+              </section>
+            </div>
+          </div>
+          <p class="sg-cap"><code>.slide--ink</code> — bg #1d1d1f, accent clareado</p>
+        </div>
+      </div>
+
+      <div class="sg-note">
+        <b>.slide--center é ortogonal.</b> Centraliza e alinha ao centro; combina com
+        qualquer uma das quatro.
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================== -->
+  <section class="sg-sec" id="tipografia">
+    <p class="sg-sec__n">03</p>
+    <h2>Tipografia</h2>
+    <p>
+      Uma família só — pilha de fontes de sistema, sem webfont, sem rede. Texto
+      grande fecha o espacejamento; micro-rótulo em maiúsculas abre. A escala
+      completa está em <a href="tokens.md">tokens.md</a>.
+    </p>
+
+    <div class="sg-item">
+      <div class="sg-item__head"><span class="sg-item__name">escala em uso</span></div>
+      <p class="sg-item__use">Do maior ao menor, nos tamanhos reais do palco.</p>
+      <div class="spec">
+        <div class="spec__inner">
+          <section class="slide current" style="justify-content:flex-start;padding-top:52px">
+            <p class="display" style="font-size:78px">104 · .display</p>
+            <h1 style="font-size:66px;margin-top:12px">92 · h1 de capa</h1>
+            <p class="statement" style="font-size:50px;max-width:none;margin-top:14px">68 · .statement</p>
+            <h2 style="font-size:44px;margin:14px 0 0">60 · h2 de slide</h2>
+            <p class="lead" style="font-size:30px;max-width:none;margin-top:14px">33 · .lead — subtítulo explicativo</p>
+            <p style="margin-top:12px">27 · p — corpo do slide</p>
+            <p class="footnote" style="margin-top:12px">21 · .footnote — ressalva</p>
+            <p class="eyebrow" style="margin:14px 0 0">19 · .eyebrow, maiúsculas, +.14em</p>
+          </section>
+        </div>
+      </div>
+      <p class="sg-cap">Tamanhos reduzidos neste specimen para caber os oito degraus num slide só; os valores reais estão no rótulo.</p>
+    </div>
+  </section>
+
+  <!-- ==================================================== -->
+  <section class="sg-sec" id="slides">
+    <p class="sg-sec__n">04</p>
+    <h2>Slides estruturais</h2>
+    <p>Os formatos que dão ritmo ao deck: capa, divisor de bloco, afirmação, consigna, citação.</p>
+
+    <div class="sg-item">
+      <div class="sg-item__head"><span class="sg-item__name">capa</span></div>
+      <p class="sg-item__use"><b>Uma por deck.</b> O traço <code>.rule</code> tem 76×4px e se centraliza sozinho em <code>.slide--center</code>.</p>
+      <div class="spec"><div class="spec__inner">
+        <section class="slide current">
+          <div class="rule"></div>
+          <p class="eyebrow">Aula 1</p>
+          <h1>Design de Políticas Públicas Baseadas em Evidências</h1>
+          <p class="cover-meta">Ten-Cel. Muniz</p>
+        </section>
+      </div></div>
+      <details class="sg-code"><summary>markup</summary><div class="sg-code__body"><button class="sg-copy">copiar</button><pre><code data-src></code></pre></div></details>
+    </div>
+
+    <div class="sg-item">
+      <div class="sg-item__head"><span class="sg-item__name">divisor de bloco</span></div>
+      <p class="sg-item__use"><b>Um por bloco, sempre <code>.slide--dark</code>.</b> Número com dois dígitos. <code>.divider-goal</code> é opcional e traz um fio acima.</p>
+      <div class="spec"><div class="spec__inner">
+        <section class="slide slide--dark current">
+          <p class="divider-num">01</p>
+          <p class="divider-title">Desenho × design<br />de políticas públicas</p>
+          <p class="divider-time">40 min</p>
+          <p class="divider-goal">Formato: exercício provocador (15 min) + exposição dialogada (25 min).</p>
+        </section>
+      </div></div>
+      <details class="sg-code"><summary>markup</summary><div class="sg-code__body"><button class="sg-copy">copiar</button><pre><code data-src></code></pre></div></details>
+    </div>
+
+    <div class="sg-item">
+      <div class="sg-item__head"><span class="sg-item__name">.statement</span></div>
+      <p class="sg-item__use">A conclusão que a turma leva para casa. Ocupa o slide sozinha, trava em 21ch. <b>Uma ou duas palavras em accent</b>, nunca a frase toda. Para explicar um conceito, use <code>h2</code> + <code>.lead</code>.</p>
+      <div class="spec"><div class="spec__inner">
+        <section class="slide slide--dark slide--center current">
+          <p class="statement">
+            O "baseadas em evidências" do nome é o que impede o design de virar
+            <span class="accent">achismo criativo</span>.
+          </p>
+        </section>
+      </div></div>
+      <details class="sg-code"><summary>markup</summary><div class="sg-code__body"><button class="sg-copy">copiar</button><pre><code data-src></code></pre></div></details>
+    </div>
+
+    <div class="sg-item">
+      <div class="sg-item__head"><span class="sg-item__name">.consigna + .consigna-note</span></div>
+      <p class="sg-item__use">O que o docente <b>diz</b>, não o que a turma lê. Barra vermelha à esquerda. <b>Statement é conclusão; consigna é instrução.</b> <code>.consigna--center</code> remove a barra.</p>
+      <div class="spec"><div class="spec__inner">
+        <section class="slide slide--ink current">
+          <p class="eyebrow eyebrow--accent">A regra de ouro da disciplina</p>
+          <p class="consigna">O problema é do cidadão, não do CBMDF.</p>
+          <p class="consigna-note">
+            "Falta de viatura" não é problema elegível; "o idoso que cai em casa e
+            fica horas sem socorro" é.
+          </p>
+        </section>
+      </div></div>
+      <details class="sg-code"><summary>markup</summary><div class="sg-code__body"><button class="sg-copy">copiar</button><pre><code data-src></code></pre></div></details>
+    </div>
+
+    <div class="sg-item">
+      <div class="sg-item__head"><span class="sg-item__name">.quote + .quote-src</span></div>
+      <p class="sg-item__use">Só para palavra de terceiro, com aspas e atribuição. Fala do docente é <code>.consigna</code>.</p>
+      <div class="spec"><div class="spec__inner">
+        <section class="slide slide--ink slide--center current">
+          <p class="quote">"A confiança moderna no desenho sistemático não foi confirmada pela experiência."</p>
+          <p class="quote-src">Colebatch, H. K. (2018). <em>The idea of policy design.</em></p>
+        </section>
+      </div></div>
+      <details class="sg-code"><summary>markup</summary><div class="sg-code__body"><button class="sg-copy">copiar</button><pre><code data-src></code></pre></div></details>
+    </div>
+  </section>
+
+  <!-- ==================================================== -->
+  <section class="sg-sec" id="conteudo">
+    <p class="sg-sec__n">05</p>
+    <h2>Componentes de conteúdo</h2>
+    <p>
+      Onze estruturas. Cada uma responde a uma forma de argumento diferente — a
+      pergunta útil não é "qual fica bonito", é "que forma tem o que eu quero dizer".
+    </p>
+
+    <div class="sg-item">
+      <div class="sg-item__head"><span class="sg-item__name">.arc</span></div>
+      <p class="sg-item__use">Slide "onde estamos", uma vez por aula. <b>Exatamente um <code>is-now</code></b> — as demais aulas ficam a 55% de opacidade.</p>
+      <div class="spec"><div class="spec__inner">
+        <section class="slide slide--soft current">
+          <p class="eyebrow">Onde estamos</p>
+          <div class="arc">
+            <div class="arc__step is-now">
+              <div class="arc__n">Aula 1</div>
+              <div class="arc__t">Enquadrar: do desenho ao design</div>
+              <div class="arc__mode">hoje · presencial</div>
+            </div>
+            <div class="arc__step">
+              <div class="arc__n">Aula 2</div>
+              <div class="arc__t">Imergir: campo de empatia com o cidadão</div>
+              <div class="arc__mode">a distância</div>
+            </div>
+            <div class="arc__step">
+              <div class="arc__n">Aula 3</div>
+              <div class="arc__t">Definir e idear: da evidência à solução candidata</div>
+              <div class="arc__mode">presencial</div>
+            </div>
+            <div class="arc__step">
+              <div class="arc__n">Aula 4</div>
+              <div class="arc__t">Prototipar e testar: campo de experimentação</div>
+              <div class="arc__mode">a distância</div>
+            </div>
+            <div class="arc__step">
+              <div class="arc__n">Aula 5</div>
+              <div class="arc__t">Iterar e encaminhar: da solução testada à política</div>
+              <div class="arc__mode">presencial</div>
+            </div>
+            <div class="arc__step">
+              <div class="arc__n">Aula 6</div>
+              <div class="arc__t">Apresentar: pitch e encaminhamento das soluções</div>
+              <div class="arc__mode">presencial</div>
+            </div>
+          </div>
+        </section>
+      </div></div>
+      <details class="sg-code"><summary>markup</summary><div class="sg-code__body"><button class="sg-copy">copiar</button><pre><code data-src></code></pre></div></details>
+    </div>
+
+    <div class="sg-item">
+      <div class="sg-item__head"><span class="sg-item__name">.agenda</span></div>
+      <p class="sg-item__use">Roteiro do dia. <b>Grade de duas colunas preenchida coluna a coluna</b> — a ordem no HTML não é a ordem visual de cima para baixo, confira o resultado. <code>--break</code> esmaece o intervalo.</p>
+      <div class="spec"><div class="spec__inner">
+        <section class="slide current">
+          <p class="eyebrow">Roteiro do dia · 250 min</p>
+          <h2 style="margin-bottom:22px">Agenda</h2>
+          <div class="agenda">
+            <div class="agenda__i"><div class="agenda__n">0</div><div class="agenda__t">Abertura e contrato do curso</div><div class="agenda__d">15 min</div></div>
+            <div class="agenda__i"><div class="agenda__n">3</div><div class="agenda__t">Design Thinking no setor público</div><div class="agenda__d">30 min</div></div>
+            <div class="agenda__i"><div class="agenda__n">1</div><div class="agenda__t">Desenho × design de políticas públicas</div><div class="agenda__d">40 min</div></div>
+            <div class="agenda__i"><div class="agenda__n">4</div><div class="agenda__t">Oficina: IA como copiloto do policymaker</div><div class="agenda__d">60 min</div></div>
+            <div class="agenda__i"><div class="agenda__n">2</div><div class="agenda__t">Ciclo de políticas, evidências e empatia</div><div class="agenda__d">40 min</div></div>
+            <div class="agenda__i"><div class="agenda__n">5</div><div class="agenda__t">Formação dos grupos e escolha do problema</div><div class="agenda__d">40 min</div></div>
+            <div class="agenda__i agenda__i--break"><div class="agenda__n">☕</div><div class="agenda__t">Intervalo</div><div class="agenda__d">15 min</div></div>
+            <div class="agenda__i"><div class="agenda__n">6</div><div class="agenda__t">Briefing do campo e encerramento</div><div class="agenda__d">10 min</div></div>
+          </div>
+        </section>
+      </div></div>
+      <details class="sg-code"><summary>markup</summary><div class="sg-code__body"><button class="sg-copy">copiar</button><pre><code data-src></code></pre></div></details>
+    </div>
+
+    <div class="sg-item">
+      <div class="sg-item__head"><span class="sg-item__name">.compare</span></div>
+      <p class="sg-item__use">Quadro de duas colunas com cabeçalho. <b>Sempre com <code>data-step</code> nas linhas</b>: é construído <em>com</em> a turma. <code>--now</code> marca a coluna da disciplina. Para chave/valor use <code>.stack</code>.</p>
+      <div class="spec"><div class="spec__inner">
+        <section class="slide current">
+          <p class="eyebrow">Quadro comparativo, construído com a turma</p>
+          <h2 style="margin-bottom:26px">Desenho × design</h2>
+          <div class="compare">
+            <div class="compare__row compare__row--head">
+              <div class="compare__head">Desenho (tradicional)</div>
+              <div class="compare__head compare__head--now">Design (abordagem da disciplina)</div>
+            </div>
+            <div class="compare__row" data-step>
+              <div class="compare__cell">Parte do gabinete</div>
+              <div class="compare__cell compare__cell--now">Parte do cidadão</div>
+            </div>
+            <div class="compare__row" data-step>
+              <div class="compare__cell">Opinião e precedente</div>
+              <div class="compare__cell compare__cell--now">Evidência (quali + quanti)</div>
+            </div>
+            <div class="compare__row" data-step>
+              <div class="compare__cell">Documento como entregável</div>
+              <div class="compare__cell compare__cell--now">Solução testada como entregável</div>
+            </div>
+            <div class="compare__row" data-step>
+              <div class="compare__cell">Erro descoberto na implementação</div>
+              <div class="compare__cell compare__cell--now">Erro descoberto no protótipo (barato)</div>
+            </div>
+          </div>
+        </section>
+      </div></div>
+      <p class="sg-cap">No specimen os passos aparecem revelados; no deck, um por vez.</p>
+      <details class="sg-code"><summary>markup</summary><div class="sg-code__body"><button class="sg-copy">copiar</button><pre><code data-src></code></pre></div></details>
+    </div>
+
+    <div class="sg-item">
+      <div class="sg-item__head"><span class="sg-item__name">.weights</span></div>
+      <p class="sg-item__use">Largura da barra em px = peso relativo. <b>Único lugar do sistema onde <code>style</code> inline é esperado.</b> Deliberadamente não é pirâmide: não há ranking fixo de desenhos de estudo.</p>
+      <div class="spec"><div class="spec__inner">
+        <section class="slide slide--soft current">
+          <p class="eyebrow">Não para descartar o que está "embaixo"</p>
+          <h2 style="margin-bottom:30px">Quanto peso dar a cada fonte</h2>
+          <div class="weights">
+            <div class="weight"><div class="weight__bar" style="width:420px"></div><div class="weight__label">Revisões sistemáticas e experimentos</div></div>
+            <div class="weight"><div class="weight__bar" style="width:310px"></div><div class="weight__label">Estudos observacionais</div></div>
+            <div class="weight"><div class="weight__bar" style="width:200px"></div><div class="weight__label">Dados administrativos</div></div>
+            <div class="weight"><div class="weight__bar" style="width:100px"></div><div class="weight__label">Opinião de especialista</div></div>
+          </div>
+          <p class="footnote">Escala de peso, não ranking fixo.</p>
+        </section>
+      </div></div>
+      <details class="sg-code"><summary>markup</summary><div class="sg-code__body"><button class="sg-copy">copiar</button><pre><code data-src></code></pre></div></details>
+    </div>
+
+    <div class="sg-item">
+      <div class="sg-item__head"><span class="sg-item__name">.stack + .row</span></div>
+      <p class="sg-item__use">Lista chave-valor. Chave em coluna fixa de 300px; <code>--hot</code> pinta a chave de accent. O último <code>.row</code> perde o fio sozinho.</p>
+      <div class="spec"><div class="spec__inner">
+        <section class="slide current">
+          <p class="eyebrow">Como a disciplina avalia</p>
+          <h2 style="margin-bottom:30px">Não há prova, há projeto</h2>
+          <div class="stack">
+            <div class="row"><div class="row__key">40%</div><div class="row__val">Solução + pitch</div></div>
+            <div class="row"><div class="row__key">30%</div><div class="row__val">Entregáveis de campo</div></div>
+            <div class="row"><div class="row__key">20%</div><div class="row__val">Plano de monitoramento</div></div>
+            <div class="row row--hot"><div class="row__key">10%</div><div class="row__val">Participação</div></div>
+          </div>
+        </section>
+      </div></div>
+      <details class="sg-code"><summary>markup</summary><div class="sg-code__body"><button class="sg-copy">copiar</button><pre><code data-src></code></pre></div></details>
+    </div>
+
+    <div class="sg-item">
+      <div class="sg-item__head"><span class="sg-item__name">.cols + .card</span></div>
+      <p class="sg-item__use"><code>.cols-2</code>/<code>-3</code>/<code>-4</code> para colunas iguais; outra contagem via <code>style="grid-template-columns:repeat(5,1fr)"</code>. <b>Acima de 4 colunas o card só comporta <code>.tag</code> + <code>h3</code></b> — não cabe parágrafo. <code>--accent</code> marca a borda, <code>--fill</code> troca borda por fundo.</p>
+      <div class="spec"><div class="spec__inner">
+        <section class="slide current">
+          <p class="eyebrow">O ciclo de políticas públicas</p>
+          <h2 style="margin-bottom:30px">Onde a evidência entra em cada fase</h2>
+          <div class="cols cols-3">
+            <div class="card"><span class="tag">Fase 1</span><h3>Agenda</h3><p>Onde a maioria pula direto para a solução.</p></div>
+            <div class="card card--accent"><span class="tag">Fase 2</span><h3>Formulação</h3><p>A hipótese vira instrumento e norma.</p></div>
+            <div class="card card--fill"><span class="tag">Fase 3</span><h3>Implementação</h3><p>Onde o desenho encontra a realidade.</p></div>
+          </div>
+          <p class="footnote">Da esquerda para a direita: borda simples, borda em accent, preenchido.</p>
+        </section>
+      </div></div>
+      <details class="sg-code"><summary>markup</summary><div class="sg-code__body"><button class="sg-copy">copiar</button><pre><code data-src></code></pre></div></details>
+    </div>
+
+    <div class="sg-item">
+      <div class="sg-item__head"><span class="sg-item__name">.clusters</span></div>
+      <p class="sg-item__use">Quatro colunas fixas, para fases de uma oficina com tempo. Mais compacto que <code>.card</code>: use quando não houver texto corrido.</p>
+      <div class="spec"><div class="spec__inner">
+        <section class="slide current">
+          <p class="eyebrow">Roteiro da oficina</p>
+          <h2 style="margin-bottom:28px">Quatro movimentos</h2>
+          <div class="clusters">
+            <div class="cluster"><div class="cluster__n">01</div><div class="cluster__name">Definir</div><div class="cluster__unit">Etapas 1–2 · 48 min</div></div>
+            <div class="cluster"><div class="cluster__n">02</div><div class="cluster__name">Idear</div><div class="cluster__unit">Etapas 3–5 · 47 min</div></div>
+            <div class="cluster"><div class="cluster__n">03</div><div class="cluster__name">Escolher</div><div class="cluster__unit">Etapas 6–7 · 35 min</div></div>
+            <div class="cluster"><div class="cluster__n">04</div><div class="cluster__name">Sustentar</div><div class="cluster__unit">Etapas 8–9 · 30 min</div></div>
+          </div>
+        </section>
+      </div></div>
+      <details class="sg-code"><summary>markup</summary><div class="sg-code__body"><button class="sg-copy">copiar</button><pre><code data-src></code></pre></div></details>
+    </div>
+
+    <div class="sg-item">
+      <div class="sg-item__head"><span class="sg-item__name">.figures</span></div>
+      <p class="sg-item__use">Dois a quatro números lado a lado. O rótulo trava em 16ch. Para um número só, use <code>.display</code>.</p>
+      <div class="spec"><div class="spec__inner">
+        <section class="slide current">
+          <p class="eyebrow">A disciplina em números</p>
+          <h2 style="margin-bottom:34px">O que vem pela frente</h2>
+          <div class="figures">
+            <div><div class="figure__n">6</div><div class="figure__l">aulas</div></div>
+            <div><div class="figure__n">2</div><div class="figure__l">a distância, que são campo</div></div>
+            <div><div class="figure__n">1</div><div class="figure__l">solução testada com o cidadão</div></div>
+          </div>
+        </section>
+      </div></div>
+      <details class="sg-code"><summary>markup</summary><div class="sg-code__body"><button class="sg-copy">copiar</button><pre><code data-src></code></pre></div></details>
+    </div>
+
+    <div class="sg-item">
+      <div class="sg-item__head"><span class="sg-item__name">.why</span></div>
+      <p class="sg-item__use">Cada linha recua 54px a mais que a anterior. <b>Máximo 5 linhas</b> — o CSS só define recuo até a quinta. Serve para 5 porquês, encadeamento se-então, ou qualquer estrutura em que cada passo dependa do anterior.</p>
+      <div class="spec"><div class="spec__inner">
+        <section class="slide current">
+          <p class="eyebrow">Como se formula um ponto de vista</p>
+          <h2 style="margin-bottom:28px">Quatro camadas</h2>
+          <div class="why">
+            <div class="why__row"><div class="why__q">Usuário específico</div><div class="why__line"></div><div class="why__tag">idosos que moram sozinhos, não "a população do DF"</div></div>
+            <div class="why__row"><div class="why__q">Necessidade</div><div class="why__line"></div><div class="why__tag">o que ele precisa, não o que vocês querem entregar</div></div>
+            <div class="why__row"><div class="why__q">Motivo profundo</div><div class="why__line"></div><div class="why__tag">o porquê que o campo revelou</div></div>
+            <div class="why__row"><div class="why__q">Consequência</div><div class="why__line"></div><div class="why__tag">o que acontece se ninguém agir</div></div>
+          </div>
+        </section>
+      </div></div>
+      <details class="sg-code"><summary>markup</summary><div class="sg-code__body"><button class="sg-copy">copiar</button><pre><code data-src></code></pre></div></details>
+    </div>
+
+    <div class="sg-item">
+      <div class="sg-item__head">
+        <span class="sg-item__name">.matrix</span>
+        <span class="sg-item__tag sg-item__tag--unused">disponível, sem uso</span>
+      </div>
+      <p class="sg-item__use">Matriz 2×2 de 430px de altura, com rótulos de eixo. <code>is-hot</code> destaca o quadrante que a turma deve buscar. O CSS existe; nenhum deck usa ainda.</p>
+      <div class="spec"><div class="spec__inner">
+        <section class="slide current">
+          <p class="eyebrow">Priorização das ideias</p>
+          <h2 style="margin-bottom:20px">Impacto × esforço</h2>
+          <div class="matrix">
+            <div class="matrix__ylab">Alto impacto</div>
+            <div class="matrix__cell is-hot"><div class="matrix__verb">Fazer agora</div><div class="matrix__desc">Muda a vida do cidadão e cabe no prazo da disciplina.</div></div>
+            <div class="matrix__cell"><div class="matrix__verb">Planejar</div><div class="matrix__desc">Vale a pena, mas não é protótipo de quatro semanas.</div></div>
+            <div class="matrix__ylab">Baixo impacto</div>
+            <div class="matrix__cell"><div class="matrix__verb">Talvez</div><div class="matrix__desc">Barato, mas muda pouco. Só se sobrar fôlego.</div></div>
+            <div class="matrix__cell"><div class="matrix__verb">Descartar</div><div class="matrix__desc">Caro e de pouco efeito. Diga não cedo.</div></div>
+            <div class="matrix__corner"></div>
+            <div class="matrix__xlab">Baixo esforço</div>
+            <div class="matrix__xlab">Alto esforço</div>
+          </div>
+        </section>
+      </div></div>
+      <details class="sg-code"><summary>markup</summary><div class="sg-code__body"><button class="sg-copy">copiar</button><pre><code data-src></code></pre></div></details>
+    </div>
+
+    <div class="sg-item">
+      <div class="sg-item__head"><span class="sg-item__name">svg.cycle</span></div>
+      <p class="sg-item__use">
+        SVG inline, máx. 1000px. As classes <code>.box</code>, <code>.arrow</code> e
+        <code>.rlab</code> fazem o diagrama seguir a variante de fundo.
+        <b>Cores literais quebram no escuro</b> — use <code>var(--token)</code>. Sempre com
+        <code>role="img"</code> e <code>aria-label</code>.
+      </p>
+      <div class="spec"><div class="spec__inner">
+        <section class="slide current">
+          <p class="eyebrow">Onde vocês estão</p>
+          <h2 style="margin-bottom:10px">O Duplo Diamante</h2>
+          <svg class="cycle" viewBox="0 0 900 380" role="img" aria-label="Duplo Diamante: primeiro diamante sobre o problema, com Descobrir e Definir; segundo diamante sobre a solução, com Idear e Escolher">
+            <text x="215" y="30" font-size="16" font-weight="700" text-anchor="middle" fill="var(--mute)" letter-spacing="2">1º DIAMANTE · O PROBLEMA</text>
+            <text x="675" y="30" font-size="16" font-weight="700" text-anchor="middle" fill="var(--mute)" letter-spacing="2">2º DIAMANTE · A SOLUÇÃO</text>
+            <path class="box" d="M 30,190 L 215,80 L 400,190 L 215,300 Z" />
+            <path class="box" d="M 490,190 L 675,80 L 860,190 L 675,300 Z" />
+            <line x1="215" y1="80" x2="215" y2="300" stroke="var(--hair)" stroke-width="1.5" stroke-dasharray="6 6" />
+            <line x1="675" y1="80" x2="675" y2="300" stroke="var(--hair)" stroke-width="1.5" stroke-dasharray="6 6" />
+            <path class="arrow" d="M 400,190 L 480,190" />
+            <polygon points="490,190 474,182 474,198" style="fill:var(--accent)" />
+            <text x="127" y="196" font-size="19" font-weight="650" text-anchor="middle">DESCOBRIR</text>
+            <text x="308" y="196" font-size="19" font-weight="650" text-anchor="middle">DEFINIR</text>
+            <text x="585" y="196" font-size="19" font-weight="650" text-anchor="middle">IDEAR</text>
+            <text x="765" y="196" font-size="19" font-weight="650" text-anchor="middle">ESCOLHER</text>
+            <text x="127" y="332" font-size="16" text-anchor="middle" fill="var(--mute)">abrir</text>
+            <text x="308" y="332" font-size="16" text-anchor="middle" fill="var(--mute)">fechar</text>
+            <text x="585" y="332" font-size="16" text-anchor="middle" fill="var(--mute)">abrir</text>
+            <text x="765" y="332" font-size="16" text-anchor="middle" fill="var(--mute)">fechar</text>
+          </svg>
+        </section>
+      </div></div>
+      <details class="sg-code"><summary>markup</summary><div class="sg-code__body"><button class="sg-copy">copiar</button><pre><code data-src></code></pre></div></details>
+    </div>
+  </section>
+
+  <!-- ==================================================== -->
+  <section class="sg-sec" id="fontes">
+    <p class="sg-sec__n">06</p>
+    <h2>Fonte e sustentação</h2>
+    <p>
+      A disciplina é "baseada em evidências", então o deck carrega a fonte junto da
+      afirmação. Toda afirmação que a turma possa citar depois leva <code>.src</code>.
+    </p>
+
+    <div class="sg-item">
+      <div class="sg-item__head"><span class="sg-item__name">.src + .grade</span></div>
+      <p class="sg-item__use">
+        <b>O vermelho aqui sinaliza cautela, não força.</b> É a inversão deliberada do
+        significado usual: o que precisa de atenção em sala é o frágil, não o sólido.
+      </p>
+      <div class="spec"><div class="spec__inner">
+        <section class="slide slide--center current">
+          <p class="statement">
+            Policy design é simultaneamente substantivo e verbo — resultado e processo.
+          </p>
+          <p class="src" style="text-align:left">
+            <span class="grade grade--forte">FORTE · 3/3 votos</span>
+            Howlett, M. &amp; Lejano, R. P. (2013). <em>Tales From the Crypt: The Rise
+            and Fall (and Rebirth?) of Policy Design.</em> Administration &amp; Society.
+          </p>
+        </section>
+      </div></div>
+      <details class="sg-code"><summary>markup</summary><div class="sg-code__body"><button class="sg-copy">copiar</button><pre><code data-src></code></pre></div></details>
+
+      <table class="sg-table">
+        <tr><th style="width:190px">Classe</th><th style="width:120px">Cor</th><th>Significado</th></tr>
+        <tr><td>.grade--forte</td><td><em>--ink</em></td><td>Verificado, sem refutação.</td></tr>
+        <tr><td>.grade--moderado</td><td><em>--mute</em></td><td>Confirma o tema, não o argumento.</td></tr>
+        <tr><td>.grade--fraco</td><td><em>--accent</em></td><td>Fonte fraca — cautela ao citar.</td></tr>
+        <tr><td>.grade--nao</td><td><em>--accent</em></td><td>Atribuição não confere com a fonte.</td></tr>
+      </table>
+
+      <div class="sg-note">
+        <b>Convenções de comentário no HTML.</b>
+        <code>&lt;!-- R:105 --&gt;</code> liga o slide à linha do roteiro docente ·
+        <code>&lt;!-- P:30 --&gt;</code> liga a afirmação à linha do arquivo de pesquisa ·
+        <code>&lt;!-- LACUNA: ... --&gt;</code> marca o que falta e por quê.
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================== -->
+  <section class="sg-sec" id="comportamento">
+    <p class="sg-sec__n">07</p>
+    <h2>Comportamento</h2>
+    <p>
+      O motor é <code>../assets/deck.js</code>. Ele lê a ordem dos <code>.slide</code>,
+      monta a visão geral e controla passos, cronômetros e overlays.
+    </p>
+
+    <div class="sg-item">
+      <div class="sg-item__head"><span class="sg-item__name">.timer</span></div>
+      <p class="sg-item__use">
+        <code>data-t</code> em <b>minutos</b>. Ancorado no canto inferior direito,
+        alinhado ao padding do slide. Teclas: <code>T</code> inicia/pausa,
+        <code>R</code> zera, <code>+</code>/<code>−</code> ajustam 30s — e ajustam o
+        total, para que <code>R</code> volte ao valor corrigido em sala. O estado é por
+        slide e sobrevive à navegação.
+      </p>
+      <div class="spec"><div class="spec__inner">
+        <section class="slide slide--ink current">
+          <p class="eyebrow eyebrow--accent">Atividade · "O documento resolve?"</p>
+          <p class="consigna">
+            Que problema do cidadão essa política resolve? Como sabemos se está funcionando?
+          </p>
+          <p class="consigna-note">5 min de discussão por ilha, 5 min de plenária.</p>
+          <div class="timer" data-t="5">
+            <div class="timer__time">05:00</div>
+            <div class="timer__hint">T inicia · R zera</div>
+          </div>
+        </section>
+      </div></div>
+      <p class="sg-cap">Estático aqui: sem <code>deck.js</code>, o cronômetro não corre.</p>
+      <details class="sg-code"><summary>markup</summary><div class="sg-code__body"><button class="sg-copy">copiar</button><pre><code data-src></code></pre></div></details>
+
+      <table class="sg-table">
+        <tr><th style="width:190px">Estado</th><th style="width:170px">Classe (automática)</th><th>Cor</th></tr>
+        <tr><td>Parado</td><td>—</td><td><em>--mute</em></td></tr>
+        <tr><td>Correndo</td><td>.is-running</td><td><em>--ink</em></td></tr>
+        <tr><td>Último minuto</td><td>.is-warning</td><td><em>--gold</em> #c99700</td></tr>
+        <tr><td>Esgotado</td><td>.is-done</td><td><em>--accent</em>, piscando</td></tr>
+      </table>
+    </div>
+
+    <div class="sg-item">
+      <div class="sg-item__head"><span class="sg-item__name">[data-step] e a animação de entrada</span></div>
+      <p class="sg-item__use">
+        Filhos diretos do slide sobem escalonados (<code>rise</code>, .78s, atraso de
+        .07s cada, até o sexto). Elementos com <code>data-step</code> ficam fora dessa
+        entrada e são revelados um a um com <code>→</code>.
+        <b>Três ou quatro passos por slide é o teto útil.</b>
+      </p>
+      <button class="sg-btn" id="sg-replay">Reproduzir a animação</button>
+      <div class="spec" style="margin-top:14px"><div class="spec__inner">
+        <section class="slide current" id="sg-motion">
+          <p class="eyebrow">Revelação progressiva</p>
+          <h2 style="margin-bottom:26px">Um passo por vez</h2>
+          <div class="stack">
+            <div class="row" data-step><div class="row__key">Passo 1</div><div class="row__val">Aparece ao primeiro avanço.</div></div>
+            <div class="row" data-step><div class="row__key">Passo 2</div><div class="row__val">Ao segundo.</div></div>
+            <div class="row" data-step><div class="row__key">Passo 3</div><div class="row__val">Ao terceiro. O quarto avanço troca de slide.</div></div>
+          </div>
+        </section>
+      </div></div>
+    </div>
+
+    <div class="sg-item">
+      <div class="sg-item__head"><span class="sg-item__name">chrome fixo e atalhos</span></div>
+      <p class="sg-item__use">
+        Os blocos abaixo ficam <b>fora</b> do <code>#stage</code> e são idênticos em todo
+        deck — copie do <a href="template-aula.html">template-aula.html</a>. Os
+        <code>id</code> são lidos por <code>deck.js</code> na carga: faltando um, o motor quebra.
+      </p>
+      <table class="sg-table">
+        <tr><th style="width:130px">Elemento</th><th style="width:80px">Tecla</th><th>Papel</th></tr>
+        <tr><td>#progress</td><td>—</td><td>Barra de progresso no topo (2px, accent). Vai <b>antes</b> do <code>#stage</code>.</td></tr>
+        <tr><td>#hud</td><td>—</td><td>Rodapé: bloco corrente (<code>data-hud</code>) e contagem de slides.</td></tr>
+        <tr><td>#notes</td><td>P</td><td>Gaveta com o conteúdo do <code>&lt;aside class="notes"&gt;</code> do slide.</td></tr>
+        <tr><td>#overview</td><td>O</td><td>Grade de todos os slides, clicável.</td></tr>
+        <tr><td>#help</td><td>? / H</td><td>Tabela de atalhos.</td></tr>
+        <tr><td>#blackout</td><td>B</td><td>Tela preta para prender a atenção da sala.</td></tr>
+      </table>
+      <div class="sg-note">
+        <b>Se um slide aparece como "—" na visão geral</b>, falta nele um
+        <code>h1</code>, <code>h2</code>, <code>.statement</code>, <code>.quote</code>,
+        <code>.consigna</code>, <code>.display</code> ou <code>.divider-title</code> —
+        é dessa lista que <code>deck.js</code> tira o título.
+      </div>
+      <div class="sg-note">
+        <b>Impressão.</b> <code>Ctrl+P</code> → um slide por página, paisagem, gráficos de
+        fundo ativados. Todos os <code>[data-step]</code> são revelados, o movimento é
+        desligado e o chrome, escondido.
+      </div>
+    </div>
+  </section>
+
+  <footer class="sg-foot">
+    <p>
+      Fonte da verdade: <a href="../assets/deck.css">../assets/deck.css</a> ·
+      <a href="../assets/deck.js">../assets/deck.js</a>.
+      Mudou o CSS? Atualize este styleguide junto.
+    </p>
+    <p>
+      Decks em produção:
+      <a href="../aula-01/index.html">Aula 1</a> ·
+      <a href="../aula-03/index.html">Aula 3</a>
+    </p>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ---------- escala das molduras ----------
+     Mesma conta do deck.js, só que por moldura em vez de por janela. */
+
+  var specs = Array.prototype.slice.call(document.querySelectorAll('.spec'));
+
+  function fit() {
+    specs.forEach(function (spec) {
+      var inner = spec.querySelector('.spec__inner');
+      if (!inner) return;
+      inner.style.transform = 'scale(' + (spec.clientWidth / 1280) + ')';
+    });
+  }
+
+  window.addEventListener('resize', fit);
+
+  /* ---------- passos revelados ----------
+     No styleguide não há navegação, então todo [data-step] entra revelado.
+     No deck, o .shown vem do deck.js, um por vez. */
+
+  function revealSteps(root) {
+    Array.prototype.forEach.call(
+      root.querySelectorAll('[data-step]'),
+      function (el) { el.classList.add('shown'); }
+    );
+  }
+
+  revealSteps(document);
+
+  /* ---------- markup gerado do próprio specimen ----------
+     Serializar o DOM em vez de manter um snippet à parte: o código
+     mostrado não tem como divergir do que está renderizado acima dele. */
+
+  function dedent(src) {
+    var lines = src.replace(/\t/g, '  ').split('\n');
+    var min = Infinity;
+    lines.slice(1).forEach(function (l) {
+      if (!l.trim()) return;
+      min = Math.min(min, l.match(/^ */)[0].length);
+    });
+    if (!isFinite(min)) min = 0;
+    return lines.map(function (l, i) {
+      return i === 0 ? l : l.slice(min);
+    }).join('\n').trim();
+  }
+
+  document.querySelectorAll('.sg-item').forEach(function (item) {
+    var slide = item.querySelector('.spec .slide');
+    var code = item.querySelector('code[data-src]');
+    if (!slide || !code) return;
+
+    var clone = slide.cloneNode(true);
+    clone.classList.remove('current');
+    Array.prototype.forEach.call(clone.querySelectorAll('.shown'), function (el) {
+      el.classList.remove('shown');
+      if (!el.className) el.removeAttribute('class');
+    });
+    code.textContent = dedent(clone.outerHTML);
+  });
+
+  /* ---------- copiar ---------- */
+
+  document.querySelectorAll('.sg-copy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var code = btn.parentElement.querySelector('code');
+      if (!code || !navigator.clipboard) return;
+      navigator.clipboard.writeText(code.textContent).then(function () {
+        var old = btn.textContent;
+        btn.textContent = 'copiado';
+        setTimeout(function () { btn.textContent = old; }, 1400);
+      });
+    });
+  });
+
+  /* ---------- reproduzir a animação de entrada ---------- */
+
+  var replay = document.getElementById('sg-replay');
+  var motion = document.getElementById('sg-motion');
+
+  if (replay && motion) {
+    replay.addEventListener('click', function () {
+      var steps = motion.querySelectorAll('[data-step]');
+      motion.classList.remove('current');
+      Array.prototype.forEach.call(steps, function (el) { el.classList.remove('shown'); });
+
+      // força o reflow, senão o navegador agrupa remove+add e nada anima
+      void motion.offsetWidth;
+
+      motion.classList.add('current');
+      Array.prototype.forEach.call(steps, function (el, i) {
+        setTimeout(function () { el.classList.add('shown'); }, 700 + i * 550);
+      });
+    });
+  }
+
+  fit();
+})();
+</script>
+
+</body>
+</html>

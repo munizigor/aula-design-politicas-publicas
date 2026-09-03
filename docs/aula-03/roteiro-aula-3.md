@@ -1,6 +1,6 @@
 # Caderno de Definição e Ideação
 
-**Caderno do grupo** · Disciplina: Design de Políticas Públicas Baseadas em Evidências (CAEO/CEPED) · **Aula 3, presencial**
+**Disciplina:** Design de Políticas Públicas Baseadas em Evidências (CAEO/CEPED) · **Aula 3, presencial**
 
 | Grupo: | Integrantes (área fim/meio): | Data: |
 |---|---|---|
@@ -23,13 +23,29 @@ O Mapa de Evidências tem quatro seções, e cada uma alimenta uma parte do cade
 | 3. O que os dados mostram | Etapa 1.1 (coluna do dado), Etapas 6 e 9 |
 | 4. O que ainda não sabemos | Etapa 1.3, Etapa 2 e Etapa 10 |
 
-O docente circula entre os grupos durante todo o trabalho. Chamem quando travar, e principalmente quando encontrarem uma desconexão entre etapas.
-
 **Três regras que valem do começo ao fim**
 
 1. **O problema é do cidadão, não da corporação.** Se a frase começa com "o CBMDF...", voltem um passo.
 2. **Nada entra aqui sem lastro.** Toda afirmação aponta para uma fala do campo ou para um dado verificado na fonte. O que for opinião do grupo é registrado como **suposição a testar**.
 3. **Salvaguardas no uso de IA.** Dado pessoal ou sensível fica fora de ferramenta pública. Toda evidência sugerida pela IA é conferida na fonte. A análise e a decisão são do Oficial.
+
+---
+
+## Ritmo da aula (230 min)
+
+| Bloco | Tempo | Quem |
+|---|---|---|
+| Abertura: onde estamos no percurso e o que sai daqui | 8 min | Docente |
+| Parte 1, Etapas 1 e 2 | 50 min | Grupos |
+| Ponto de virada | 4 min | Docente |
+| Parte 2, Etapas 3 a 5 | 54 min | Grupos |
+| Intervalo | 10 min | |
+| Entrada na Parte 3: como se escolhe e como se sustenta | 4 min | Docente |
+| Parte 3, Etapas 6 a 9 | 73 min | Grupos |
+| Saída, Etapa 10 e checagem final | 20 min | Grupos |
+| Fechamento: o que acontece até a Aula 4 | 6 min | Docente |
+
+O docente circula entre os grupos durante todo o trabalho. Chamem quando travar, e principalmente quando encontrarem uma desconexão entre etapas.
 
 ---
 
@@ -69,7 +85,7 @@ O percurso segue dois movimentos, repetidos duas vezes: **abrir** (levantar muit
 
 ---
 
-## Etapa 1: O que o campo nos disse
+## Etapa 1: O que o campo nos disse *(≈ 30 min)*
 
 Releiam o Mapa de Evidências com olhar crítico. A tarefa aqui é encontrar **onde a fala do cidadão e o dado não batem**, porque é ali que mora o que vocês ainda não sabem.
 
@@ -110,7 +126,7 @@ ______________________________________________________________________________
 
 ---
 
-## Etapa 2: Ponto de Vista
+## Etapa 2: Ponto de Vista *(≈ 20 min)*
 
 É a frase que **fecha o primeiro diamante**: transforma tudo o que foi levantado em um único problema enunciado. Parte da dor genérica do Canvas da Aula 1 e a refina com o que o campo revelou.
 
@@ -152,7 +168,7 @@ ______________________________________________________________________________
 
 ---
 
-## Etapa 3: Perguntas "Como poderíamos..."
+## Etapa 3: Perguntas "Como poderíamos..." *(≈ 12 min)*
 
 O Ponto de Vista descreve uma dor. A pergunta "Como poderíamos..." transforma essa dor em **convite a soluções**, sem dizer qual.
 
@@ -178,11 +194,11 @@ ______________________________________________________________________________
 
 ---
 
-## Etapa 4: Geração de alternativas
+## Etapa 4: Geração de alternativas *(≈ 20 min)*
 
 O objetivo é **diversidade de natureza**, mais do que volume. Gerem de 5 a 6 alternativas para a pergunta escolhida, cobrindo obrigatoriamente as três naturezas abaixo.
 
-Instrução sugerida para a ferramenta de IA (adaptem o texto entre colchetes; lembrem a regra 3 da primeira página):
+Instrução sugerida para a ferramenta de IA (adaptem o texto entre colchetes; lembrem a regra 3 da página 1):
 
 > Para a pergunta **[Como poderíamos ...]**, proponha alternativas de naturezas diferentes: duas **tecnológicas**, duas de **processo ou serviço** e duas **comunicacionais ou educativas**. Para cada uma, diga em uma frase como ela responderia à dor e o que exigiria de quem a executa.
 
@@ -203,7 +219,7 @@ A) ____________________________ B) ____________________________ C) _____________
 
 ---
 
-## Etapa 5: Ataque e prospecção
+## Etapa 5: Ataque e prospecção *(≈ 22 min)*
 
 Antes de escolher, tentem **derrubar** as finalistas e verifiquem se alguém já tentou algo parecido. A alternativa que sobrevive chega muito mais forte à Etapa 6.
 
@@ -240,7 +256,7 @@ Antes de escolher, tentem **derrubar** as finalistas e verifiquem se alguém já
 
 ---
 
-## Etapa 6: Escolha da solução candidata
+## Etapa 6: Escolha da solução candidata *(≈ 20 min)*
 
 Pontuem de **1 a 3** cada finalista em cada critério, usando as âncoras abaixo. A linha "manter o que existe" é obrigatória: toda proposta precisa vencer a opção de não fazer nada novo.
 
@@ -275,7 +291,7 @@ ______________________________________________________________________________
 
 ---
 
-## Etapa 7: Teoria da Mudança
+## Etapa 7: Teoria da Mudança *(≈ 15 min)*
 
 Uma frase que explicita o **mecanismo causal**: por que essa solução produziria o efeito esperado. O "porque" e o "desde que" são as partes que costumam revelar o pressuposto frágil.
 
@@ -295,7 +311,7 @@ ______________________________________________________________________________
 
 ---
 
-## Etapa 8: Modelo Lógico simplificado
+## Etapa 8: Modelo Lógico simplificado *(≈ 18 min)*
 
 A Teoria da Mudança explica **por que** funcionaria. O Modelo Lógico organiza **o que a solução faz na prática**. Hoje, apenas 3 colunas. A versão completa (insumos, atividades, produtos e resultados de curto, médio e longo prazo) é refinamento da semana, com apoio do docente, antes da Aula 5.
 
@@ -311,7 +327,7 @@ A Teoria da Mudança explica **por que** funcionaria. O Modelo Lógico organiza 
 
 ---
 
-## Etapa 9: Indicadores e linha de base
+## Etapa 9: Indicadores e linha de base *(≈ 20 min)*
 
 Solução que nasce sem forma de medir chega à avaliação sem defesa. Desenhem agora a **primeira versão**. A consolidação do plano de monitoramento é conteúdo da Aula 5.
 
@@ -353,7 +369,7 @@ ______________________________________________________________________________
 
 ---
 
-## Etapa 10: O que vamos prototipar e com quem vamos testar
+## Etapa 10: O que vamos prototipar e com quem vamos testar *(≈ 10 min)*
 
 Na Aula 4 a solução candidata sai do papel e vai ao cidadão. Uma distinção antes de começar: o teste da Aula 4 mostra se o cidadão **entende, aceita e usa** o protótipo. Se a solução funciona, só a comparação da Etapa 9 vai responder, mais adiante.
 
@@ -372,6 +388,4 @@ ______________________________________________________________________________
 **Como vamos explicar ao cidadão o que estamos testando e registrar que ele concordou:**
 
 ______________________________________________________________________________
-
----
 
